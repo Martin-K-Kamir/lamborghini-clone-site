@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import '../library/em';
+
+$map-for-breakpoints : (
+		'screen-max': em(1920px),
+		'screen-xxl': em(1440px),
+		'screen-xl': em(1166px),
+		'screen-lg': em(1054px),
+		'screen-md': em(855px),
+		'screen-sm': em(600px),
+		'screen-xs': em(487px),
+		'screen-xxs': em(375px),
+		'screen-min': em(330px),
+) !default

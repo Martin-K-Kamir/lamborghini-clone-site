@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/**
+ * Mixin for @media breakpoint landscape.
+ *
+ * @author - Martin Kamír
+ */
+@mixin landscape($device: null, $height: null) {
+	@if $device == 'tablet' {
+		@media (orientation : landscape) and (min-resolution : 2x) and (max-height : em(1366px)) and (max-width : em(1024px)) and (hover : none),
+		(orientation : landscape) and (min-resolution : 2x) and (max-height : em(1366px)) and (max-width : em(1024px)) and (any-pointer : fine) {
+			@content;
+		}
+	}
+	@if $device == 'phone' {
+		@media (orientation : landscape) and (min-resolution : 2x) and (max-width : em(945px)) and (max-height : em(450px)) and (hover : none),
+		(orientation : landscape) and (min-resolution : 2x) and (max-width : em(945px)) and (max-height : em(450px)) and (any-pointer : fine) {
+			@content;
+		}
+	}
+	@if $device == null {
+		@media (orientation : landscape) and (min-resolution : 2x) and (hover : none),
+		(orientation : landscape) and (min-resolution : 2x) and (any-pointer : coarse) {
+			@content;
+		}
+
+		@if $height != null {
+			@media (max-height : $height) and (orientation : landscape) and (min-resolution : 2x) and (hover : none),
+			(max-height : $height) and (orientation : landscape) and (min-resolution : 2x) and (any-pointer : fine) {
+				@content;
+			}
+		}
+	}
+}

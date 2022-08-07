@@ -1,0 +1,28 @@
+
+html {
+	font-size : 62.5%;
+}
+
+body {
+	font-family      : var(--f-primary), Helvetica Neue, Arial;
+	background-color : #181818;
+	color            : #ffffff;
+	padding: 5rem;
+}
+
+a {
+	text-decoration : inherit;
+	color           : var(--text, inherit);
+	transition      : text-decoration 250ms;
+
+	@media (hover : hover) {
+		&:where(:hover, :focus-visible) {
+			text-decoration : none;
+		}
+	}
+
+	& > :where(svg, path) {
+		color : inherit;
+		fill  : currentColor;
+	}
+}

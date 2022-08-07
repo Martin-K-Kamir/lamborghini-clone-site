@@ -1,0 +1,29 @@
+
+.cover {
+	position            : relative;
+	padding-block       : var(--space-fluid-5);
+	background-position : center;
+	display             : flex;
+	align-items         : flex-start;
+	flex-direction      : column;
+	isolation           : isolate;
+
+	@include breakpoint(max, screen-sm) {
+		text-align  : center;
+		align-items : center;
+	}
+
+	& > h1 {
+		max-inline-size : var(--measure-1);
+	}
+
+	& > h1 + p {
+		--measure : var(--measure-4);
+		--space   : var(--space-3);
+	}
+
+	& > :where(button, a) {
+		margin-block-start : var(--space-6);
+	}
+}
+

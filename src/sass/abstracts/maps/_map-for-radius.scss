@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+$map-for-radius : (
+		'property' : 'border-radius',
+		'radius-1 ' : 2px,
+		'radius-2 ' : 6px,
+		'radius-3 ' : 10px,
+		'radius-circle ' : 50%,
+) !default

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$map-for-letter-spacings : (
+		'property' : 'letter-spacing',
+		'letterspacing-1' : -0.05em,
+		'letterspacing-2' : -0.02em,
+		'letterspacing-3' : 0.02em,
+		'letterspacing-4' : 0.05em,
+		'letterspacing-5' : 0.075em,
+		'letterspacing-6' : 0.2em,
+		'letterspacing-7' : 0.5em,
+		'letterspacing-8' : 0.75em,
+) !default

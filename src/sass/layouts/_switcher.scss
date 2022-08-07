@@ -1,0 +1,10 @@
+.switcher {
+	display   : flex;
+	flex-wrap : wrap;
+	gap       : var(--space, #{$author-default-space});
+
+	& > * {
+		flex-basis : calc((var(--measure, #{$author-default-measure}) - 100%) * 999);
+		flex-grow  : 1;
+	}
+}

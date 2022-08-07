@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import '../library/clamped';
+
+$list-of-fluid-space-sizes : (
+		clamped(0rem, 1.5rem),
+		clamped(1.5rem, 2.5rem),
+		clamped(3rem, 4rem),
+		clamped(6rem, 10rem),
+		clamped(9.4rem, 12.2rem),
+		clamped(12rem, 20rem),
+) !default
+
+

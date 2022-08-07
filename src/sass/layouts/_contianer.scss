@@ -1,0 +1,11 @@
+
+.app-container {
+	margin-inline : auto;
+	inline-size   : var(--app-size);
+}
+
+.container {
+	padding-inline        : var(--container-inline-space);
+	display               : grid;
+	grid-template-columns : 1fr;
+}
