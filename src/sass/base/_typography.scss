@@ -1,4 +1,9 @@
 // Navbar
+nav {
+	background-color : #181818;
+	color: white;
+}
+
 .navbar {
 	display : flex;
 	gap     : 30px;
@@ -73,6 +78,11 @@
 	font-size      : 1.7rem;
 	font-weight    : var(--f-weight-3);
 	letter-spacing : var(--letterspacing-4);
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 1.4rem;
+		font-weight : var(--f-weight-1);
+	}
 }
 
 .search__subtext {
@@ -82,6 +92,7 @@
 	letter-spacing : var(--letterspacing-4);
 
 	@include breakpoint(max, em(1025px)) {
+		font-weight    : var(--f-weight-2);
 		font-size : 1.5rem;
 	}
 }
@@ -106,6 +117,15 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-4);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1365px)) {
+		font-size : 2.4rem;
+	}
+
+	@include breakpoint(max, em(1025px)) {
+		font-weight : var(--f-weight-2);
+		font-size   : 1.8rem;
+	}
 }
 
 .cover-text {
@@ -114,6 +134,14 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-2);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1365px)) {
+		font-size : 8rem;
+	}
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 4rem;
+	}
 }
 
 .models__top-text {
@@ -123,6 +151,10 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-4);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 2.4rem;
+	}
 }
 
 .models__top-text-title {
@@ -132,6 +164,10 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-2);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 4rem;
+	}
 }
 
 .models__top-text-subtitle {
@@ -140,6 +176,10 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-4);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 1.9rem;
+	}
 }
 
 .config__text-top {
@@ -150,6 +190,11 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-4);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1025px)) {
+		font-weight : var(--f-weight-2);
+		font-size   : 1.8rem;
+	}
 }
 
 .config__text-title {
@@ -159,6 +204,10 @@
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-2);
 	text-transform : uppercase;
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 5rem;
+	}
 }
 
 .blog_date {
@@ -175,6 +224,10 @@
 	font-weight    : var(--f-weight-3);
 	line-height    : var(--line-height-1);
 	letter-spacing : var(--letterspacing-3);
+
+	@include breakpoint(max, em(1025px)) {
+		font-size   : 2.8rem;
+	}
 }
 
 .blog_desc {
@@ -192,16 +245,16 @@
 }
 
 .blog_tag {
-	font-size   : 1.4rem;
-	font-weight : var(--f-weight-2);
+	font-size      : 1.4rem;
+	font-weight    : var(--f-weight-2);
 	letter-spacing : var(--letterspacing-5);
-	padding: 5px 10px;
+	padding        : 5px 10px;
 }
 
 .footer {
 	margin-top : 10rem;
-	display: flex;
-	gap : 30px;
+	display    : flex;
+	gap        : 30px;
 }
 
 .footer__text {
@@ -225,14 +278,14 @@
 }
 
 .footer__desc-sm {
-	margin : 4rem 0;
-	font-size      : 1.4rem;
-	font-weight    : var(--f-weight-1);
+	margin      : 4rem 0;
+	font-size   : 1.4rem;
+	font-weight : var(--f-weight-1);
 	line-height : 2;
 }
 
 .footer__desc {
-	font-size      : 1.6rem;
-	font-weight    : var(--f-weight-1);
+	font-size   : 1.6rem;
+	font-weight : var(--f-weight-1);
 	line-height : 2;
 }
