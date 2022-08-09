@@ -1,11 +1,11 @@
 
 html {
-	font-size              : 62.5%;
+	font-size : 62.5%;
 
 }
 
 body {
-	font-family            : var(--f-primary), Helvetica Neue, Arial;
+	font-family : var(--f-primary), Helvetica Neue, Arial;
 }
 
 a {
@@ -38,6 +38,16 @@ section {
 }
 
 .navbar {
+	display : flex;
+	gap     : 30px;
+}
+
+nav {
+	background-color : #181818;
+	color            : white;
+}
+
+.footer {
 	display : flex;
 	gap     : 30px;
 }
