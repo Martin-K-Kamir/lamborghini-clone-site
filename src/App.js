@@ -36,25 +36,17 @@ export default function App() {
 				</h2>
 			</section>
 			<section className="section-models">
-				<p className="title-5">Configurator</p>
-				<h2 className="title-2">Create your urus</h2>
+				<p className="title-5">configurator</p>
+				<h2 className="title-2">create your urus</h2>
 			</section>
 			<section className="section-blog">
-				<h2 className="title-1 measure-7">
-					<span className="subtitle">news</span>
-					<span className="title">LAMBORGHINI WORLD</span>
-				</h2>
-
+				<p className="title-5 f-weight-3">news</p>
+				<h2 className="title-1 measure-7">lamborghini world</h2>
 			</section>
 			<section className="section-blog">
-				<p className="blog_date">5 august 2022</p>
-				<p className="blog_title">A NEW CHAPTER FOR LAMBORGHINI’S NFT JOURNEY</p>
-				<p className="blog_desc">Automobili Lamborghini’s collaboration with NFT PRO™ and INVNT continues with a new chapter.</p>
-			</section>
-			<section className="section-blog">
-				<p className="blog_date--small">5 august 2022</p>
-				<p className="blog_tag">HURACÁN</p>
-				<p className="blog_title">LAMBORGHINI MAGAZINE #30: THE PLAYLIST</p>
+				<p className="blog_date  title-6">5 august 2022</p>
+				<p className="blog_title title-3">A NEW CHAPTER FOR LAMBORGHINI’S NFT JOURNEY</p>
+				<p className="blog_desc  description-1">Automobili Lamborghini’s collaboration with NFT PRO™ and INVNT continues with a new chapter.</p>
 			</section>
 			<section className="section-footer">
 				<ul className="footer">
