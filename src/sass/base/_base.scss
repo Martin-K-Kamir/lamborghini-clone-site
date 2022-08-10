@@ -25,63 +25,23 @@ a {
 	}
 }
 
-section {
-	padding : 2rem;
-	height  : 50vh;
+svg {
+	width  : 100%;
+	height : 100%;
 }
 
-.section-navbar {
-	background-color : #181818;
-	padding-block    : 3rem;
-	height           : auto;
-	color            : white;
-}
 
-.navbar {
-	display : flex;
-	gap     : 30px;
-}
-
-nav {
+// dev only
+.typography {
 	background-color : #181818;
 	color            : white;
+	padding          : 10rem 3rem;
 }
 
-.footer {
-	display : flex;
-	gap     : 30px;
+p {
+	margin-block : 2rem;
 }
 
-.navbar-drop {
-	margin-top     : 4rem;
-	display        : flex;
-	flex-direction : column;
-	gap            : 30px;
-}
-
-.section-search {
-	background-color : #181818;
-	padding-block    : 2rem;
-	color            : white;
-	height           : 60vh;
-}
-
-.section-cover {
-	background-color : #181818;
-	padding-block    : 2rem;
-	color            : white;
-	height           : 70vh;
-}
-
-.section-models {
-	background-color : #181818;
-	padding-block    : 2rem;
-	color            : white;
-	height           : 50vh;
-}
-
-.section-footer {
-	background-color : #181818;
-	color            : white;
-	height           : 40vh;
+.break {
+	margin-block : 10rem;
 }

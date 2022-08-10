@@ -24,11 +24,19 @@
 	margin-block-start : var(--space, 2rem);
 }
 
+
+//////////////////////////////////////////
+[class*="link-"] {
+	font-weight    : var(--f-weight, var(--f-weight-3));
+	text-transform : var(--text-transform, uppercase);
+	letter-spacing : var(--letterspacing, var(--letterspacing-4));
+}
+
 .title-1 {
-	font-size       : var(--f-size, #{clamped(4rem, 11rem, em(330px), em(1365px))});
-	font-weight     : var(--f-weight, var(--f-weight-4));
-	letter-spacing  : var(--letterspacing-2);
-	max-inline-size : var(--measure, var(--measure-1));
+	font-size       : var(--f-size, #{clamped(2.8rem, 3.2rem, em(330px), em(1365px))});
+	font-weight     : var(--f-weight-4);
+	letter-spacing  : var(--letterspacing-3);
+	max-inline-size : var(--measure, var(--measure-5));
 }
 
 .title-2 {
@@ -39,11 +47,12 @@
 }
 
 .title-3 {
-	font-size       : var(--f-size, #{clamped(2.8rem, 3.2rem, em(330px), em(1365px))});
-	font-weight     : var(--f-weight-4);
-	letter-spacing  : var(--letterspacing-3);
-	max-inline-size : var(--measure, var(--measure-5));
+	font-size       : var(--f-size, #{clamped(4rem, 11rem, em(330px), em(1365px))});
+	font-weight     : var(--f-weight, var(--f-weight-4));
+	letter-spacing  : var(--letterspacing-2);
+	max-inline-size : var(--measure, var(--measure-1));
 }
+
 
 //////////////////////////////////////////
 .title-date {
@@ -58,6 +67,7 @@
 	letter-spacing : var(--letterspacing-6);
 }
 
+
 //////////////////////////////////////////
 .subtitle-1 {
 	--space        : 0.45em;
@@ -67,32 +77,40 @@
 	letter-spacing : var(--letterspacing-5);
 }
 
-
 .subtitle-2 {
 	font-size      : var(--f-size, #{clamped(2rem, 3rem, em(330px), em(1365px))});
 	font-weight    : var(--f-weight, var(--f-weight-2));
 	letter-spacing : var(--letterspacing-4);
 }
 
+
 //////////////////////////////////////////
 .description-1 {
+	font-size   : var(--f-size, 1.4rem);
+	font-weight : var(--f-weight, var(--f-weight-1));
+}
+
+.description-2 {
 	font-size      : var(--f-size, 1.6rem);
 	font-weight    : var(--f-weight, var(--f-weight-1));
 	letter-spacing : var(--letterspacing-3);
 }
 
-.description-2 {
-	font-size   : var(--f-size, 1.4rem);
-	font-weight : var(--f-weight, var(--f-weight-1));
+
+//////////////////////////////////////////
+.link-1 {
+	font-size : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
+
+	@include breakpoint(max, em(1025px)) {
+		--f-weight : var(--f-weight-1);
+	}
 }
 
-.link-1 {
-	font-size      : var(--f-size, 2.2rem);
-	font-weight    : var(--f-weight, var(--f-weight-3));
-	text-transform : var(--text-transform, uppercase);
-	letter-spacing : var(--letterspacing-4);
+.link-2 {
+	font-size : var(--f-size, 2.2rem);
+}
 
-
+[class*="link-"].link-underline {
 	&::after {
 		content          : "";
 		display          : block;
@@ -107,26 +125,7 @@
 	}
 }
 
-.link-2 {
-	font-size      : var(--f-size, 1.7rem);
-	font-weight    : var(--f-weight, var(--f-weight-3));
-	text-transform : var(--text-transform, uppercase);
-	letter-spacing : var(--letterspacing-4);
-
-	@include breakpoint(max, em(1025px)) {
-		font-size   : 1.4rem;
-		font-weight : var(--f-weight-1);
-	}
-}
-
 .sublink-1 {
-	text-transform : uppercase;
-	font-size      : 1.4rem;
-	font-weight    : var(--f-weight-2);
-	transition     : color 0.3s ease-out 0s;
-	color          : #6f6f6f;
-
-	&:hover {
-		color : #ffffff;
-	}
+	font-size   : var(--f-size, 1.4rem);
+	font-weight : var(--f-weight, var(--f-weight-2));
 }

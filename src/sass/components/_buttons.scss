@@ -1,0 +1,90 @@
+button:where(.btn-primary, .btn-secondary) {
+	&:where(&, :active, :visited) {
+		--text           : black;
+		--surface        : white;
+
+		margin-block     : 3rem; // dev only
+
+		display          : grid; // dev only
+		place-items      : center;
+		line-height      : 1;
+		text-decoration  : none;
+		text-transform   : uppercase;
+		color            : var(--text);
+		background-color : var(--surface);
+		min-inline-size  : var(--btn-size, 21.5rem);
+		padding          : var(--btn-space, 1.5rem);
+		font-size        : var(--btn-f-size, 1.6rem);
+		font-weight      : var(--btn-f-weight, var(--f-weight-2));
+		border           : solid var(--btn-border-size, 1px);
+
+		@include breakpoint(max, em(600px)) {
+			min-inline-size : 100%;
+		}
+	}
+
+	@media (hover : hover) {
+		&:where(:hover, :focus-visible) {
+			--hover-text     : var(--surface);
+			--hover-surface  : var(--text);
+
+			color            : var(--hover-text);
+			background-color : var(--hover-surface);
+		}
+	}
+}
+
+.btn-secondary {
+	--text    : white;
+	--surface : black;
+}
+
+.btn-hexagon {
+	display      : block; // dev only
+	margin-block : 3rem; // dev only
+
+	--fill       : transparent;
+	--stroke     : white;
+
+	block-size   : var(--btn-size, 6.6rem);
+	aspect-ratio : 1 / 1;
+
+	:where(.hexagon-stroke, .hexagon-icon) {
+		fill   : var(--fill);
+		stroke : var(--stroke);
+	}
+
+	@media (hover : hover) {
+		&:where(:hover, :focus-visible) .hexagon-stroke {
+			--fill : var(--stroke);
+		}
+
+		&:where(:hover, :focus-visible) .hexagon-icon {
+			--stroke : black
+		}
+	}
+}
+
+.btn-icon {
+	display      : block; // dev only
+	margin-block : 3rem; // dev only
+
+	block-size   : var(--btn-size, 2.5rem);
+	aspect-ratio : 1 / 1;
+
+	svg {
+		fill : white;
+	}
+}
+
+.btn-social {
+	display      : block; // dev only
+	margin-block : 3rem; // dev only
+
+	block-size   : var(--btn-size, 2rem);
+	aspect-ratio : 1 / 1;
+
+	svg {
+		fill : white;
+	}
+}

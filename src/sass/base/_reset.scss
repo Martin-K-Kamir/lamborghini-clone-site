@@ -41,6 +41,8 @@ body {
 	min-height     : 100vh;
 	line-height    : 1.5;
 	text-rendering : optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* A elements that don't have a class get default styles */
