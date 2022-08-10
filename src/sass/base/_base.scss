@@ -35,10 +35,9 @@ svg {
 .typography {
 	background-color : #181818;
 	color            : white;
-	padding          : 10rem 3rem;
 }
 
-p {
+p:not(:first-child) {
 	margin-block : 2rem;
 }
 

@@ -7,6 +7,7 @@ button:where(.btn-primary, .btn-secondary) {
 
 		display          : grid; // dev only
 		place-items      : center;
+		justify-self     : start;
 		line-height      : 1;
 		text-decoration  : none;
 		text-transform   : uppercase;
@@ -39,28 +40,18 @@ button:where(.btn-primary, .btn-secondary) {
 	--surface : black;
 }
 
+
 .btn-hexagon {
 	display      : block; // dev only
 	margin-block : 3rem; // dev only
 
-	--fill       : transparent;
-	--stroke     : white;
-
 	block-size   : var(--btn-size, 6.6rem);
 	aspect-ratio : 1 / 1;
 
-	:where(.hexagon-stroke, .hexagon-icon) {
-		fill   : var(--fill);
-		stroke : var(--stroke);
-	}
-
 	@media (hover : hover) {
-		&:where(:hover, :focus-visible) .hexagon-stroke {
-			--fill : var(--stroke);
-		}
-
-		&:where(:hover, :focus-visible) .hexagon-icon {
-			--stroke : black
+		&:where(:hover, :focus-visible) {
+			--surface : white;
+			--symbol  : black;
 		}
 	}
 }
@@ -77,14 +68,47 @@ button:where(.btn-primary, .btn-secondary) {
 	}
 }
 
-.btn-social {
-	display      : block; // dev only
-	margin-block : 3rem; // dev only
+.tabs {
+	--space        : 6.5rem;
+	--space-border : 2.5rem;
+	--size-border  : 1px;
+	--text         : white;
 
-	block-size   : var(--btn-size, 2rem);
-	aspect-ratio : 1 / 1;
+	display        : flex;
 
-	svg {
-		fill : white;
+	&__tab {
+		position           : relative;
+		font-size          : var(--f-size, 1.6rem);
+		font-weight        : var(--f-weight-1);
+		color              : var(--text);
+		line-height        : 1;
+		text-transform     : capitalize;
+		letter-spacing     : var(--letterspacing, var(--letterspacing-4));
+		padding-inline-end : var(--space);
+		padding-block-end  : var(--space-border);
+		border-bottom      : var(--size-border) solid;
+	}
+
+	&__tab[data-active="true"] {
+		font-weight : var(--f-weight-2);
+	}
+
+	&__tab::after {
+		content            : "";
+		display            : block;
+		position           : absolute;
+		bottom             : -0.1px;
+		width              : 100%;
+		padding-inline-end : var(--space);
+		padding-block-end  : var(--space-border);
+		border-bottom      : var(--size-border) solid var(--text);
+		transform          : scaleX(0);
+		transform-origin   : left;
+		transition         : transform 250ms;
+	}
+
+	&__tab:where(:hover, :focus-visible)::after,
+	&__tab[data-active="true"]::after {
+		transform : scaleX(1);
 	}
 }

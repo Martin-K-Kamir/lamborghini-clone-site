@@ -1,11 +1,11 @@
 
 .app-container {
 	margin-inline : auto;
-	inline-size   : var(--app-size);
+	inline-size   : min(190rem, 90%);
 }
 
 .container {
-	padding-inline        : var(--container-inline-space);
+	padding-inline        : clamped(0rem, 10rem, em(700px), em(1365px));
 	display               : grid;
 	grid-template-columns : 1fr;
 }
