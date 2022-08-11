@@ -89,10 +89,6 @@ button:where(.btn-primary, .btn-secondary) {
 		border-bottom      : var(--size-border) solid;
 	}
 
-	&__tab[data-active="true"] {
-		font-weight : var(--f-weight-2);
-	}
-
 	&__tab::after {
 		content            : "";
 		display            : block;
