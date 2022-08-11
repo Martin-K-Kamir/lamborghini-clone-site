@@ -93,11 +93,11 @@ button:where(.btn-primary, .btn-secondary) {
 		content            : "";
 		display            : block;
 		position           : absolute;
-		bottom             : -0.1px;
+		bottom             : calc((var(--size-border) - var(--size-border)) - 1px);
 		width              : 100%;
 		padding-inline-end : var(--space);
 		padding-block-end  : var(--space-border);
-		border-bottom      : var(--size-border) solid var(--text);
+		border-bottom      : calc(var(--size-border) + 1px) solid var(--text);
 		transform          : scaleX(0);
 		transform-origin   : left;
 		transition         : transform 250ms;

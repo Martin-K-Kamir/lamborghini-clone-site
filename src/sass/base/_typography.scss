@@ -1,4 +1,5 @@
 
+/// Global styles
 [class*="title-"] {
 	text-transform : uppercase;
 	line-height    : var(--line-height-1);
@@ -24,14 +25,13 @@
 	margin-block-start : var(--space, 2rem);
 }
 
-
-//////////////////////////////////////////
 [class*="link-"] {
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	text-transform : var(--text-transform, uppercase);
 	letter-spacing : var(--letterspacing, var(--letterspacing-4));
 }
 
+// Styles for titles
 .title-1 {
 	font-size       : var(--f-size, #{clamped(2.8rem, 3.2rem, em(330px), em(1365px))});
 	font-weight     : var(--f-weight-4);
@@ -53,8 +53,7 @@
 	max-inline-size : var(--measure, var(--measure-1));
 }
 
-
-//////////////////////////////////////////
+/// Specific styles for titles
 .title-date {
 	font-size      : var(--f-size, 1.8rem);
 	font-weight    : var(--f-weight-3);
@@ -67,8 +66,7 @@
 	letter-spacing : var(--letterspacing-6);
 }
 
-
-//////////////////////////////////////////
+/// Styles for subtitles
 .subtitle-1 {
 	--space        : 0.45em;
 
@@ -84,7 +82,7 @@
 }
 
 
-//////////////////////////////////////////
+/// Styles for descriptions
 .description-1 {
 	font-size   : var(--f-size, 1.4rem);
 	font-weight : var(--f-weight, var(--f-weight-1));
@@ -97,7 +95,7 @@
 }
 
 
-//////////////////////////////////////////
+/// Styles for links
 .link-1 {
 	font-size : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
 
@@ -125,6 +123,8 @@
 	}
 }
 
+
+/// Styles for sublinks
 .sublink-1 {
 	font-size   : var(--f-size, 1.4rem);
 	font-weight : var(--f-weight, var(--f-weight-2));
