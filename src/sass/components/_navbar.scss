@@ -1,0 +1,29 @@
+
+.navbar {
+	color            : var(--text, var(--neutral-1));
+	background-color : var(--surface, var(--neutral-5));
+
+	&__container {
+		display       : flex;
+		padding-block : 1.7rem; // props
+	}
+
+	.logo + &__list,
+	&__list-item:nth-of-type(8) {
+		margin-inline-start : 5rem; // props
+	}
+
+	&__list {
+		inline-size : 100%;
+		display     : flex;
+		align-items : center;
+		gap         : 3rem // props
+	}
+
+	&__list-item {
+	}
+
+	&__list-item:nth-of-type(5) {
+		margin-inline-start : auto;
+	}
+}

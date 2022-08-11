@@ -1,0 +1,6 @@
+
+.logo {
+	inline-size  : clamped(4.2rem, 6rem, em(725px), em(1365px));
+	aspect-ratio : 1 / 1;
+	flex-shrink  : 0;
+}

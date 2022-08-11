@@ -1,0 +1,41 @@
+
+.tabs {
+	--space        : 6.5rem;
+	--space-border : 2.5rem;
+	--size-border  : 1px;
+	--text         : white;
+
+	display        : flex;
+
+	&__tab {
+		position           : relative;
+		font-size          : var(--f-size, 1.6rem);
+		font-weight        : var(--f-weight-1);
+		color              : var(--text);
+		line-height        : 1;
+		text-transform     : capitalize;
+		letter-spacing     : var(--letterspacing, var(--letterspacing-4));
+		padding-inline-end : var(--space);
+		padding-block-end  : var(--space-border);
+		border-bottom      : var(--size-border) solid;
+	}
+
+	&__tab::after {
+		content            : "";
+		display            : block;
+		position           : absolute;
+		bottom             : calc((var(--size-border) - var(--size-border)) - 1px);
+		width              : 100%;
+		padding-inline-end : var(--space);
+		padding-block-end  : var(--space-border);
+		border-bottom      : calc(var(--size-border) + 1px) solid var(--text);
+		transform          : scaleX(0);
+		transform-origin   : left;
+		transition         : transform 250ms;
+	}
+
+	&__tab:where(:hover, :focus-visible)::after,
+	&__tab[data-active="true"]::after {
+		transform : scaleX(1);
+	}
+}

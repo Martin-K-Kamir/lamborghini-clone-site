@@ -1,4 +1,3 @@
-
 /// Global styles
 [class*="title-"] {
 	text-transform : uppercase;
@@ -28,7 +27,6 @@
 [class*="link-"] {
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	text-transform : var(--text-transform, uppercase);
-	letter-spacing : var(--letterspacing, var(--letterspacing-4));
 }
 
 // Styles for titles
@@ -97,7 +95,8 @@
 
 /// Styles for links
 .link-1 {
-	font-size : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
+	font-size      : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
+	letter-spacing : var(--letterspacing, var(--letterspacing-4));
 
 	@include breakpoint(max, em(1025px)) {
 		--f-weight : var(--f-weight-1);
@@ -112,7 +111,7 @@
 	&::after {
 		content          : "";
 		display          : block;
-		border-bottom    : 1px solid white;
+		border-bottom    : 1px solid;
 		transform        : scaleX(0);
 		transform-origin : left;
 		transition       : transform 250ms;

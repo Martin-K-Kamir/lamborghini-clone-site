@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
 $map-for-colors : (
-		'primary' : hsl(179, 81%, 29%),
-		'secondary' : hsl(215, 19%, 25%),
-		'tertiary' : hsl(25, 94%, 86%),
-		'neutral-1' : hsl(43, 78%, 98%),
-		'neutral-2' : hsl(40, 29%, 94%),
-		'neutral-3' : hsl(26, 11%, 87%),
-		'neutral-4': hsl(215, 5%, 54%),
+		'neutral-1' : hsl(0, 0%, 100%),
+		'neutral-2' : hsl(60, 1%, 79%),
+		'neutral-3' : hsl(0, 0%, 44%),
+		'neutral-4': hsl(0, 0%, 56%),
+		'neutral-5': hsl(0, 0%, 13%),
+		'neutral-6': hsl(0, 0%, 9%),
 ) !default

@@ -3,9 +3,7 @@ button:where(.btn-primary, .btn-secondary) {
 		--text           : black;
 		--surface        : white;
 
-		margin-block     : 3rem; // dev only
-
-		display          : grid; // dev only
+		display          : inline-grid;
 		place-items      : center;
 		justify-self     : start;
 		line-height      : 1;
@@ -40,11 +38,7 @@ button:where(.btn-primary, .btn-secondary) {
 	--surface : black;
 }
 
-
 .btn-hexagon {
-	display      : block; // dev only
-	margin-block : 3rem; // dev only
-
 	block-size   : var(--btn-size, 6.6rem);
 	aspect-ratio : 1 / 1;
 
@@ -56,55 +50,35 @@ button:where(.btn-primary, .btn-secondary) {
 	}
 }
 
-.btn-icon {
-	display      : block; // dev only
-	margin-block : 3rem; // dev only
+.btn-hamburger {
+	--surface    : white;
 
-	block-size   : var(--btn-size, 2.5rem);
-	aspect-ratio : 1 / 1;
+	inline-size: var(--btn-size, 2.5rem);
+	aspect-ratio: 1 / 1;
 
-	svg {
-		fill : white;
-	}
-}
-
-.tabs {
-	--space        : 6.5rem;
-	--space-border : 2.5rem;
-	--size-border  : 1px;
-	--text         : white;
-
-	display        : flex;
-
-	&__tab {
-		position           : relative;
-		font-size          : var(--f-size, 1.6rem);
-		font-weight        : var(--f-weight-1);
-		color              : var(--text);
-		line-height        : 1;
-		text-transform     : capitalize;
-		letter-spacing     : var(--letterspacing, var(--letterspacing-4));
-		padding-inline-end : var(--space);
-		padding-block-end  : var(--space-border);
-		border-bottom      : var(--size-border) solid;
+	&__line {
+		display          : block;
+		inline-size      : 100%;
+		block-size       : 1px;
+		transform-origin: center center;
+		background-color : var(--surface);
 	}
 
-	&__tab::after {
-		content            : "";
-		display            : block;
-		position           : absolute;
-		bottom             : calc((var(--size-border) - var(--size-border)) - 1px);
-		width              : 100%;
-		padding-inline-end : var(--space);
-		padding-block-end  : var(--space-border);
-		border-bottom      : calc(var(--size-border) + 1px) solid var(--text);
-		transform          : scaleX(0);
-		transform-origin   : left;
-		transition         : transform 250ms;
+	&__line:nth-child(2) {
+		margin-block: 0.7rem;
 	}
 
-	&__tab:where(:hover, :focus-visible)::after,
-	&__tab[data-active="true"]::after {
-		transform : scaleX(1);
+	[data-active="true"] > &__line:nth-child(1) {
+		transform: rotate(45deg);
+	}
+
+	[data-active="true"] > &__line:nth-child(2) {
+		opacity: 0;
+		margin-block: -0.1rem;
+		visibility: hidden;
+	}
+
+	[data-active="true"] > &__line:nth-child(3) {
+		transform: rotate(-45deg);
 	}
 }

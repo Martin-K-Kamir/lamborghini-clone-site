@@ -5,7 +5,10 @@
 @import 'base/base';
 @import 'base/typography';
 
+@import 'components/logo';
+@import 'components/navbar';
 @import 'components/buttons';
+@import 'components/tabs';
 
 @import 'layouts/cta';
 @import 'layouts/cluster';
