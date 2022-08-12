@@ -1,4 +1,11 @@
+import React, {useState} from "react";
+
 export default function Navbar() {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	function handleOpenMenu() {
+		setIsMenuOpen(!isMenuOpen);
+	}
 
 	return (
 		<nav className="navbar">
@@ -32,7 +39,8 @@ export default function Navbar() {
 							</button>
 						</li>
 						<li className="navbar__list-item">
-							<button className="btn-hamburger" data-active={true}>
+							<span className="sr-only">click to open site navigation menu</span>
+							<button className="btn-hamburger" onClick={handleOpenMenu} aria-expanded={isMenuOpen}>
 								<i className="btn-hamburger__line" aria-hidden="true"></i>
 								<i className="btn-hamburger__line" aria-hidden="true"></i>
 								<i className="btn-hamburger__line" aria-hidden="true"></i>

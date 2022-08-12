@@ -51,34 +51,43 @@ button:where(.btn-primary, .btn-secondary) {
 }
 
 .btn-hamburger {
-	--surface    : white;
+	--surface   : white;
+	--line-size : 1px;
 
-	inline-size: var(--btn-size, 2.5rem);
-	aspect-ratio: 1 / 1;
+	position    : relative;
+	inline-size : var(--btn-size, 2.5rem);
+	block-size  : var(--btn-size, 2.5rem);
+	transform   : translateY(-1px); // To make it more centred with elements around
 
 	&__line {
 		display          : block;
 		inline-size      : 100%;
-		block-size       : 1px;
-		transform-origin: center center;
+		block-size       : var(--line-size);
 		background-color : var(--surface);
+		border-top       : var(--line-size) solid var(--surface);
+		transform-origin: center center;
+		transition       : 250ms;
 	}
 
-	&__line:nth-child(2) {
-		margin-block: 0.7rem;
+	&__line + &__line {
+		margin-block-start : var(--space, 0.7rem);
 	}
 
-	[data-active="true"] > &__line:nth-child(1) {
-		transform: rotate(45deg);
+	[aria-expanded="true"] > &__line {
 	}
 
-	[data-active="true"] > &__line:nth-child(2) {
-		opacity: 0;
-		margin-block: -0.1rem;
-		visibility: hidden;
+	[aria-expanded="true"] > &__line:nth-child(1) {
+		transform : rotate(45deg);
+		margin-bottom: -8px;
 	}
 
-	[data-active="true"] > &__line:nth-child(3) {
-		transform: rotate(-45deg);
+	[aria-expanded="true"] > &__line:nth-child(2) {
+		opacity    : 0;
+		visibility : hidden;
+	}
+
+	[aria-expanded="true"] > &__line:nth-child(3) {
+		transform : rotate(-45deg);
+		margin-top: -1px;
 	}
 }

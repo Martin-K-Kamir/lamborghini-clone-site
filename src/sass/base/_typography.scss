@@ -108,17 +108,19 @@
 }
 
 [class*="link-"].link-underline {
+	--space: 0.5em;
+
 	&::after {
 		content          : "";
 		display          : block;
 		border-bottom    : 1px solid;
-		transform        : scaleX(0);
+		transform        : scaleX(0) translateY(var(--space));
 		transform-origin : left;
 		transition       : transform 250ms;
 	}
 
 	&:hover::after {
-		transform : scaleX(1);
+		transform : scaleX(1) translateY(var(--space));
 	}
 }
 
