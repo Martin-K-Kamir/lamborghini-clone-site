@@ -104,11 +104,12 @@
 }
 
 .link-2 {
-	font-size : var(--f-size, 2.2rem);
+	font-size   : var(--f-size, 2.2rem);
+	line-height : var(--line-height-2);
 }
 
 [class*="link-"].link-underline {
-	--space: 0.5em;
+	--space : 0.5em;
 
 	&::after {
 		content          : "";
@@ -119,7 +120,8 @@
 		transition       : transform 250ms;
 	}
 
-	&:hover::after {
+	&:hover::after,
+	&[data-active="true"]::after {
 		transform : scaleX(1) translateY(var(--space));
 	}
 }
@@ -129,4 +131,6 @@
 .sublink-1 {
 	font-size   : var(--f-size, 1.4rem);
 	font-weight : var(--f-weight, var(--f-weight-2));
+
+
 }
