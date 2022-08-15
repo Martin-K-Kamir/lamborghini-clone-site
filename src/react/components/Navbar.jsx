@@ -5,51 +5,38 @@ export default function Navbar() {
 	const [navbarHeight, setNavbarHeight] = useState(0);
 	const [_navbarHeight, _setNavbarHeight] = useState(0);
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [listOpen, setListOpen] = useState({
-		models: false,
-		solutions: false,
-		ownership: false,
-		motorsport: false,
-		dealerships: false,
-		museum: false,
-		store: false,
-	});
-	const [sublistOpen, setSublistOpen] = useState({
-		aventador: false,
-		huracan: false,
-		urus: false,
-		preOwned: false,
-		limited: false,
-		concept: false,
-		trofeo: false,
-		gt3: false,
-		drivers: false,
-		news: false,
-		esports: false,
-		motorsportModels: false,
-		experience: false,
-	});
-	const [sublistTypeActive, setSublistTypeActive] = useState({
-		aventadorLp: "unactive",
-		aventadorLpUltimate: "unactive",
-		aventadorSvj: "unactive",
-		aventadorSvjRoadster: "unactive",
-		huracanTecnica: "unactive",
-		huracanSto: "unactive",
-		huracanEvo: "unactive",
-		huracanSpyder: "unactive",
-		huracanRwd: "unactive",
-		huracanRwdSpyder: "unactive",
-		urus: "unactive",
-		urusPearl: "unactive",
-		urusGraphite: "unactive",
-		limitedCountach: "unactive",
-		limitedSian: "unactive",
-		limitedSianRoadster: "unactive",
-		conceptTerzo: "unactive",
-		conceptAsterion: "unactive",
-		conceptEstoque: "unactive",
-	});
+	const [listOpen, setListOpen] = useState(getListItems(dataNavbar.list));
+	const [sublistOpen, setSublistOpen] = useState(getSublistItems(dataNavbar.list));
+	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(dataNavbar.list));
+
+	function convertToObject(arr, val = false) {
+		return arr.reduce((acc, key) => {
+			return {...acc, [key]: val}
+		}, {});
+	}
+
+	function getListItems(data) {
+		return convertToObject(data.map(({id}) => id));
+	}
+
+	function getSublistItems(data) {
+		return convertToObject(
+			data.map(({sublist}) => sublist)
+				.filter(i => i !== undefined)
+				.map(i => i.map(({id}) => id))
+				.flat(2)
+		);
+	}
+
+	function getSublistItemTypes(data) {
+		return convertToObject(
+			data.map(({sublist}) => sublist)
+				.filter(i => i !== undefined).map(item => item.map(({types}) => types))
+				.map(i => i.filter(i => i !== undefined)).flat(2)
+				.map(({id}) => id)
+			, "unactive"
+		);
+	}
 
 	function beFalse(obj, value = false) {
 		return {...Object.keys(obj).reduce((reduced, key) => ({...reduced, [key]: value}), {})};
@@ -111,19 +98,17 @@ export default function Navbar() {
 	}
 
 	function handleHideList() {
-		if (false) {
-			setNavbarHeight(0);
-			const copyListOpen = beFalse(listOpen);
-			const copySublistOpen = beFalse(sublistOpen);
+		setNavbarHeight(0);
+		const copyListOpen = beFalse(listOpen);
+		const copySublistOpen = beFalse(sublistOpen);
 
-			setListOpen({
-				...copyListOpen,
-			});
+		setListOpen({
+			...copyListOpen,
+		});
 
-			setSublistOpen({
-				...copySublistOpen,
-			});
-		}
+		setSublistOpen({
+			...copySublistOpen,
+		});
 	}
 
 	function handleKeyDown(e) {
@@ -174,21 +159,6 @@ export default function Navbar() {
 			)))}
 		</ul>
 	}
-
-	function test() {
-		// const t = dataNavbar.list.map(({id}) => ({[id]: false}));
-		// console.log(t);
-
-		const b = dataNavbar.list.map(item => (
-			item.sublist
-		));
-		console.log(b);
-
-		// const a = dataNavbar.list.map(({sublist}) => (sublist.map(({types}) => (types.map(({id}) => ({[id]: false}))))));
-		// console.log(a);
-	}
-
-	test()
 
 
 	return (
