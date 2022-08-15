@@ -6,7 +6,7 @@
 	min-block-size   : var(--block-size);
 	color            : var(--text);
 	background-color : var(--surface);
-	overflow-x       : hidden;
+	overflow         : hidden;
 
 	&__container {
 		display       : flex;
