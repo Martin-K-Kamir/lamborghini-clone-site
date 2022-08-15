@@ -57,8 +57,7 @@
 		visibility : visible;
 	}
 
-	&__sublist-item > a:hover,
-	&__sublist-item > a[data-open="true"],
+	&__sublist-item > a:where(:hover, :focus-visible, [data-open="true"]),
 	&__sublist-item > &__sublist[data-open="true"] a {
 		--text : var(--neutral-1);
 	}

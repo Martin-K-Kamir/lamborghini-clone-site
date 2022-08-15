@@ -1,3 +1,4 @@
+import dataNavbar from "../../dataNavbar";
 import React, {useState} from "react";
 
 export default function Navbar() {
@@ -28,7 +29,7 @@ export default function Navbar() {
 		motorsportModels: false,
 		experience: false,
 	});
-	const [sublinkActive, setSublinkActive] = useState({
+	const [sublistTypeActive, setSublistTypeActive] = useState({
 		aventadorLp: "unactive",
 		aventadorLpUltimate: "unactive",
 		aventadorSvj: "unactive",
@@ -62,21 +63,21 @@ export default function Navbar() {
 		if (_navbarHeight === 0) _setNavbarHeight(e.currentTarget.clientHeight);
 	}
 
-	function handleActiveSublink(e) {
+	function handleSublistTypeActive(e) {
 		const id = e.currentTarget.id;
-		const copySublinkActive = beFalse(sublinkActive);
+		const copySublistTypeActive = beFalse(sublistTypeActive);
 
-		setSublinkActive({
-			...copySublinkActive,
+		setSublistTypeActive({
+			...copySublistTypeActive,
 			[id]: true,
 		});
 	}
 
-	function handleUnactiveSublinks() {
-		const copySublinkActive = beFalse(sublinkActive, "unactive");
+	function handleSublistTypeUnactive() {
+		const copySublistTypeActive = beFalse(sublistTypeActive, "unactive");
 
-		setSublinkActive({
-			...copySublinkActive,
+		setSublistTypeActive({
+			...copySublistTypeActive,
 		});
 	}
 
@@ -85,7 +86,7 @@ export default function Navbar() {
 		const sublistHeight = e.currentTarget.children[1]?.clientHeight;
 		const copyListOpen = beFalse(listOpen);
 		const copySublistOpen = beFalse(sublistOpen);
-		console.log(e.currentTarget.id)
+		console.log(id)
 
 		if (listOpen.hasOwnProperty(id)) {
 			setNavbarHeight(`${_navbarHeight + sublistHeight}px`);
@@ -127,13 +128,56 @@ export default function Navbar() {
 
 	function handleKeyDown(e) {
 		if (e.keyCode === 16 || e.key === "Shift") {
-			handleShowList(e)
+			e.stopPropagation();
+			handleShowList(e);
 		}
+	}
+
+	function renderSublistTypes(curSubitem) {
+		return <ul className="navbar__sublist" data-open={sublistOpen[curSubitem.id]} onMouseLeave={handleSublistTypeUnactive}>
+			{curSubitem.types.map(curType => (
+				<li className="navbar__sublist-item" id={curType.id} onMouseEnter={e => handleSublistTypeActive(e)}>
+					<a href="/" data-active={sublistTypeActive[curType.id]}>
+						{curType.link}
+					</a>
+				</li>
+			))}
+		</ul>
+	}
+
+	function renderSublist(curItem) {
+		return <ul className="navbar__sublist sublink-1" data-open={listOpen[curItem.id]}>
+			{curItem.sublist.map(curSubitem => (
+				<li className="navbar__sublist-item" id={curSubitem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleKeyDown(e)}>
+					<a href="/" data-open={sublistOpen[curSubitem.id]}>
+						<span aria-hidden={true}>{curSubitem.link}</span>
+						<span className="sr-only">{`Click to go ${curSubitem.link} page or press shift to open list`}</span>
+
+						{curSubitem.sublist && renderSublistTypes(curSubitem)}
+					</a>
+				</li>
+			))}
+		</ul>
+	}
+
+	function renderList(data) {
+		return <ul className="navbar__list">
+			{(data.map(curItem => (
+				<li className="navbar__list-item" id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleKeyDown(e)}>
+					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
+						<span aria-hidden={true}>{curItem.link}</span>
+						<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span>
+					</a>
+
+					{curItem.sublist && renderSublist(curItem)}
+				</li>
+			)))}
+		</ul>
 	}
 
 
 	return (
-		<nav className="navbar" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}>
+		<nav className="navbar" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList} onFocus={e => getNavbarHeight(e)}>
 			<div className="app-container">
 				<div className="navbar__container">
 					<div className="logo">
@@ -152,24 +196,24 @@ export default function Navbar() {
 										<span className="sr-only">Click to go aventador page or press shift to open list</span>
 									</a>
 
-									<ul className="navbar__sublist" data-open={sublistOpen.aventador} onMouseLeave={handleUnactiveSublinks}>
-										<li className="navbar__sublist-item" id="aventadorLp" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.aventadorLp}>
+									<ul className="navbar__sublist" data-open={sublistOpen.aventador} onMouseLeave={handleSublistTypeUnactive}>
+										<li className="navbar__sublist-item" id="aventadorLp" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.aventadorLp}>
 												AVENTADOR LP 780-4
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="aventadorLpUltimate" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.aventadorLpUltimate}>
+										<li className="navbar__sublist-item" id="aventadorLpUltimate" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.aventadorLpUltimate}>
 												AVENTADOR LP 780-4 ULTIMATE
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="aventadorSvj" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.aventadorSvj}>
+										<li className="navbar__sublist-item" id="aventadorSvj" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.aventadorSvj}>
 												AVENTADOR SVJ
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="aventadorSvjRoadster" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.aventadorSvjRoadster}>
+										<li className="navbar__sublist-item" id="aventadorSvjRoadster" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.aventadorSvjRoadster}>
 												AVENTADOR SVJ ROADSTER
 											</a>
 										</li>
@@ -177,34 +221,34 @@ export default function Navbar() {
 								</li>
 								<li className="navbar__sublist-item" id="huracan" onMouseEnter={e => handleShowList(e)}>
 									<a href="/" data-open={sublistOpen.huracan}>huracán</a>
-									<ul className="navbar__sublist" data-open={sublistOpen.huracan} onMouseLeave={handleUnactiveSublinks}>
-										<li className="navbar__sublist-item" id="huracanTecnica" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanTecnica}>
+									<ul className="navbar__sublist" data-open={sublistOpen.huracan} onMouseLeave={handleSublistTypeUnactive}>
+										<li className="navbar__sublist-item" id="huracanTecnica" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanTecnica}>
 												HURACÁN TECNICA
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="huracanSto" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanSto}>
+										<li className="navbar__sublist-item" id="huracanSto" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanSto}>
 												HURACÁN STO
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="huracanEvo" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanEvo}>
+										<li className="navbar__sublist-item" id="huracanEvo" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanEvo}>
 												HURACÁN EVO
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="huracanSpyder" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanSpyder}>
+										<li className="navbar__sublist-item" id="huracanSpyder" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanSpyder}>
 												HURACÁN SPYDER
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="huracanRwd" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanRwd}>
+										<li className="navbar__sublist-item" id="huracanRwd" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanRwd}>
 												HURACÁN RWD
 											</a>
 										</li>
-										<li className="navbar__sublist-item" id="huracanRwdSpyder" onMouseEnter={e => handleActiveSublink(e)}>
-											<a href="/" data-active={sublinkActive.huracanRwdSpyder}>
+										<li className="navbar__sublist-item" id="huracanRwdSpyder" onMouseEnter={e => handleSublistTypeActive(e)}>
+											<a href="/" data-active={sublistTypeActive.huracanRwdSpyder}>
 												HURACÁN RWD SPYDER
 											</a>
 										</li>
