@@ -1,11 +1,12 @@
 
 .navbar {
-	min-block-size   : var(--block-size);
-	overflow         : hidden;
+	overflow       : hidden;
+	min-block-size : var(--block-size);
+	transition     : min-block-size 300ms ease-out;
 
 	&__container {
 		display       : flex;
-		padding-block : 1.7rem; // props
+		padding-block :clamped(0.8rem, 1.7rem, em(725px), em(1025px)); // props
 	}
 
 	&__list {
@@ -18,25 +19,37 @@
 	&__list:first-of-type {
 		inline-size   : 100%;
 		margin-inline : 5rem; // props
+
+		@include breakpoint(max, em(1025px)) {
+			display: none;
+		}
 	}
 
 	&__list:first-of-type > &__list-item:nth-of-type(5) {
 		margin-inline-start : auto;
 	}
 
+	&__list:last-of-type {
+		margin-inline-start: auto;
+	}
+
 	&__list-item > &__sublist {
-		top    : 100%;
+		top : 100%;
 	}
 
 	&__sublist {
-		opacity        : 0;
-		visibility     : hidden;
-		position       : absolute;
-		min-block-size : 100%;
-		inline-size    : max-content;
-		padding-block  : 3.9rem; // props
-		display        : flex;
-		flex-direction : column;
+		--transition-duration : 200ms;
+		--transition-ease     : ease-out;
+
+		opacity               : 0;
+		visibility            : hidden;
+		position              : absolute;
+		min-block-size        : 100%;
+		inline-size           : max-content;
+		padding-block         : 3.9rem; // props
+		display               : flex;
+		flex-direction        : column;
+		transition            : opacity var(--transition-duration) var(--transition-ease), visibility var(--transition-duration) var(--transition-ease);
 	}
 
 	&__sublist[data-open="true"] {
@@ -53,7 +66,7 @@
 
 	&__sublist-item {
 		width        : fit-content;
-		margin-block : 1.1rem; // props
+		margin-block : 1rem; // props
 	}
 
 	&__sublist-item:first-child {
@@ -66,6 +79,10 @@
 }
 
 // TODO
-// Do animation
-// Refactor
 // Responsive
+// finish divider
+// refactor
+// func
+// looping
+// icons/btns
+// accessibility

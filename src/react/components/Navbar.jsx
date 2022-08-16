@@ -1,3 +1,4 @@
+import Menu from './Menu';
 import dataNavbar from "../../dataNavbar";
 import React, {useState} from "react";
 
@@ -70,7 +71,7 @@ export default function Navbar() {
 
 	function handleShowList(e) {
 		const id = e.currentTarget.id;
-		const sublistHeight = e.currentTarget.children[1]?.clientHeight;
+		const sublistHeight = e.currentTarget.children[1] !== undefined ? e.currentTarget.children[1].clientHeight : 0.1;
 		const copyListOpen = setObjectValue(listOpen);
 		const copySublistOpen = setObjectValue(sublistOpen);
 
@@ -147,58 +148,61 @@ export default function Navbar() {
 	}
 
 	function renderList(data) {
-		return <ul className="navbar__list">
-			{(data.map(curItem => (
-				<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
-					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
-						{curItem.sublist ?
-							<><span aria-hidden={true}>{curItem.link}</span>
-								<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
-							: curItem.link}
-					</a>
+		return (data.map(curItem => (
+			<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
+				<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
+					{curItem.sublist ?
+						<><span aria-hidden={true}>{curItem.link}</span>
+							<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
+						: curItem.link}
+				</a>
 
-					{renderSublist(curItem)}
-				</li>
-			)))}
-		</ul>
+				{renderSublist(curItem)}
+			</li>
+		)))
 	}
 
-
 	return (
-		<nav className="navbar text-neutral-1 surface-neutral-6" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList} onFocus={e => getNavbarHeight(e)}>
-			<div className="app-container">
-				<div className="navbar__container ">
-					<div className="logo">
-						<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
+		<>
+			<nav className="navbar text-neutral-1 surface-neutral-6" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
+			     onFocus={e => getNavbarHeight(e)}>
+				<div className="app-container">
+					<div className="navbar__container">
+						<div className="logo">
+							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
+						</div>
+						<ul className="navbar__list">
+							{renderList(dataNavbar.list)}
+						</ul>
+						<ul className="navbar__list">
+							<li className="navbar__list-item">
+								<button>
+									<span className="sr-only">click to open chat with our support team</span>
+									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
+										<use href="media/sprites.svg#icon-chat"/>
+									</svg>
+								</button>
+							</li>
+							<li className="navbar__list-item">
+								<button>
+									<span className="sr-only">click to open search menu</span>
+									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
+										<use href="media/sprites.svg#icon-search"/>
+									</svg>
+								</button>
+							</li>
+							<li className="navbar__list-item">
+								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open site navigation menu">
+									<i className="btn-hamburger__line" aria-hidden="true"></i>
+									<i className="btn-hamburger__line" aria-hidden="true"></i>
+									<i className="btn-hamburger__line" aria-hidden="true"></i>
+								</button>
+							</li>
+						</ul>
 					</div>
-					{renderList(dataNavbar.list)}
-					<ul className="navbar__list">
-						<li className="navbar__list-item">
-							<button>
-								<span className="sr-only">click to open chat with our support team</span>
-								<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
-									<use href="media/sprites.svg#icon-chat"/>
-								</svg>
-							</button>
-						</li>
-						<li className="navbar__list-item">
-							<button>
-								<span className="sr-only">click to open search menu</span>
-								<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
-									<use href="media/sprites.svg#icon-search"/>
-								</svg>
-							</button>
-						</li>
-						<li className="navbar__list-item">
-							<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open site navigation menu">
-								<i className="btn-hamburger__line" aria-hidden="true"></i>
-								<i className="btn-hamburger__line" aria-hidden="true"></i>
-								<i className="btn-hamburger__line" aria-hidden="true"></i>
-							</button>
-						</li>
-					</ul>
 				</div>
-			</div>
-		</nav>
+			</nav>
+			<Menu/>
+		</>
 	);
 }

@@ -1,0 +1,51 @@
+
+.menu {
+
+	&__container {
+
+	}
+
+	&__grid {
+		--space               : #{clamped(2rem, 3rem, em(725px), em(1025px))}; // props
+		padding-block         : 5rem; // props
+		margin-inline-start   : auto;
+		display               : grid;
+		grid-template-columns : 1fr 1fr 1fr;
+		justify-items         : start;
+		inline-size           : min(155rem, 90%);
+		row-gap               : var(--space);
+		column-gap            : 3rem;
+
+		@include breakpoint(max, em(1025px)) {
+			inline-size           : 100%;
+			column-gap            : 0;
+			grid-template-rows    : 1fr;
+			grid-template-columns : 1fr;
+			grid-auto-flow        : row;
+		}
+	}
+
+	&__grid[role='list'] {
+		grid-auto-flow     : column;
+		grid-template-rows : 1fr 1fr 1fr;
+	}
+
+	//&__item:nth-of-type(-n + 7) {
+	//	display : none;
+	//}
+
+	&__item .cluster {
+		inline-size : min(34.5rem, 100%);
+	}
+
+	&__item .title-preferences + .cluster {
+		margin-block-start : 3rem;
+	}
+
+	&__divider {
+		block-size       : 1px;
+		inline-size      : 90%;
+		background-color : hsla(0, 0%, 100%, 0.1);
+	}
+}
+

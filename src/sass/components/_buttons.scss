@@ -57,7 +57,6 @@ button:where(.btn-primary, .btn-secondary) {
 
 	inline-size : var(--btn-size, 2.5rem);
 	block-size : var(--btn-size, 2.5rem);
-	transform   : translateY(-1px); // To make it more centred with elements around
 
 	&__line {
 		display          : block;

@@ -117,7 +117,7 @@
 		border-bottom    : 1px solid;
 		transform        : scaleX(0) translateY(var(--space));
 		transform-origin : left;
-		transition       : transform 250ms;
+		transition       : transform var(--transition-duration, 300ms) var(--transition-easing, ease-in-out);
 	}
 
 	&:hover::after,

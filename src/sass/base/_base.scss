@@ -14,7 +14,7 @@ body {
 a {
 	text-decoration : inherit;
 	color           : var(--text, inherit);
-	transition      : text-decoration 250ms;
+	transition      : text-decoration 250ms, color var(--transition-duration) var(--transition-ease);
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {
