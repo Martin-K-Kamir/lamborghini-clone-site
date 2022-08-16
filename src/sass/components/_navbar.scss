@@ -1,11 +1,6 @@
 
 .navbar {
-	--surface        : var(--neutral-6);
-	--text           : var(--neutral-1);
-
 	min-block-size   : var(--block-size);
-	color            : var(--text);
-	background-color : var(--surface);
 	overflow         : hidden;
 
 	&__container {
@@ -17,7 +12,7 @@
 		position    : relative;
 		display     : flex;
 		align-items : center;
-		gap         : 3rem // props
+		gap         : 2.6rem // props
 	}
 
 	&__list:first-of-type {
@@ -30,7 +25,6 @@
 	}
 
 	&__list-item > &__sublist {
-		--text : var(--neutral-3);
 		top    : 100%;
 	}
 
@@ -45,6 +39,11 @@
 		flex-direction : column;
 	}
 
+	&__sublist[data-open="true"] {
+		opacity    : 1;
+		visibility : visible;
+	}
+
 	&__sublist-item > &__sublist {
 		padding-inline-start : 8rem;
 		inline-size          : 100vw;
@@ -52,23 +51,9 @@
 		top                  : 0;
 	}
 
-	&__sublist[data-open="true"] {
-		opacity    : 1;
-		visibility : visible;
-	}
-
-	&__sublist-item > a:where(:hover, :focus-visible, [data-open="true"]),
-	&__sublist-item > &__sublist[data-open="true"] a {
-		--text : var(--neutral-1);
-	}
-
-	&__sublist-item > &__sublist[data-open="true"] a[data-active="false"] {
-		--text : var(--neutral-3);
-	}
-
 	&__sublist-item {
 		width        : fit-content;
-		margin-block : 1.1rem;
+		margin-block : 1.1rem; // props
 	}
 
 	&__sublist-item:first-child {
@@ -81,8 +66,6 @@
 }
 
 // TODO
-// Accebility
 // Do animation
-// Loop to render sublists
 // Refactor
 // Responsive

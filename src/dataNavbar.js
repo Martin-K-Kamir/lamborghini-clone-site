@@ -4,7 +4,6 @@ export default {
 			key: "01",
 			id: "models",
 			link: "models",
-			isOpen: false,
 			sublist: [
 				{
 					key: "01",
@@ -147,7 +146,6 @@ export default {
 			key: "02",
 			id: "solutions",
 			link: "custom solutions",
-			isOpen: false,
 			sublist: [
 				{
 					key: "01",
@@ -175,7 +173,6 @@ export default {
 			key: "03",
 			id: "ownership",
 			link: "ownership",
-			isOpen: false,
 			sublist: [
 				{
 					key: "01",
@@ -208,7 +205,6 @@ export default {
 			key: "04",
 			id: "motorsport",
 			link: "motorsport",
-			isOpen: false,
 			sublist: [
 				{
 					key: "01",
@@ -334,19 +330,16 @@ export default {
 			key: "05",
 			id: "dealerships",
 			link: "dealerships",
-			isOpen: false,
 		},
 		{
 			key: "06",
 			id: "museum",
 			link: "museum",
-			isOpen: false,
 		},
 		{
 			key: "07",
 			id: "store",
 			link: "store",
-			isOpen: false,
 		},
 	],
 }

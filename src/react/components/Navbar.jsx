@@ -15,6 +15,10 @@ export default function Navbar() {
 		}, {});
 	}
 
+	function getNavbarHeight(e) {
+		if (_navbarHeight === 0) _setNavbarHeight(e.currentTarget.clientHeight);
+	}
+
 	function getListItems(data) {
 		return convertToObject(data.map(({id}) => id));
 	}
@@ -38,21 +42,17 @@ export default function Navbar() {
 		);
 	}
 
-	function beFalse(obj, value = false) {
-		return {...Object.keys(obj).reduce((reduced, key) => ({...reduced, [key]: value}), {})};
+	function setObjectValue(obj, val = false) {
+		return {...Object.keys(obj).reduce((reduced, key) => ({...reduced, [key]: val}), {})};
 	}
 
-	function handleOpenMenu() {
+	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
-	}
-
-	function getNavbarHeight(e) {
-		if (_navbarHeight === 0) _setNavbarHeight(e.currentTarget.clientHeight);
 	}
 
 	function handleSublistTypeActive(e) {
 		const id = e.currentTarget.id;
-		const copySublistTypeActive = beFalse(sublistTypeActive);
+		const copySublistTypeActive = setObjectValue(sublistTypeActive);
 
 		setSublistTypeActive({
 			...copySublistTypeActive,
@@ -61,7 +61,7 @@ export default function Navbar() {
 	}
 
 	function handleSublistTypeUnactive() {
-		const copySublistTypeActive = beFalse(sublistTypeActive, "unactive");
+		const copySublistTypeActive = setObjectValue(sublistTypeActive, "unactive");
 
 		setSublistTypeActive({
 			...copySublistTypeActive,
@@ -71,9 +71,8 @@ export default function Navbar() {
 	function handleShowList(e) {
 		const id = e.currentTarget.id;
 		const sublistHeight = e.currentTarget.children[1]?.clientHeight;
-		const copyListOpen = beFalse(listOpen);
-		const copySublistOpen = beFalse(sublistOpen);
-		console.log(id)
+		const copyListOpen = setObjectValue(listOpen);
+		const copySublistOpen = setObjectValue(sublistOpen);
 
 		if (listOpen.hasOwnProperty(id)) {
 			setNavbarHeight(`${_navbarHeight + sublistHeight}px`);
@@ -99,8 +98,8 @@ export default function Navbar() {
 
 	function handleHideList() {
 		setNavbarHeight(0);
-		const copyListOpen = beFalse(listOpen);
-		const copySublistOpen = beFalse(sublistOpen);
+		const copyListOpen = setObjectValue(listOpen);
+		const copySublistOpen = setObjectValue(sublistOpen);
 
 		setListOpen({
 			...copyListOpen,
@@ -111,7 +110,7 @@ export default function Navbar() {
 		});
 	}
 
-	function handleKeyDown(e) {
+	function handleShiftDown(e) {
 		if (e.keyCode === 16 || e.key === "Shift") {
 			e.stopPropagation();
 			handleShowList(e);
@@ -119,10 +118,10 @@ export default function Navbar() {
 	}
 
 	function renderSublistTypes(curSubitem) {
-		return <ul className="navbar__sublist" data-open={sublistOpen[curSubitem.id]} onMouseLeave={handleSublistTypeUnactive}>
-			{curSubitem.types && curSubitem.types.map(curType => (
-				<li className="navbar__sublist-item" id={curType.id} onMouseEnter={e => handleSublistTypeActive(e)}>
-					<a href="/" data-active={sublistTypeActive[curType.id]}>
+		return curSubitem.types && <ul className="navbar__sublist" data-open={sublistOpen[curSubitem.id]} onMouseLeave={handleSublistTypeUnactive}>
+			{curSubitem.types.map(curType => (
+				<li className="navbar__sublist-item" key={curType.key} id={curType.id} onMouseEnter={e => handleSublistTypeActive(e)}>
+					<a href="/" data-active={sublistTypeActive[curType.id]} className={sublistTypeActive[curType.id] ? "text-neutral-1" : "text-neutral-3"}>
 						{curType.link}
 					</a>
 				</li>
@@ -131,12 +130,14 @@ export default function Navbar() {
 	}
 
 	function renderSublist(curItem) {
-		return <ul className="navbar__sublist sublink-1" data-open={listOpen[curItem.id]}>
-			{curItem.sublist && curItem.sublist.map(curSubitem => (
-				<li className="navbar__sublist-item" id={curSubitem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleKeyDown(e)}>
-					<a href="/" data-open={sublistOpen[curSubitem.id]}>
-						<span aria-hidden={true}>{curSubitem.link}</span>
-						<span className="sr-only">{`Click to go ${curSubitem.link} page or press shift to open list`}</span>
+		return curItem.sublist && <ul className="navbar__sublist sublink-1" data-open={listOpen[curItem.id]}>
+			{curItem.sublist.map(curSubitem => (
+				<li className="navbar__sublist-item" key={curSubitem.key} id={curSubitem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
+					<a href="/" data-open={sublistOpen[curSubitem.id]} className={sublistOpen[curSubitem.id] ? "text-neutral-1" : "text-neutral-3"}>
+						{curSubitem.types ?
+							<><span aria-hidden={true}>{curSubitem.link}</span>
+								<span className="sr-only">{`Click to go ${curSubitem.link} page or press shift to open list`}</span></>
+							: curSubitem.link}
 					</a>
 
 					{renderSublistTypes(curSubitem)}
@@ -146,12 +147,14 @@ export default function Navbar() {
 	}
 
 	function renderList(data) {
-		return <ul className="navbar__list navbar__list--primary">
+		return <ul className="navbar__list">
 			{(data.map(curItem => (
-				<li className="navbar__list-item" id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleKeyDown(e)}>
+				<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
 					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
-						<span aria-hidden={true}>{curItem.link}</span>
-						<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span>
+						{curItem.sublist ?
+							<><span aria-hidden={true}>{curItem.link}</span>
+								<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
+							: curItem.link}
 					</a>
 
 					{renderSublist(curItem)}
@@ -162,14 +165,14 @@ export default function Navbar() {
 
 
 	return (
-		<nav className="navbar" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList} onFocus={e => getNavbarHeight(e)}>
+		<nav className="navbar text-neutral-1 surface-neutral-6" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList} onFocus={e => getNavbarHeight(e)}>
 			<div className="app-container">
-				<div className="navbar__container">
+				<div className="navbar__container ">
 					<div className="logo">
 						<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
 					</div>
 					{renderList(dataNavbar.list)}
-					<ul className="navbar__list navbar__list--secondary">
+					<ul className="navbar__list">
 						<li className="navbar__list-item">
 							<button>
 								<span className="sr-only">click to open chat with our support team</span>
@@ -187,7 +190,7 @@ export default function Navbar() {
 							</button>
 						</li>
 						<li className="navbar__list-item">
-							<button className="btn-hamburger" onClick={handleOpenMenu} aria-expanded={menuOpen} aria-label="click to open site navigation menu">
+							<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open site navigation menu">
 								<i className="btn-hamburger__line" aria-hidden="true"></i>
 								<i className="btn-hamburger__line" aria-hidden="true"></i>
 								<i className="btn-hamburger__line" aria-hidden="true"></i>
