@@ -8,7 +8,7 @@
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
 			position : fixed;
-			z-index : 50;
+			z-index  : 50;
 		}
 	}
 
