@@ -3,6 +3,14 @@
 	overflow       : hidden;
 	min-block-size : var(--block-size);
 	transition     : min-block-size 300ms ease-out;
+	width          : 100vw;
+
+	&[data-menu-open="true"] {
+		@include breakpoint(max, em(1025px)) {
+			position : fixed;
+			z-index : 50;
+		}
+	}
 
 	&__container {
 		display       : flex;

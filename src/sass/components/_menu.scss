@@ -1,39 +1,50 @@
 
 .menu {
+	block-size : 0;
+	overflow   : hidden;
 
-	@include breakpoint(max, em(1025px)) {
-		min-block-size : 100vh;
+	&[data-menu-open="true"] {
+		block-size : auto;
+
+		@include breakpoint(max, em(1025px)) {
+			position   : fixed;
+			inset      : 0;
+			overflow-y : auto;
+		}
 	}
 
 	&__container {
 
 	}
 
-	&__grid:where([role='list']) {
-		grid-auto-flow     : column;
-		grid-template-rows : 1fr 1fr 1fr;
-	}
-
 	&__grid {
-		--space               : #{clamped(2rem, 3rem, em(725px), em(1025px))}; // props
+		--space               : #{clamped(2.5rem, 3rem, em(725px), em(1025px))}; // props
 
-		padding-block         : 5rem; // props
+		inline-size           : min(155rem, 90%);
+		padding-block         : calc(var(--space) * 2); // props
 		margin-inline-start   : auto;
 		display               : grid;
 		grid-template-columns : 1fr 1fr 1fr;
 		justify-items         : start;
-		inline-size           : min(155rem, 90%);
 		row-gap               : var(--space);
-		column-gap            : 3rem;
+		column-gap            : var(--space);
 
 		@include breakpoint(max, em(1025px)) {
 			inline-size           : 100%;
-			column-gap            : 0;
+			grid-template-columns : 1fr;
+		}
+	}
+
+	&__grid:where([role='list']) {
+		grid-auto-flow     : column;
+		grid-template-rows : 1fr 1fr 1fr;
+
+		@include breakpoint(max, em(1025px)) {
+			padding-block-start   : 13rem;
 			grid-template-columns : 1fr;
 			grid-auto-flow        : row;
 		}
 	}
-
 
 	&__grid:where([role='list']) > &__item:nth-of-type(-n + 7) {
 		display : none;
@@ -43,9 +54,9 @@
 		}
 	}
 
-	&__grid:not([role='list']) {
+	&__grid:not([role='list']) > &__item + &__item {
 		@include breakpoint(max, em(1025px)) {
-			display : none;
+			margin-block-start : var(--space);
 		}
 	}
 

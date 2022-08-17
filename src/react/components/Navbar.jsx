@@ -163,8 +163,8 @@ export default function Navbar() {
 	}
 
 	return (
-		<>
-			<nav className="navbar text-neutral-1 surface-neutral-6" style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
+		<header className="">
+			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="app-container">
 					<div className="navbar__container">
@@ -202,7 +202,7 @@ export default function Navbar() {
 					</div>
 				</div>
 			</nav>
-			<Menu/>
-		</>
+			<Menu menuOpen={menuOpen} />
+		</header>
 	);
 }

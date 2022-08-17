@@ -2,7 +2,7 @@ export default function Menu(props) {
 
 
 	return (
-		<div className="menu text-neutral-1 surface-neutral-6">
+		<div className="menu text-neutral-1 surface-neutral-6" data-menu-open={props.menuOpen}>
 			<div className="app-container">
 				<div className="menu__container">
 					<ul className="menu__grid" role="list">
@@ -27,7 +27,7 @@ export default function Menu(props) {
 						<div className="menu__item">
 							<h2 className="title-preferences text-neutral-3">languages</h2>
 							<div className="cluster">
-								<a href="/" className="link-1 text-neutral-3">english</a>
+								<a href="/" className="link-1">english</a>
 								<a href="/" className="link-1">italian</a>
 								<a href="/" className="link-1">french</a>
 								<a href="/" className="link-1">spanish</a>
