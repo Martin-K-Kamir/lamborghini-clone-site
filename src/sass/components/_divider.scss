@@ -1,0 +1,35 @@
+
+.divider {
+	--divider-size    : 100%;
+	--divider-weight  : 1px;
+	--divider-surface : hsl(0, 0%, 18%);
+
+	inline-size       : 100%;
+
+	&__line {
+		inline-size      : var(--divider-size);
+		block-size       : var(--divider-weight);
+		background-color : var(--divider-surface);
+	}
+
+	&__line--overflowing::after {
+		content          : "";
+		position         : absolute;
+		inline-size      : var(--divider-size);
+		right            : 0;
+		display          : block;
+		block-size       : var(--divider-weight);
+		background-color : var(--divider-surface);
+	}
+
+	.menu & {
+		--divider-size : 87%;
+
+		display        : grid;
+		justify-items  : end;
+
+		@include breakpoint(max, em(1025px)) {
+			display : none;
+		}
+	}
+}

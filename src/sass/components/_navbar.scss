@@ -6,7 +6,7 @@
 
 	&__container {
 		display       : flex;
-		padding-block :clamped(0.8rem, 1.7rem, em(725px), em(1025px)); // props
+		padding-block : clamped(0.8rem, 1.7rem, em(725px), em(1025px)); // props
 	}
 
 	&__list {
@@ -21,7 +21,7 @@
 		margin-inline : 5rem; // props
 
 		@include breakpoint(max, em(1025px)) {
-			display: none;
+			display : none;
 		}
 	}
 
@@ -30,7 +30,7 @@
 	}
 
 	&__list:last-of-type {
-		margin-inline-start: auto;
+		margin-inline-start : auto;
 	}
 
 	&__list-item > &__sublist {

@@ -1,4 +1,4 @@
-/// Global styles
+// Global styles
 [class*="title-"] {
 	text-transform : uppercase;
 	line-height    : var(--line-height-1);
@@ -51,7 +51,7 @@
 	max-inline-size : var(--measure, var(--measure-1));
 }
 
-/// Specific styles for titles
+// Specific styles for titles
 .title-date {
 	font-size      : var(--f-size, 1.8rem);
 	font-weight    : var(--f-weight-3);
@@ -64,7 +64,7 @@
 	letter-spacing : var(--letterspacing-6);
 }
 
-/// Styles for subtitles
+// Styles for subtitles
 .subtitle-1 {
 	--space        : 0.45em;
 
@@ -80,7 +80,7 @@
 }
 
 
-/// Styles for descriptions
+// Styles for descriptions
 .description-1 {
 	font-size   : var(--f-size, 1.4rem);
 	font-weight : var(--f-weight, var(--f-weight-1));
@@ -93,7 +93,7 @@
 }
 
 
-/// Styles for links
+// Styles for links
 .link-1 {
 	font-size      : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
 	letter-spacing : var(--letterspacing, var(--letterspacing-4));
@@ -120,17 +120,17 @@
 		transition       : transform var(--transition-duration, 300ms) var(--transition-easing, ease-in-out);
 	}
 
-	&:hover::after,
-	&[data-active="true"]::after {
-		transform : scaleX(1) translateY(var(--space));
+	@media (hover : hover) {
+		&:hover::after,
+		&[data-active="true"]::after {
+			transform : scaleX(1) translateY(var(--space));
+		}
 	}
 }
 
 
-/// Styles for sublinks
+// Styles for sublinks
 .sublink-1 {
 	font-size   : var(--f-size, 1.4rem);
 	font-weight : var(--f-weight, var(--f-weight-2));
-
-
 }
