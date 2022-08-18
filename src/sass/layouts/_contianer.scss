@@ -1,9 +1,9 @@
 
 .app-container {
 	margin-inline : auto;
-	inline-size   : min(200rem, 92.5%);
+	inline-size   : min(200rem, 90%);
 }
 
 .container {
-	padding-inline        : clamped(0rem, 10rem, em(725px), em(1365px));
+	padding-inline : clamped(0rem, 10rem, em(725px), em(1365px));
 }

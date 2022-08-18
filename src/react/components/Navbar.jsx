@@ -1,17 +1,17 @@
 import Menu from './Menu';
-import dataNavbar from "../../dataNavbar";
+import dataNavigation from "../../dataNavigation";
 import React, {useState, useRef} from "react";
 import useScrollbarSize from "react-scrollbar-size";
 
 export default function Navbar() {
-	const { height, width } = useScrollbarSize();
+	const {height, width} = useScrollbarSize();
 	const [menuHeight, setMenuHeight] = useState(0);
 	const [navbarHeight, setNavbarHeight] = useState(0);
 	const [_navbarHeight, _setNavbarHeight] = useState(0);
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [listOpen, setListOpen] = useState(getListItems(dataNavbar.list));
-	const [sublistOpen, setSublistOpen] = useState(getSublistItems(dataNavbar.list));
-	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(dataNavbar.list));
+	const [listOpen, setListOpen] = useState(getListItems(dataNavigation.list));
+	const [sublistOpen, setSublistOpen] = useState(getSublistItems(dataNavigation.list));
+	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(dataNavigation.list));
 
 	const menuRef = useRef(null);
 
@@ -54,8 +54,7 @@ export default function Navbar() {
 
 	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
-		setMenuHeight(menuRef.current.clientHeight);
-		console.log(menuHeight);
+		setMenuHeight(menuOpen ? 0 : menuRef.current.clientHeight + "px");
 	}
 
 	function handleSublistTypeActive(e) {
@@ -154,24 +153,26 @@ export default function Navbar() {
 		</ul>
 	}
 
-	function renderList(data) {
-		return (data.map(curItem => (
-			<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
-				<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
-					{curItem.sublist ?
-						<><span aria-hidden={true}>{curItem.link}</span>
-							<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
-						: curItem.link}
-				</a>
+	function renderList(data, limitItems = 7) {
+		return (data.map((curItem, i) => (
+			(i >= limitItems) ? "" :
+				<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
+					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
+						{curItem.sublist ?
+							<><span aria-hidden={true}>{curItem.link}</span>
+								<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
+							: curItem.link}
+					</a>
 
-				{renderSublist(curItem)}
-			</li>
+					{renderSublist(curItem)}
+				</li>
 		)))
 	}
 
 	return (
 		<header>
-			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
+			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
+			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="app-container">
 					<div className="navbar__container">
@@ -179,7 +180,7 @@ export default function Navbar() {
 							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
 						</div>
 						<ul className="navbar__list">
-							{renderList(dataNavbar.list)}
+							{renderList(dataNavigation.list)}
 						</ul>
 						<ul className="navbar__list">
 							<li className="navbar__list-item">

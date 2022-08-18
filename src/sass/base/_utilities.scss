@@ -1,6 +1,11 @@
 
 :root {
 	@include generator($config);
+
+	--block-transition-duration : 300ms;
+	--block-transition-ease     : ease-out;
+	--clip-transition-duration  : calc(var(--block-transition-duration) + 100ms);
+	--clip-transition-ease      : ease-in;
 }
 
 .f-fluid-1 {

@@ -4,19 +4,11 @@
 
 	overflow           : hidden;
 	min-block-size     : var(--block-size);
-	transition         : min-block-size 300ms ease-out;
-
-	&[data-menu-open="true"] {
-		@include breakpoint(max, em(1025px)) {
-			position : fixed;
-			inset    : auto calc(0px + var(--scroll-bar-width)) auto 0;
-			z-index  : 50;
-		}
-	}
+	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease);
 
 	&__container {
 		display       : flex;
-		padding-block : clamped(0.8rem, 1.7rem, em(725px), em(1025px)); // props
+		padding-block : clamped(1rem, 1.7rem, em(725px), em(1025px)); // props
 	}
 
 	&__list {
@@ -89,9 +81,7 @@
 }
 
 // TODO
-// animations
-// rendering/arrows adding
+// btns
 // active classes
 // refactor
-// icons/btns
 // accessibility

@@ -1,27 +1,18 @@
 
 .menu {
-	min-block-size        : var(--block-size);
 
-	--transition-duration : 200ms;
-	--transition-ease     : ease-out;
-	opacity               : 0;
-	visibility            : hidden;
-	transition            : opacity var(--transition-duration) var(--transition-ease), visibility var(--transition-duration) var(--transition-ease);
+	margin-block-start : -2px; // fixes gap between menu and navbar
+	overflow           : hidden;
+	clip-path          : inset(0 0 100% 0);
+	max-block-size     : var(--block-size);
+	transition         : max-block-size var(--block-transition-duration) var(--block-transition-ease),
+	clip-path var(--clip-transition-duration) var(--clip-transition-ease);
 
 
 	&[data-menu-open="true"] {
-		opacity    : 1;
-		visibility : visible;
 
-		@include breakpoint(max, em(1025px)) {
-			position   : fixed;
-			inset      : 0;
-			overflow-y : auto;
-		}
-	}
-
-	&__container {
-
+		--clip-transition-ease : ease-out;
+		clip-path              : inset(0 0 0 0);
 	}
 
 	&__grid {
@@ -47,7 +38,7 @@
 		grid-template-rows : 1fr 1fr 1fr;
 
 		@include breakpoint(max, em(1025px)) {
-			padding-block-start   : 13rem;
+			padding-block-start   : 10rem;
 			grid-template-columns : 1fr;
 			grid-auto-flow        : row;
 		}
@@ -57,7 +48,9 @@
 		display : none;
 
 		@include breakpoint(max, em(1025px)) {
-			display : block;
+			position    : relative;
+			display     : block;
+			inline-size : 100%;
 		}
 	}
 

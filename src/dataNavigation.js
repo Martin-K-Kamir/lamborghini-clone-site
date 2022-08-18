@@ -341,5 +341,125 @@ export default {
 			id: "store",
 			link: "store",
 		},
+				{
+			key: "08",
+			id: "design",
+			link: "design",
+		},
+				{
+			key: "09",
+			id: "innovationExcellence",
+			link: "innovation & excellence",
+		},
+				{
+			key: "10",
+			id: "sustainability",
+			link: "sustainability",
+		},
+				{
+			key: "11",
+			id: "drivingPrograms",
+			link: "driving programs",
+		},		{
+			key: "12",
+			id: "lounge",
+			link: "lounge",
+		},		{
+			key: "13",
+			id: "club",
+			link: "club",
+		},		{
+			key: "14",
+			id: "history",
+			link: "history",
+		},		{
+			key: "15",
+			id: "news",
+			link: "news",
+		},
 	],
+	languages : [
+		{
+			key: "01",
+			id: "en",
+			content: "English",
+		},
+		{
+			key: "02",
+			id: "it",
+			content: "Italian",
+		},
+		{
+			key: "03",
+			id: "fr",
+			content: "French",
+		},
+		{
+			key: "04",
+			id: "sp",
+			content: "Spanish",
+		},
+		{
+			key: "05",
+			id: "de",
+			content: "German",
+		},
+		{
+			key: "06",
+			id: "ch",
+			content: "Chinese",
+		},
+		{
+			key: "07",
+			id: "jp",
+			content: "Japanese",
+		},
+		{
+			key: "08",
+			id: "cz",
+			content: "Czech",
+		},
+	],
+	socialIcons : [
+				{
+			key: "01",
+			name: "instagram",
+		},
+		{
+			key: "02",
+			name: "facebook",
+		},
+		{
+			key: "03",
+			name: "youtube",
+		},
+		{
+			key: "04",
+			name: "linkedin",
+		},
+		{
+			key: "05",
+			name: "wechat",
+		},
+		{
+			key: "06",
+			name: "discord",
+		},
+		{
+			key: "07",
+			name: "slack",
+		},
+		{
+			key: "08",
+			name: "spotify",
+		},
+				{
+			key: "09",
+			name: "reddit",
+		},
+				{
+			key: "10",
+			name: "snapchat",
+		},
+	]
 }
