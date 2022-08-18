@@ -1,8 +1,9 @@
+
+
 export default function Menu(props) {
 
-
 	return (
-		<div className="menu text-neutral-1 surface-neutral-6" data-menu-open={props.menuOpen}>
+		<div className="menu text-neutral-1 surface-neutral-6" data-menu-open={props.menuOpen} ref={props.menuRef} style={{"--block-size": props.menuHeight}}>
 			<div className="app-container">
 				<div className="menu__container">
 					<ul className="menu__grid" role="list">

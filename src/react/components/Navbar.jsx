@@ -1,14 +1,19 @@
 import Menu from './Menu';
 import dataNavbar from "../../dataNavbar";
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
+import useScrollbarSize from "react-scrollbar-size";
 
 export default function Navbar() {
+	const { height, width } = useScrollbarSize();
+	const [menuHeight, setMenuHeight] = useState(0);
 	const [navbarHeight, setNavbarHeight] = useState(0);
 	const [_navbarHeight, _setNavbarHeight] = useState(0);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [listOpen, setListOpen] = useState(getListItems(dataNavbar.list));
 	const [sublistOpen, setSublistOpen] = useState(getSublistItems(dataNavbar.list));
 	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(dataNavbar.list));
+
+	const menuRef = useRef(null);
 
 	function convertToObject(arr, val = false) {
 		return arr.reduce((acc, key) => {
@@ -49,6 +54,8 @@ export default function Navbar() {
 
 	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
+		setMenuHeight(menuRef.current.clientHeight);
+		console.log(menuHeight);
 	}
 
 	function handleSublistTypeActive(e) {
@@ -163,8 +170,8 @@ export default function Navbar() {
 	}
 
 	return (
-		<header className="">
-			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
+		<header>
+			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}} onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="app-container">
 					<div className="navbar__container">
@@ -202,7 +209,7 @@ export default function Navbar() {
 					</div>
 				</div>
 			</nav>
-			<Menu menuOpen={menuOpen} />
+			<Menu menuOpen={menuOpen} menuRef={menuRef} menuHeight={menuHeight}/>
 		</header>
 	);
 }
