@@ -51,12 +51,13 @@ button:where(.btn-primary, .btn-secondary) {
 }
 
 .btn-hamburger {
-	--surface   : white;
-	--line-size : 0.1rem;
-	--line-space: 0.7rem;
+	--surface    : white;
+	--line-size  : 0.1rem;
+	--line-space : 0.7rem;
 
-	inline-size : var(--btn-size, 2.5rem);
-	block-size : var(--btn-size, 2.5rem);
+	inline-size  : var(--btn-size, 2.5rem);
+	block-size   : var(--btn-size, 2.5rem);
+	transform    : translateY(-1px);
 
 	&__line {
 		display          : block;
@@ -64,17 +65,17 @@ button:where(.btn-primary, .btn-secondary) {
 		block-size       : var(--line-size);
 		margin-block     : var(--line-space);
 		background-color : var(--surface);
-		border-top       : var(--line-size) solid var(--surface);
+		padding-top      : var(--line-size);
 		transition       : 350ms;
 	}
 
 	&[aria-expanded="true"] > &__line {
-		margin     : 0;
+		margin : 0;
 	}
 
 	&[aria-expanded="true"] > &__line:nth-child(1) {
-		transform: rotate(45deg);
-		margin-block-end: calc(-1 * var(--line-size));
+		transform        : rotate(45deg);
+		margin-block-end : calc(-1 * var(--line-size));
 	}
 
 	&[aria-expanded="true"] > &__line:nth-child(2) {
@@ -83,7 +84,7 @@ button:where(.btn-primary, .btn-secondary) {
 	}
 
 	&[aria-expanded="true"] > &__line:nth-child(3) {
-		transform: rotate(-45deg);
-		margin-block-start: calc(-1 * var(--line-size))
+		transform          : rotate(-45deg);
+		margin-block-start : calc(-1 * var(--line-size))
 	}
 }

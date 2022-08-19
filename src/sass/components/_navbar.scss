@@ -35,6 +35,10 @@
 		margin-inline-start : auto;
 	}
 
+	&__list-item {
+		white-space : nowrap;
+	}
+
 	&__list-item > &__sublist {
 		top : 100%;
 	}
@@ -81,7 +85,7 @@
 }
 
 // TODO
-// btns
-// active classes
+// active classes lang // disable navbar
 // refactor
 // accessibility
+// deploy & testing

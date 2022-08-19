@@ -105,7 +105,7 @@
 
 .link-2 {
 	font-size   : var(--f-size, 2.2rem);
-	line-height : var(--line-height-2);
+	line-height : var(--line-height-3);
 
 	@include breakpoint(max, em(1025px)) {
 		--f-weight : var(--f-weight-2);

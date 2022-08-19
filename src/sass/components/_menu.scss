@@ -4,14 +4,13 @@
 	margin-block-start : -2px; // fixes gap between menu and navbar
 	overflow           : hidden;
 	clip-path          : inset(0 0 100% 0);
-	max-block-size     : var(--block-size);
-	transition         : max-block-size var(--block-transition-duration) var(--block-transition-ease),
-	clip-path var(--clip-transition-duration) var(--clip-transition-ease);
+	min-block-size     : var(--block-size);
+	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease), clip-path var(--clip-transition-duration) var(--clip-transition-ease);
+
 
 
 	&[data-menu-open="true"] {
-
-		--clip-transition-ease : ease-out;
+		--clip-transition-ease : ease-in;
 		clip-path              : inset(0 0 0 0);
 	}
 
@@ -22,7 +21,7 @@
 		padding-block         : calc(var(--space) * 2); // props
 		margin-inline-start   : auto;
 		display               : grid;
-		grid-template-columns : 1fr 1fr 1fr;
+		grid-template-columns : repeat(3, 1fr);
 		justify-items         : start;
 		row-gap               : var(--space);
 		column-gap            : var(--space);

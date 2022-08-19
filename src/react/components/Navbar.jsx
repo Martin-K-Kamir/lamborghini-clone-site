@@ -171,7 +171,7 @@ export default function Navbar() {
 
 	return (
 		<header>
-			<nav className="navbar text-neutral-1 surface-neutral-6" data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
+			<nav className="navbar text-neutral-1 surface-neutral-6" data-disabled={true} data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
 			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="app-container">
@@ -186,7 +186,7 @@ export default function Navbar() {
 							<li className="navbar__list-item">
 								<button>
 									<span className="sr-only">click to open chat with our support team</span>
-									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
+									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 27 27">
 										<use href="media/sprites.svg#icon-chat"/>
 									</svg>
 								</button>
@@ -194,7 +194,7 @@ export default function Navbar() {
 							<li className="navbar__list-item">
 								<button>
 									<span className="sr-only">click to open search menu</span>
-									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25">
+									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 27 27">
 										<use href="media/sprites.svg#icon-search"/>
 									</svg>
 								</button>

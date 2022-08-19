@@ -1,10 +1,11 @@
+import React from "react";
 
 export default function Button(props) {
 
 	return (
 		<>
 			{props.href ?
-				<a href={`${props.href}`} className={}>{props.content}</a>
+				<a href={`${props.href}`}>{props.content}</a>
 				:
 				<button>{props.content}</button>}
 		</>

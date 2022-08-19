@@ -4,16 +4,21 @@ html {
 }
 
 body {
-	font-family      : var(--f-primary), Helvetica Neue, Arial;
-	font-size        : 1rem;
-	font-weight      : var(--f-weight-2);
-	color            : var(--neutral-5);
+	font-family    : var(--f-primary), Helvetica Neue, Arial;
+	font-size      : 1rem;
+	font-weight    : var(--f-weight-2);
+	color          : var(--neutral-5);
+	text-rendering : geometricPrecision;
 }
 
 a {
 	text-decoration : inherit;
 	color           : var(--text, inherit);
 	transition      : text-decoration 250ms, color var(--transition-duration) var(--transition-ease);
+
+	[data-disabled="true"] & {
+		color : #666666;
+	}
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {
