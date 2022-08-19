@@ -1,3 +1,16 @@
+
+button {
+	&:has(svg [href*="chat"], [href*="search"]) {
+		width  : 2.5rem;
+		height : 2.5rem;
+	}
+
+	&:focus-visible {
+		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
+		outline-offset : calc(var(--outline-size) * 2 + 1px);
+	}
+}
+
 button:where(.btn-primary, .btn-secondary) {
 	&:where(&, :active, :visited) {
 		--text           : black;
@@ -53,11 +66,11 @@ button:where(.btn-primary, .btn-secondary) {
 .btn-hamburger {
 	--surface    : white;
 	--line-size  : 0.1rem;
-	--line-space : 0.7rem;
+	--line-space : 0.6rem;
 
 	inline-size  : var(--btn-size, 2.5rem);
 	block-size   : var(--btn-size, 2.5rem);
-	transform    : translateY(-1px);
+	transform    : translateY(-3px);
 
 	&__line {
 		display          : block;
@@ -67,6 +80,14 @@ button:where(.btn-primary, .btn-secondary) {
 		background-color : var(--surface);
 		padding-top      : var(--line-size);
 		transition       : 350ms;
+	}
+
+	&__line:first-child {
+		margin-block-start : 0;
+	}
+
+	&__line:last-child {
+		margin-block-end : 0;
 	}
 
 	&[aria-expanded="true"] > &__line {

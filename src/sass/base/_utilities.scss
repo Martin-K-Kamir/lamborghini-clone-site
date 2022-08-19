@@ -6,12 +6,14 @@
 	--block-transition-ease     : ease-out;
 	--clip-transition-duration  : calc(var(--block-transition-duration) + 100ms);
 	--clip-transition-ease      : ease-out;
+	--outline-size              : max(1px, 0.08em);
+	--outline-style             : solid;
+	--outline-color             : currentColor;
 }
 
 .f-fluid-1 {
 	font-size : clamped(1.3rem, 1.6rem, em(1025px), em(1365px));
 }
-
 
 
 .sr-only {

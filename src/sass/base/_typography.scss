@@ -124,6 +124,14 @@
 		transition       : transform var(--transition-duration, 300ms) var(--transition-easing, ease-in-out);
 	}
 
+	&:focus {
+		outline: none;
+	}
+
+	&:focus::after {
+		transform : scaleX(1) translateY(var(--space));
+	}
+
 	@media (hover : hover) {
 		&:hover::after,
 		&[data-active="true"]::after {

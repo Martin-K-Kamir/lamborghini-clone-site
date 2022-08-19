@@ -1,7 +1,9 @@
 
 .icon {
-	width  : 1.2em;
-	height : 1.2em;
+	--icon-size: 1.5em;
+
+	width  : var(--icon-size);
+	height : var(--icon-size);
 }
 
 .with-icon {

@@ -1,8 +1,23 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import dataNavigation from "../../dataNavigation";
 
 
 export default function Menu(props) {
+	const [langActive, setLangActive] = useState(getLangs(dataNavigation.languages));
+
+	useEffect(() => {
+		setLangActive(prevState => ({...prevState, en: true}));
+	}, []);
+
+	function convertToObject(arr, val = false) {
+		return arr.reduce((acc, key) => {
+			return {...acc, [key]: val}
+		}, {});
+	}
+
+	function getLangs(data) {
+		return convertToObject(data.map(({id}) => id));
+	}
 
 	function renderSocialIcons(data) {
 		return (data.map(curIcon => (
@@ -17,7 +32,9 @@ export default function Menu(props) {
 
 	function renderLangs(data) {
 		return (data.map(curLang => (
-			<a href="/" className="link-1" key={curLang.key}>{curLang.content}</a>
+			<a href="/" className={`link-1 ${langActive[curLang.id] ? "text-neutral-3" : ""}`} id={curLang.id} key={curLang.key}>
+				<span className="sr-only">go to</span>{curLang.content}<span className="sr-only">page</span>
+			</a>
 		)))
 	}
 
@@ -33,7 +50,8 @@ export default function Menu(props) {
 	}
 
 	return (
-		<div className="menu text-neutral-1 surface-neutral-6" data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
+		<div className="menu text-neutral-1 surface-neutral-7
+		" data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
 			<div className="app-container">
 				<div className="menu__container" ref={props.menuRef}>
 					<ul className="menu__grid" role="list">
@@ -44,14 +62,14 @@ export default function Menu(props) {
 					</div>
 					<div className="menu__grid">
 						<div className="menu__item">
-							<h2 className="title-preferences text-neutral-3">languages</h2>
-							<div className="cluster">
+							<p className="title-preferences text-neutral-3">languages</p>
+							<div className="cluster" role="group" aria-label="languages">
 								{renderLangs(dataNavigation.languages)}
 							</div>
 						</div>
 						<div className="menu__item">
-							<h2 className="title-preferences text-neutral-3">social</h2>
-							<div className="cluster">
+							<p className="title-preferences text-neutral-3">social</p>
+							<div className="cluster" role="group" aria-label="social links">
 								{renderSocialIcons(dataNavigation.socialIcons)}
 							</div>
 						</div>

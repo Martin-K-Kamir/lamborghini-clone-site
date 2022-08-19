@@ -4,11 +4,10 @@ html {
 }
 
 body {
-	font-family    : var(--f-primary), Helvetica Neue, Arial;
-	font-size      : 1rem;
-	font-weight    : var(--f-weight-2);
-	color          : var(--neutral-5);
-	text-rendering : geometricPrecision;
+	font-family : var(--f-primary), Helvetica Neue, Arial;
+	font-size   : 1rem;
+	font-weight : var(--f-weight-2);
+	color       : var(--neutral-6);
 }
 
 a {
@@ -16,8 +15,10 @@ a {
 	color           : var(--text, inherit);
 	transition      : text-decoration 250ms, color var(--transition-duration) var(--transition-ease);
 
-	[data-disabled="true"] & {
-		color : #666666;
+	&:where([data-disabled="true"] &, &[data-disabled="true"]) {
+		pointer-events      : none;
+		color               : var(--text-disabled, var(--neutral-5));
+		-webkit-text-stroke : var(--text-disabled-stroke, 0.3px);
 	}
 
 	@media (hover : hover) {
@@ -26,22 +27,13 @@ a {
 		}
 	}
 
+	&:focus {
+		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
+		outline-offset : calc(var(--outline-size) * 2 + 1px);
+	}
+
 	& > :where(svg, path) {
 		color : inherit;
 		fill  : currentColor;
 	}
 }
-
-// dev only
-//.typography {
-//	background-color : #181818;
-//	color            : white;
-//}
-//
-//p:not(:first-child) {
-//	margin-block : 2rem;
-//}
-//
-//.break {
-//	margin-block : 10rem;
-//}

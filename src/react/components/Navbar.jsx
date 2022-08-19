@@ -76,6 +76,8 @@ export default function Navbar() {
 	}
 
 	function handleShowList(e) {
+		if (menuOpen) return;
+
 		const id = e.currentTarget.id;
 		const sublistHeight = e.currentTarget.children[1] !== undefined ? e.currentTarget.children[1].clientHeight : 0.1;
 		const copyListOpen = setObjectValue(listOpen);
@@ -171,7 +173,8 @@ export default function Navbar() {
 
 	return (
 		<header>
-			<nav className="navbar text-neutral-1 surface-neutral-6" data-disabled={true} data-menu-open={menuOpen} style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
+			<nav className="navbar text-neutral-1 surface-neutral-7" data-disabled={menuOpen} data-menu-open={menuOpen}
+			     style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
 			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="app-container">
@@ -182,7 +185,7 @@ export default function Navbar() {
 						<ul className="navbar__list">
 							{renderList(dataNavigation.list)}
 						</ul>
-						<ul className="navbar__list">
+						<ul className="navbar__list" onMouseEnter={handleHideList}>
 							<li className="navbar__list-item">
 								<button>
 									<span className="sr-only">click to open chat with our support team</span>
@@ -200,7 +203,7 @@ export default function Navbar() {
 								</button>
 							</li>
 							<li className="navbar__list-item">
-								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open site navigation menu">
+								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open extended navigation menu">
 									<i className="btn-hamburger__line" aria-hidden="true"></i>
 									<i className="btn-hamburger__line" aria-hidden="true"></i>
 									<i className="btn-hamburger__line" aria-hidden="true"></i>
