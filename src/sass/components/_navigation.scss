@@ -3,7 +3,10 @@
 	position    : fixed;
 	inline-size : 100%;
 	overflow-y  : hidden;
-	block-size  : var(--block-size);
+
+	@include breakpoint(max, em(1025px)) {
+		block-size : var(--block-size);
+	}
 
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
