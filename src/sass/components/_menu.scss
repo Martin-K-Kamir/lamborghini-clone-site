@@ -3,7 +3,7 @@
 
 	margin-block-start : -2px; // fixes gap between menu and navbar
 	clip-path          : inset(0 0 100% 0);
-	block-size         : 0;
+	//block-size         : 0;
 	min-block-size     : var(--block-size);
 	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease), clip-path var(--clip-transition-duration) var(--clip-transition-ease);
 

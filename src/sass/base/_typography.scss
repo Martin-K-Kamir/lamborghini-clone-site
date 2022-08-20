@@ -133,6 +133,8 @@
 	}
 
 	@media (hover : hover) {
+		transition: none;
+
 		&:hover::after,
 		&[data-active="true"]::after {
 			transform : scaleX(1) translateY(var(--space));
