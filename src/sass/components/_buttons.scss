@@ -64,14 +64,14 @@ button:where(.btn-primary, .btn-secondary) {
 }
 
 .btn-hamburger {
-	--surface    : white;
-	--line-size  : 0.1rem;
-	--line-space : 0.6rem;
-	--transition-duration: 250ms;
+	--surface             : white;
+	--line-size           : 0.1rem;
+	--line-space          : 0.6rem;
+	--transition-duration : 250ms;
 
-	inline-size  : var(--btn-size, 2.5rem);
-	block-size   : var(--btn-size, 2.5rem);
-	transform    : translateY(-3px);
+	inline-size           : var(--btn-size, 2.5rem);
+	block-size            : var(--btn-size, 2.5rem);
+	transform             : translateY(-3px);
 
 	&__line {
 		display          : block;
@@ -80,7 +80,13 @@ button:where(.btn-primary, .btn-secondary) {
 		margin-block     : var(--line-space);
 		background-color : var(--surface);
 		padding-top      : var(--line-size);
-		transition       : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
+			transition : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
+	}
+
+	@media not (hover : hover) {
+		&__line {
+			transition: none;
+		}
 	}
 
 	&__line:first-child {

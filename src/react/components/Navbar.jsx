@@ -58,7 +58,7 @@ export default function Navbar() {
 
 		setTimeout(() => {
 			setMenuHeight(menuOpen ? 0 : menuRef.current.clientHeight + "px");
-		}, 300);
+		}, 470);
 	}
 
 	function handleSublistTypeActive(e) {

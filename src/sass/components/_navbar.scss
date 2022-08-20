@@ -1,10 +1,12 @@
 
 .navbar {
-	--scroll-bar-width : 17px;
+	--scroll-bar-width          : 17px;
+	--block-transition-duration : 250ms;
+	--block-transition-ease     : ease-out;
 
-	overflow           : hidden;
-	min-block-size     : var(--block-size);
-	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease);
+	overflow                    : hidden;
+	min-block-size              : var(--block-size);
+	transition                  : min-block-size var(--block-transition-duration) var(--block-transition-ease);
 
 
 	@include breakpoint(max, em(1025px)) {

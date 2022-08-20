@@ -2,10 +2,6 @@
 :root {
 	@include generator($config);
 
-	--block-transition-duration : 250ms;
-	--block-transition-ease     : ease-out;
-	--clip-transition-duration  : 250ms;
-	--clip-transition-ease      : ease-in;
 	--outline-size              : max(1px, 0.08em);
 	--outline-style             : solid;
 	--outline-color             : currentColor;
