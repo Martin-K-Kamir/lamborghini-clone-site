@@ -6,13 +6,19 @@
 	min-block-size     : var(--block-size);
 	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease);
 
+
+	@include breakpoint(max, em(1025px)) {
+		position : fixed;
+		z-index  : 5;
+		width    : 100%;
+	}
+
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
-			position : fixed;
-			z-index  : 5;
-			width    : calc(100% - var(--scroll-bar-width));
+			width : calc(100% - var(--scroll-bar-width));
 		}
 	}
+
 
 	&__container {
 		display       : flex;

@@ -54,8 +54,11 @@ export default function Navbar() {
 
 	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
-		setMenuHeight(menuOpen ? 0 : menuRef.current.clientHeight + "px");
 		document.body.dataset.menuOpen = !menuOpen ? "true" : "false";
+
+		setTimeout(() => {
+			setMenuHeight(menuOpen ? 0 : menuRef.current.clientHeight + "px");
+		}, 300);
 	}
 
 	function handleSublistTypeActive(e) {
