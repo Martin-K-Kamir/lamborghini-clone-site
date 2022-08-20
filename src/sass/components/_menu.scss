@@ -10,7 +10,7 @@
 
 
 	@include breakpoint(max, em(725px)) {
-		--clip-transition-duration : 500ms;
+		--clip-transition-duration : 400ms;
 		--clip-transition-ease     : ease-out;
 	}
 
