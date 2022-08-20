@@ -80,11 +80,9 @@ button:where(.btn-primary, .btn-secondary) {
 		margin-block     : var(--line-space);
 		background-color : var(--surface);
 		padding-top      : var(--line-size);
-			transition : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
-	}
+		transition : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
 
-	@media not (hover : hover) {
-		&__line {
+		@include breakpoint(max, em(725px)) {
 			transition: none;
 		}
 	}

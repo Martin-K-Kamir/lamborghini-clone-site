@@ -6,7 +6,7 @@
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
 			overflow-y : auto;
-			block-size : 100vh;
+			block-size : 100%;
 		}
 	}
 }

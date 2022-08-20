@@ -10,7 +10,7 @@
 
 
 	@include breakpoint(max, em(725px)) {
-		--clip-transition-duration : 425ms;
+		--clip-transition-duration : 500ms;
 		--clip-transition-ease     : ease-out;
 	}
 
@@ -21,10 +21,6 @@
 		@include breakpoint(max, em(725px)) {
 			--clip-transition-ease : ease-in;
 		}
-	}
-
-	&__container {
-		block-size: 100%;
 	}
 
 	&__grid {
