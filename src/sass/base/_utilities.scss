@@ -2,10 +2,10 @@
 :root {
 	@include generator($config);
 
-	--block-transition-duration : 300ms;
+	--block-transition-duration : 350ms;
 	--block-transition-ease     : ease-out;
-	--clip-transition-duration  : calc(var(--block-transition-duration) + 100ms);
-	--clip-transition-ease      : ease-out;
+	--clip-transition-duration  : var(--block-transition-duration);
+	--clip-transition-ease      : ease-in;
 	--outline-size              : max(1px, 0.08em);
 	--outline-style             : solid;
 	--outline-color             : currentColor;
@@ -15,6 +15,9 @@
 	font-size : clamped(1.3rem, 1.6rem, em(1025px), em(1365px));
 }
 
+.disable-scroll {
+	overflow-y : hidden;
+}
 
 .sr-only {
 	position    : absolute;

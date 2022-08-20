@@ -67,6 +67,7 @@ button:where(.btn-primary, .btn-secondary) {
 	--surface    : white;
 	--line-size  : 0.1rem;
 	--line-space : 0.6rem;
+	--transition-duration: 250ms;
 
 	inline-size  : var(--btn-size, 2.5rem);
 	block-size   : var(--btn-size, 2.5rem);
@@ -79,7 +80,7 @@ button:where(.btn-primary, .btn-secondary) {
 		margin-block     : var(--line-space);
 		background-color : var(--surface);
 		padding-top      : var(--line-size);
-		transition       : 350ms;
+		transition       : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
 	}
 
 	&__line:first-child {

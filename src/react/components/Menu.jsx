@@ -20,38 +20,30 @@ export default function Menu(props) {
 	}
 
 	function renderSocialIcons(data) {
-		return (data.map(curIcon => (
-			<a href="/" className="link-2" key={curIcon.key}>
+		return (data.map(curIcon => (<a href="/" className="link-2" key={curIcon.key}>
 				<span className="sr-only">click to open our {curIcon.name} profile</span>
 				<svg aria-hidden="true" width="24" height="24" viewBox="0 0 20 20">
 					<use href={`media/sprites.svg#icon-${curIcon.name}`}/>
 				</svg>
-			</a>
-		)))
+			</a>)))
 	}
 
 	function renderLangs(data) {
-		return (data.map(curLang => (
-			<a href="/" className={`link-1 ${langActive[curLang.id] ? "text-neutral-3" : ""}`} id={curLang.id} key={curLang.key}>
+		return (data.map(curLang => (<a href="/" className={`link-1 ${langActive[curLang.id] ? "text-neutral-3" : ""}`} id={curLang.id} key={curLang.key}>
 				<span className="sr-only">go to</span>{curLang.content}<span className="sr-only">page</span>
-			</a>
-		)))
+			</a>)))
 	}
 
 	function renderList(data) {
-		return (data.map(curItem => (
-			<li className="menu__item" key={curItem.key}>
+		return (data.map(curItem => (<li className="menu__item" key={curItem.key}>
 				<a className="link-2 link-underline letterspacing-4" href="/">{curItem.link}</a>
 				{curItem.sublist && <svg className="icon at-end" aria-hidden="true" width="7.728" height="16.077" viewBox="0 0 7.728 16.077">
 					<use href={`media/sprites.svg#icon-arrow-right`}/>
 				</svg>}
-			</li>
-		)))
+			</li>)))
 	}
 
-	return (
-		<div className="menu text-neutral-1 surface-neutral-7
-		" data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
+	return (<div className="menu text-neutral-1 surface-neutral-7" data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
 			<div className="app-container">
 				<div className="menu__container" ref={props.menuRef}>
 					<ul className="menu__grid" role="list">
@@ -76,6 +68,5 @@ export default function Menu(props) {
 					</div>
 				</div>
 			</div>
-		</div>
-	);
+		</div>);
 }

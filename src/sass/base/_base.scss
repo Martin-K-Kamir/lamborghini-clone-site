@@ -8,6 +8,12 @@ body {
 	font-size   : 1rem;
 	font-weight : var(--f-weight-2);
 	color       : var(--neutral-6);
+
+	&[data-menu-open="true"]  {
+		@include breakpoint(max, em(1025px)) {
+			overflow-y : hidden;
+		}
+	}
 }
 
 a {
@@ -36,4 +42,9 @@ a {
 		color : inherit;
 		fill  : currentColor;
 	}
+}
+
+.test {
+	background : linear-gradient(red, blue);
+	height     : 4000px;
 }

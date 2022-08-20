@@ -2,21 +2,19 @@
 .menu {
 
 	margin-block-start : -2px; // fixes gap between menu and navbar
-	overflow           : hidden;
 	clip-path          : inset(0 0 100% 0);
+	block-size         : 0;
 	min-block-size     : var(--block-size);
 	transition         : min-block-size var(--block-transition-duration) var(--block-transition-ease), clip-path var(--clip-transition-duration) var(--clip-transition-ease);
 
 
-
 	&[data-menu-open="true"] {
-		--clip-transition-ease : ease-in;
-		clip-path              : inset(0 0 0 0);
+		clip-path  : inset(0 0 0 0);
+		block-size : auto;
 	}
 
 	&__grid {
 		--space               : #{clamped(2.5rem, 3rem, em(725px), em(1025px))}; // props
-
 		inline-size           : min(155rem, 85%);
 		padding-block         : calc(var(--space) * 2); // props
 		margin-inline-start   : auto;

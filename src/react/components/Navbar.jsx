@@ -55,6 +55,7 @@ export default function Navbar() {
 	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
 		setMenuHeight(menuOpen ? 0 : menuRef.current.clientHeight + "px");
+		document.body.dataset.menuOpen = !menuOpen ? "true" : "false";
 	}
 
 	function handleSublistTypeActive(e) {
@@ -172,7 +173,7 @@ export default function Navbar() {
 	}
 
 	return (
-		<header>
+		<header className="navigation" data-menu-open={menuOpen}>
 			<nav className="navbar text-neutral-1 surface-neutral-7" data-disabled={menuOpen} data-menu-open={menuOpen}
 			     style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
 			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
@@ -180,7 +181,7 @@ export default function Navbar() {
 				<div className="app-container">
 					<div className="navbar__container">
 						<div className="logo">
-							<img src="./media/home/image-logo.png" alt="Lamborghini logo"/>
+							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
 						</div>
 						<ul className="navbar__list">
 							{renderList(dataNavigation.list)}
