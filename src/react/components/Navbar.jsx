@@ -180,7 +180,7 @@ export default function Navbar() {
 				<div className="app-container">
 					<div className="navbar__container">
 						<div className="logo">
-							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
+							<img src="./media/home/image-logo.png" alt="Lamborghini logo"/>
 						</div>
 						<ul className="navbar__list">
 							{renderList(dataNavigation.list)}
