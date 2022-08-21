@@ -4,12 +4,12 @@ html {
 }
 
 body {
-	font-family : var(--f-primary), Helvetica Neue, Arial;
+	font-family : var(--f-serif), Helvetica Neue, Arial;
 	font-size   : 1rem;
 	font-weight : var(--f-weight-2);
 	color       : var(--neutral-6);
 
-	&[data-menu-open="true"]  {
+	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
 			overflow-y : hidden;
 		}
@@ -43,6 +43,19 @@ a {
 		fill  : currentColor;
 	}
 }
+
+button {
+	&:has(svg [href*="chat"], [href*="search"]) {
+		width  : 2.5rem;
+		height : 2.5rem;
+	}
+
+	&:focus-visible {
+		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
+		outline-offset : calc(var(--outline-size) * 2 + 1px);
+	}
+}
+
 
 .test {
 	background : linear-gradient(red, blue);

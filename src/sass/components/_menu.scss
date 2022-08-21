@@ -3,11 +3,9 @@
 	--clip-transition-duration : 250ms;
 	--clip-transition-ease     : ease-in;
 
-	//margin-block-start         : -2px; // fixes gap between menu and navbar
 	clip-path                  : inset(0 0 100% 0);
 	block-size                 : var(--block-size);
 	transition                 : clip-path var(--clip-transition-duration) var(--clip-transition-ease);
-
 
 	@include breakpoint(max, em(725px)) {
 		--clip-transition-duration : 400ms;
@@ -25,6 +23,7 @@
 
 	&__grid {
 		--space               : #{clamped(2.5rem, 3rem, em(725px), em(1025px))}; // props
+
 		inline-size           : min(155rem, 85%);
 		padding-block         : calc(var(--space) * 2); // props
 		margin-inline-start   : auto;

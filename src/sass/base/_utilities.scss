@@ -11,10 +11,6 @@
 	font-size : clamped(1.3rem, 1.6rem, em(1025px), em(1365px));
 }
 
-.disable-scroll {
-	overflow-y : hidden;
-}
-
 .sr-only {
 	position    : absolute;
 	overflow    : hidden;

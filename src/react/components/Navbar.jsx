@@ -3,6 +3,13 @@ import dataNavigation from "../../dataNavigation";
 import React, {useState, useRef} from "react";
 import useScrollbarSize from "react-scrollbar-size";
 
+// TODO later
+// refactored jsx
+// chat
+// search
+// preview of car
+// settings
+
 export default function Navbar() {
 	const {height, width} = useScrollbarSize();
 	const [navigationHeight, setNavigationHeight] = useState(0);

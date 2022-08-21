@@ -8,19 +8,17 @@
 	min-block-size              : var(--block-size);
 	transition                  : min-block-size var(--block-transition-duration) var(--block-transition-ease);
 
-
 	@include breakpoint(max, em(1025px)) {
-		position : fixed;
-		z-index  : 5;
-		width    : 100%;
+		position    : fixed;
+		z-index     : layer('navbar');
+		inline-size : 100%;
 	}
 
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
-			width : calc(100% - var(--scroll-bar-width));
+			inline-size : calc(100% - var(--scroll-bar-width));
 		}
 	}
-
 
 	&__container {
 		display       : flex;
@@ -80,14 +78,14 @@
 	}
 
 	&__sublist-item > &__sublist {
-		padding-inline-start : 8rem;
+		padding-inline-start : 8rem; // props
 		inline-size          : 100vw;
 		left                 : 100%;
 		top                  : 0;
 	}
 
 	&__sublist-item {
-		width        : fit-content;
+		inline-size        : fit-content;
 		margin-block : 1rem; // props
 	}
 
@@ -100,6 +98,33 @@
 	}
 }
 
-// TODO
-// deploy & testing
-// refactor
+// Props
+// f-size
+// 1.4rem ///
+// 1.6rem //
+// 1.8rem
+// 2.2rem
+
+// f-fluid
+// clamped(1.3rem, 1.6rem, em(1025px), em(1365px))
+// clamped(1.4rem, 1.7rem, em(330px), em(1365px))
+// clamped(2rem, 3rem, em(330px), em(1365px))
+// clamped(2.8rem, 3.2rem, em(330px), em(1365px))
+// clamped(4rem, 7.6rem, em(330px), em(1365px))
+// clamped(4rem, 11rem, em(330px), em(1365px))
+
+// space
+// 1rem
+// 1.5rem
+// 2rem
+// 2.6rem
+// 3rem
+// 3.9rem
+// 5rem
+// 8rem
+// 14rem
+
+// space-fluid
+// clamped(1rem, 1.7rem, em(725px), em(1025px))
+// clamped(2.5rem, 3rem, em(725px), em(1025px))
+
