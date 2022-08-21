@@ -34,7 +34,7 @@
 
 	&__list:first-of-type {
 		inline-size   : 100%;
-		margin-inline : 5rem; // props
+		margin-inline : 4.3rem; // props
 
 		@include breakpoint(max, em(1025px)) {
 			display : none;
@@ -120,7 +120,7 @@
 // 2.6rem
 // 3rem
 // 3.9rem
-// 5rem
+// 4.2rem
 // 8rem
 // 14rem
 

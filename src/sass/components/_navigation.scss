@@ -1,6 +1,7 @@
 
 .navigation {
 	position    : fixed;
+	z-index     : layer('navigation');
 	inline-size : 100%;
 	overflow-y  : hidden;
 

@@ -1,29 +1,21 @@
 
 .cover {
-	position            : relative;
-	padding-block       : var(--space-fluid-5);
+	min-block-size      : 100vh;
+	display             : grid;
+	align-items         : center;
 	background-position : center;
-	display             : flex;
-	align-items         : flex-start;
-	flex-direction      : column;
-	isolation           : isolate;
+	background-size     : cover;
 
-	@include breakpoint(max, screen-sm) {
-		text-align  : center;
-		align-items : center;
+	@include breakpoint(max, em(1025px)) {
+		align-items : start;
 	}
 
-	& > h1 {
-		max-inline-size : var(--measure-1);
+	&__container {
+		padding-block : 20rem; // props
 	}
 
-	& > h1 + p {
-		--measure : var(--measure-4);
-		--space   : var(--space-3);
-	}
-
-	& > :where(button, a) {
-		margin-block-start : var(--space-6);
+	&__container > * + * {
+		margin-block-start : var(--space, 2rem); // props
 	}
 }
 

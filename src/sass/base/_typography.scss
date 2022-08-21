@@ -71,6 +71,15 @@
 	font-size      : var(--f-size, max(0.285em, 1.8rem));
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	letter-spacing : var(--letterspacing-5);
+	position       : relative;
+
+	&::after {
+		content  : "";
+		position : absolute;
+		inset    : 0;
+		background-color: transparent;
+		z-index : 5;
+	}
 }
 
 .subtitle-2 {
@@ -125,7 +134,7 @@
 	}
 
 	&:focus {
-		outline: none;
+		outline : none;
 	}
 
 	&:focus::after {
@@ -133,7 +142,7 @@
 	}
 
 	@media (hover : hover) {
-		transition: none;
+		transition : none;
 
 		&:hover::after,
 		&[data-active="true"]::after {

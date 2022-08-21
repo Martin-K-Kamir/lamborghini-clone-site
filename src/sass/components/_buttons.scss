@@ -40,8 +40,14 @@
 }
 
 .btn-hexagon {
-	block-size   : var(--btn-size, 6.6rem);
+	display      : inline-block;
+	inline-size  : var(--btn-size, 6.6rem);
 	aspect-ratio : 1 / 1;
+
+	svg {
+		width  : 100%;
+		height : 100%;
+	}
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {

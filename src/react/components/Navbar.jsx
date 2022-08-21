@@ -1,4 +1,5 @@
 import Menu from './Menu';
+import Button from "./Button";
 import dataNavigation from "../../dataNavigation";
 import React, {useState, useRef} from "react";
 import useScrollbarSize from "react-scrollbar-size";
@@ -203,20 +204,10 @@ export default function Navbar() {
 						</ul>
 						<ul className="navbar__list" onMouseEnter={handleHideList}>
 							<li className="navbar__list-item">
-								<button>
-									<span className="sr-only">click to open chat with our support team</span>
-									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 27 27">
-										<use href="media/sprites.svg#icon-chat"/>
-									</svg>
-								</button>
+								<Button type="chat" srOnly="click to open chat with our support team"/>
 							</li>
 							<li className="navbar__list-item">
-								<button>
-									<span className="sr-only">click to open search menu</span>
-									<svg aria-hidden="true" width="25" height="25" viewBox="0 0 27 27">
-										<use href="media/sprites.svg#icon-search"/>
-									</svg>
-								</button>
+								<Button type="search" srOnly="click to open search menu"/>
 							</li>
 							<li className="navbar__list-item">
 								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open extended navigation menu">
