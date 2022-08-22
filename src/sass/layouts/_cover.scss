@@ -19,3 +19,47 @@
 	}
 }
 
+.fadee {
+	animation : fadee 500ms linear backwards;
+}
+
+.fadee-right {
+	animation : fadee-right 700ms ease-out backwards 200ms;
+}
+
+.scalee-in {
+	animation : scale-in 500ms ease-out backwards 400ms;
+}
+
+@keyframes fadee {
+	0%, 75% {
+		opacity : 0;
+	}
+	100% {
+		opacity : 1;
+	}
+}
+
+@keyframes fadee-right {
+	0% {
+		opacity   : 0;
+		transform : translateX(-20%);
+	}
+
+	100% {
+		opacity   : 1;
+		transform : translateX(0);
+	}
+}
+
+@keyframes scale-in {
+	0% {
+		opacity   : 0;
+		transform : scale(0);
+	}
+
+	100% {
+		opacity   : 1;
+		transform : scale(1);
+	}
+}
