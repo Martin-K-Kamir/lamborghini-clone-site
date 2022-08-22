@@ -65,6 +65,7 @@ export default function Navbar() {
 	function handleClickMenu() {
 		setMenuOpen(!menuOpen);
 		document.body.dataset.menuOpen = !menuOpen ? "true" : "false";
+		document.body.style.setProperty('--scroll-bar-width', width + "px");
 		if (!menuOpen) navigationRef.current.scrollTo({top: 0});
 		setNavigationHeight(100 + "%");
 

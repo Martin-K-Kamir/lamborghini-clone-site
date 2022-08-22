@@ -12,6 +12,7 @@ body {
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
 			overflow-y : hidden;
+			width : calc(100% - var(--scroll-bar-width));
 		}
 	}
 }
@@ -33,7 +34,7 @@ a {
 		}
 	}
 
-	&:focus {
+	&:where(:focus:not(&[class^="btn-"]), :focus-visible) {
 		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
 		outline-offset : calc(var(--outline-size) * 2 + 1px);
 	}
@@ -58,6 +59,6 @@ button {
 
 
 .test {
-	background : linear-gradient(red, blue);
+	background : linear-gradient(to right bottom, red, yellow, blue);
 	height     : 4000px;
 }

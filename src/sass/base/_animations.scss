@@ -1,0 +1,61 @@
+
+.animation-text-reveal {
+	--animation-duration : 500ms;
+	--animation-ease     : ease-out;
+	--animation-delay    : 200ms;
+
+	& [class^="subtitle-"] > * {
+		animation : fade-in-step var(--animation-duration) linear backwards;
+	}
+
+	& .title {
+		animation : fade-in var(--animation-duration) var(--animation-ease) backwards var(--animation-delay),
+		slide-in-right var(--animation-duration) var(--animation-ease) backwards var(--animation-delay);
+	}
+
+	& .title + .title {
+		animation-delay: var(--animation-duration);
+	}
+
+	& > :where(a, button) {
+		animation : fade-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration)),
+		scale-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration));
+	}
+
+}
+
+@keyframes fade-in {
+	from {
+		opacity : 0
+	}
+
+	to {
+		opacity : 1
+	}
+}
+
+@keyframes fade-in-step {
+	0%, 75% {
+		opacity : 0
+	}
+
+	100% {
+		opacity : 1
+	}
+}
+
+@keyframes scale-in {
+	from {
+		transform : scale(0)
+	}
+
+	to {
+		transform : scale(1)
+	}
+}
+
+@keyframes slide-in-right {
+	from {
+		transform : translateX(-20%)
+	}
+}
