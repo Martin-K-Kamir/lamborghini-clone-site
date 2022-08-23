@@ -11,9 +11,9 @@ export default function Hero() {
 	}
 
 	return (
-		<header style={{backgroundImage: `url(${heroImage})`}}>
+		<header className="cover surface-neutral-6 text-neutral-1" style={{backgroundImage: `url(${heroImage})`}}>
 			<div className="app-container">
-				<div className="cover container animation-text-reveal text-neutral-1">
+				<div className="cover__container container animation-text-reveal">
 					<div className="wrap">
 						<h2 className="subtitle-2">Models</h2>
 						<Button href="/" class="btn-hexagon" type="hexa-arrow-right" srOnly="click to go huracan tecnica page"/>
