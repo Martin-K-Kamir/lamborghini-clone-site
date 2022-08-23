@@ -20,6 +20,10 @@
 	margin-block-start : var(--space);
 }
 
+[class^="title-"] + [class^="btn-"] {
+	margin-block-start : var(--space, 3rem);
+}
+
 [class^="subtitle-"] + [class^="title-"] {
 	margin-block-start : var(--space, 2rem);
 }
@@ -74,11 +78,11 @@
 	position       : relative;
 
 	&::after {
-		content  : "";
-		position : absolute;
-		inset    : 0;
-		background-color: transparent;
-		z-index : 5;
+		content          : "";
+		position         : absolute;
+		inset            : 0;
+		background-color : transparent;
+		z-index          : 5;
 	}
 }
 

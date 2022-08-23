@@ -1,5 +1,5 @@
 import Navbar from "./react/components/Navbar";
-import Cover from "./react/components/Cover";
+import Hero from "./react/components/Hero";
 
 export default function App() {
 
@@ -7,9 +7,13 @@ export default function App() {
 		<div className="App">
 			<Navbar/>
 			<main>
-				<Cover/>
+				<Hero/>
+
 				<div className="test"></div>
 			</main>
 		</div>
 	);
 }
+
+// section budou mít padding, které budu modifikovat pomocí space props utility
+// text elementy budou mít předem nastavené spacingy, které se dají upravovat pomocí space props utility

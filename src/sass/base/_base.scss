@@ -34,7 +34,7 @@ a {
 		}
 	}
 
-	&:where(:focus:not(&[class^="btn-"]), :focus-visible) {
+	&:where(:focus:not([class^="btn-"]), :focus-visible) {
 		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
 		outline-offset : calc(var(--outline-size) * 2 + 1px);
 	}
