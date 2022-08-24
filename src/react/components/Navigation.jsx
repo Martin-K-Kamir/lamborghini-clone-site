@@ -204,10 +204,10 @@ export default function Navigation() {
 						</ul>
 						<ul className="navbar__list" onMouseEnter={handleHideList}>
 							<li className="navbar__list-item">
-								<Button type="chat" srOnly="click to open chat with our support team"/>
+								<Button type="chat" size="2.5" srOnly="click to open chat with our support team"/>
 							</li>
 							<li className="navbar__list-item">
-								<Button type="search" srOnly="click to open search menu"/>
+								<Button type="search" size="2.5" srOnly="click to open search menu"/>
 							</li>
 							<li className="navbar__list-item">
 								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open extended navigation menu">

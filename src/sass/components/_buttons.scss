@@ -45,17 +45,17 @@
 }
 
 .btn-hexagon {
-	display     : inline-flex;
-	align-items : center;
-	gap         : 2rem;
+	--surface             : transparent;
+	--text                : var(--neutral-1);
+	--transition-duration : 200ms;
+	--transition-ease     : ease-out;
+
+	display               : inline-flex;
+	align-items           : center;
+	gap                   : 2rem;
 
 	& + & {
 		margin-inline-start : var(--space, 2rem);
-	}
-
-	svg {
-		inline-size  : var(--btn-size, 5rem);
-		aspect-ratio : 1 / 1;
 	}
 
 	// props
@@ -68,10 +68,15 @@
 		text-transform : uppercase;
 	}
 
+	svg {
+		inline-size  : var(--btn-size, 5rem);
+		aspect-ratio : 1 / 1;
+	}
+
 	@media (hover : hover) {
-		&:where(:hover, :focus-visible) {
+		svg:where(:hover, :focus-visible) {
 			--surface : var(--neutral-1);
-			--symbol  : var(--neutral-7);
+			--text    : var(--neutral-7);
 		}
 	}
 }
