@@ -11,7 +11,7 @@ import useScrollbarSize from "react-scrollbar-size";
 // preview of car
 // settings
 
-export default function Navbar() {
+export default function Navigation() {
 	const {height, width} = useScrollbarSize();
 	const [navigationHeight, setNavigationHeight] = useState(0);
 	const [menuHeight, setMenuHeight] = useState(0);

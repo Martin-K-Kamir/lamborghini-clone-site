@@ -1,9 +1,11 @@
 
-.animation-reveal {
+:where(.animation-title-reveal, .animation-btn-reveal) {
 	--animation-duration : 500ms;
 	--animation-ease     : ease-out;
 	--animation-delay    : 200ms;
+}
 
+.animation-title-reveal {
 	& > [class^="title-"] > span:nth-child(1) > * {
 		animation : fade-in-step var(--animation-duration) linear backwards;
 	}
@@ -14,14 +16,15 @@
 	}
 
 	& > [class^="title-"] > span:nth-child(3) {
-		animation-delay: var(--animation-duration);
+		animation-delay : var(--animation-duration);
 	}
+}
 
+.animation-btn-reveal {
 	& > [class^="btn-"] {
 		animation : fade-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration)),
 		scale-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration));
 	}
-
 }
 
 @keyframes fade-in {

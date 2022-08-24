@@ -6,6 +6,8 @@
 	clip-path                  : inset(0 0 100% 0);
 	block-size                 : var(--block-size);
 	transition                 : clip-path var(--clip-transition-duration) var(--clip-transition-ease);
+	transform                  : translateY(-2px);
+	overflow-y                 : auto;
 
 	@include breakpoint(max, em(725px)) {
 		--clip-transition-duration : 400ms;

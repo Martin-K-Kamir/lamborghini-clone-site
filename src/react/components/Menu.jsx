@@ -37,7 +37,7 @@ export default function Menu(props) {
 	function renderList(data) {
 		return (data.map(curItem => (<li className="menu__item" key={curItem.key}>
 				<a className="link-2 link-underline letterspacing-4" href="/">{curItem.link}</a>
-				{curItem.sublist && <svg className="icon at-end" aria-hidden="true" width="7.728" height="16.077" viewBox="0 0 7.728 16.077">
+				{curItem.sublist && <svg className="icon icon-at-end" aria-hidden="true" width="7.728" height="16.077" viewBox="0 0 7.728 16.077">
 					<use href={`media/sprites.svg#icon-arrow-right`}/>
 				</svg>}
 			</li>)))

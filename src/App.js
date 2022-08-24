@@ -1,4 +1,4 @@
-import Navbar from "./react/components/Navbar";
+import Navigation from "./react/components/Navigation";
 import Hero from "./react/components/Hero";
 import Models from "./react/components/Models";
 
@@ -6,7 +6,7 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<Navbar/>
+			<Navigation/>
 			<main>
 				<Hero/>
 				<Models/>

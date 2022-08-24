@@ -18,7 +18,7 @@ body {
 }
 
 section {
-	padding-block: var(--space);
+	padding-block: 15rem;
 }
 
 a {
@@ -41,11 +41,6 @@ a {
 	&:where(:focus:not([class^="btn-"]), :focus-visible) {
 		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
 		outline-offset : calc(var(--outline-size) * 2 + 1px);
-	}
-
-	& > :where(svg, path) {
-		color : inherit;
-		fill  : currentColor;
 	}
 }
 

@@ -6,16 +6,7 @@
 	height : var(--icon-size);
 }
 
-.icon-w-text {
-	display     : inline-flex;
-	align-items : baseline;
-}
-
-.with-icon.icon {
-	margin-inline-end : 1rem;
-}
-
-.at-end.icon {
+.icon-at-end {
 	position         : absolute;
 	inset-inline-end : 0;
 	top              : 50%;

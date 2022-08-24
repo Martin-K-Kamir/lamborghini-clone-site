@@ -20,10 +20,6 @@
 	margin-block-start : var(--space);
 }
 
-[class*="title-"] + [class^="btn-"] {
-	margin-block-start : var(--space, 3rem);
-}
-
 [class^="subtitle-"] + [class^="title-"] {
 	margin-block-start : var(--space, 2rem);
 }
