@@ -1,9 +1,9 @@
 
-.app-container {
+[class*="container"] {
 	margin-inline : auto;
 	inline-size   : min(200rem, 90%);
-}
 
-.container {
-	padding-inline : clamped(0rem, 10rem, em(725px), em(1365px));
+	main & {
+		padding-inline : clamped(0rem, 10rem, em(725px), em(1365px));
+	}
 }

@@ -28,26 +28,26 @@ export default function Button(props) {
 						<use href="media/sprites.svg#icon-hexa-arrow-left"/>
 					</svg>
 				</>;
-			case "hexa-arrow-plus":
+			case "hexa-plus":
 				return <>
 					<svg aria-hidden="true">
-						<use href="media/sprites.svg#icon-hexa-arrow-plus"/>
+						<use href="media/sprites.svg#icon-hexa-plus"/>
 					</svg>
 				</>;
 			default:
-				return props.children;
+				return props.content;
 		}
 	}
 
 	return (
 		<>
 			{props.href ?
-				<a href={`${props.href}`} className={props.class}>
+				<a href={`${props.href}`} className={props.class} style={props.size && {"--btn-size": props.size + "rem"}}>
 					{props.srOnly && <span className="sr-only">{props.srOnly}</span>}
 					{content(props)}
 				</a>
 				:
-				<button className={props.class}>
+				<button className={props.class} style={{"--btn-size": props.size + "rem"}}>
 					{props.srOnly && <span className="sr-only">{props.srOnly}</span>}
 					{content(props)}
 				</button>}

@@ -17,6 +17,10 @@ body {
 	}
 }
 
+section {
+	padding-block: var(--space);
+}
+
 a {
 	text-decoration : inherit;
 	color           : var(--text, inherit);

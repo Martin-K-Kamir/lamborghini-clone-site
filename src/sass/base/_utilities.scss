@@ -7,8 +7,26 @@
 	--outline-color             : currentColor;
 }
 
+//@property --space {
+//  syntax: '<length>';
+//  inherits: false;
+//  initial-value: 0;
+//}
+
 .f-fluid-1 {
 	font-size : clamped(1.3rem, 1.6rem, em(1025px), em(1365px));
+}
+
+.space-1 {
+	--space : 2.5rem;
+}
+
+.space-2 {
+	--space : 6rem;
+}
+
+.space-3 {
+	--space : 25rem;
 }
 
 .sr-only {

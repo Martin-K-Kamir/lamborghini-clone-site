@@ -12,20 +12,14 @@ export default function Hero() {
 
 	return (
 		<header className="cover surface-neutral-6 text-neutral-1" style={{backgroundImage: `url(${heroImage})`}}>
-			<div className="app-container">
-				<div className="cover__container container animation-text-reveal">
-					<div className="wrap">
-						<h2 className="subtitle-2">Models</h2>
-						<Button href="/" class="btn-hexagon" type="hexa-arrow-right" srOnly="click to go huracan tecnica page"/>
-					</div>
-					<div className="wrap">
+			<div className="cover__container">
+					<div className="animation-reveal">
 						<h1 className="title-3">
-							<span className="subtitle-1">{typewriterEffect("take all your souls to drive", 30, 50)}</span>
+							<span className="subtitle-1">{typewriterEffect("real emotions shape the future", 30, 50)}</span>
 							<span className="title">aventador</span>
 						</h1>
-						<Button href="/" class="btn-hexagon" type="hexa-arrow-right" srOnly="click to go huracan tecnica page"/>
+						<Button href="/" class="btn-hexagon" size="6.6" type="hexa-arrow-right" srOnly="click to go huracan tecnica page"/>
 					</div>
-				</div>
 			</div>
 		</header>
 	);

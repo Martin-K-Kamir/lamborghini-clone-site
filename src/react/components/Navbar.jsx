@@ -195,8 +195,7 @@ export default function Navbar() {
 			     style={{"--block-size": navbarHeight, "--scroll-bar-width": width + "px"}}
 			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
-				<div className="app-container">
-					<div className="navbar__container">
+				<div className="navbar__container">
 						<div className="logo">
 							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
 						</div>
@@ -218,7 +217,6 @@ export default function Navbar() {
 								</button>
 							</li>
 						</ul>
-					</div>
 				</div>
 			</nav>
 			<Menu menuOpen={menuOpen} menuRef={menuRef} menuHeight={menuHeight}/>

@@ -20,7 +20,7 @@
 	margin-block-start : var(--space);
 }
 
-[class^="title-"] + [class^="btn-"] {
+[class*="title-"] + [class^="btn-"] {
 	margin-block-start : var(--space, 3rem);
 }
 
@@ -89,6 +89,12 @@
 .subtitle-2 {
 	font-size      : var(--f-size, #{clamped(2rem, 3rem, em(330px), em(1365px))});
 	font-weight    : var(--f-weight, var(--f-weight-2));
+	letter-spacing : var(--letterspacing-4);
+}
+
+.subtitle-3 {
+	font-size      : var(--f-size, #{clamped(2.5rem, 3.5rem, em(330px), em(1365px))});
+	font-weight    : var(--f-weight, var(--f-weight-3));
 	letter-spacing : var(--letterspacing-4);
 }
 

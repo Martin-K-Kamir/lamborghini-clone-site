@@ -1,17 +1,13 @@
 
 .cover {
+	display             : grid;
+	align-items         : center;
 	min-block-size      : 100vh;
+	padding-block       : var(--space, 20rem); // props
 	background-position : center;
 	background-size     : cover;
 
-	&__container {
-		padding-block : 20rem; // props
-		display       : grid;
-		align-items   : center;
-		height        : 100vh;
-
-		@include breakpoint(max, em(1025px)) {
-			align-items : start;
-		}
+	@include breakpoint(max, em(1025px)) {
+		align-items : start;
 	}
 }

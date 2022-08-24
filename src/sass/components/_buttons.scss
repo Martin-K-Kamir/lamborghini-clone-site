@@ -41,8 +41,12 @@
 
 .btn-hexagon {
 	display      : inline-block;
-	inline-size  : var(--btn-size, 6.6rem);
+	inline-size  : var(--btn-size, 5rem);
 	aspect-ratio : 1 / 1;
+
+	& + & {
+		margin-inline-start: var(--space, 2rem);
+	}
 
 	svg {
 		width  : 100%;
