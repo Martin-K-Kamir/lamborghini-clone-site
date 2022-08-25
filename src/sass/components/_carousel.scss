@@ -1,67 +1,180 @@
 
 .slider {
-	position : relative;
-	display  : grid;
+	position       : relative;
+	display        : grid;
+	block-size     : 100vh;
+	min-block-size : 70rem;
+
 
 	&__container {
-		z-index : 1;
+		z-index       : 1;
+		display       : grid;
+		align-content : space-between;
 	}
 
 	&__items {
-		position    : absolute;
-		inset       : 0;
-		display     : flex;
-		overflow    : hidden;
+		position : absolute;
+		inset    : 0;
+		overflow : hidden;
+		//
+		//margin-left : -20%; //?
+	}
 
-		margin-left : -26%; //?
+	&__slider {
+		position : relative;
+		height   : 100%;
+		width    : 100%;
+		display  : inline-block;
+	}
+
+	&__slides {
+		position    : absolute;
+		top         : 0;
+		right       : 0;
+		height      : 100%;
+		text-align  : right;
+		white-space : nowrap;
 	}
 
 	&__item {
+		//position         : relative;
+		//overflow         : hidden;
+		//block-size       : 100%;
+		//transform        : skew(-20deg);
+		//transform-origin : bottom left;
+		//transition       : width 0.5s ease-out;
+		//will-change      : width;
+		display            : inline-block;
+		height             : 100%;
+		width              : 29.2vw;
+		will-change        : width;
+		background         : transparent;
+		-webkit-transition : width 0.5s ease-out;
+		transition         : width 0.5s ease-out;
+	}
+
+
+	&__item[data-active="true"] {
+		width : 60vw;
+	}
+
+	&__item[data-active="true"] + &__item {
+		width : 0;
+	}
+
+
+	&__skew {
 		position         : relative;
-		overflow         : hidden;
-		block-size       : 100%;
 		transform        : skew(-20deg);
 		transform-origin : bottom left;
-		flex-grow        : 1;
+		height           : 100%;
+		width            : 100%;
+		overflow         : hidden;
 	}
 
-	&__item::after {
-		content          : "";
-		position         : absolute;
-		inset            : 0;
-		z-index          : 1;
+	&__skew::after {
+		content            : "";
+		display            : block;
+		position           : absolute;
+		top                : 0;
+		left               : 0;
+		width              : 100%;
+		height             : 100%;
+		background-color   : rgba(0, 0, 0, 0.75);
+		opacity            : 1;
+		-webkit-transition : opacity 0.5s ease-out;
+		transition         : opacity 0.5s ease-out;
+	}
+
+	&__item[data-active="true"] &__skew::after {
+		    opacity: 0;
+	}
+
+	&__skew-fix {
+		-webkit-transform           : skew(20deg);
+		-moz-transform              : skew(20deg);
+		-ms-transform               : skew(20deg);
+		transform                   : skew(20deg);
+		height                      : 100%;
+		width                       : 236%;
+		transform-origin            : bottom left;
+		-webkit-background-position : center center;
+		background-position         : center center;
+		-webkit-background-size     : cover;
+		background-size             : cover;
+		background-color            : black;
+		position                    : relative;
+	}
+
+	&__skew-fix img {
+		max-width         : unset;
+		width             : auto;
+		height            : 100%;
+		position          : absolute;
+		left              : 25% !important;
+		-webkit-transform : translateX(-50%);
+		-moz-transform    : translateX(-50%);
+		-ms-transform     : translateX(-50%);
+		transform         : translateX(-50%);
+	}
+
+	//&__item::after {
+	//	content          : "";
+	//	position         : absolute;
+	//	inset            : 0;
+	//	z-index          : 1;
+	//	background-color : rgba(0, 0, 0, 0.7);
+	//	transition       : 0.5s ease-out;
+	//	opacity          : 1;
+	//}
+	//
+	//&__item[data-active="false"]::after {
+	//	opacity : 1;
+	//}
+	//
+	//&__item {
+	//	inline-size : 30vw;
+	//}
+	//
+	//&__item[data-active="true"] {
+	//	inline-size : 60vw;
+	//}
+	//
+	//&__item[data-active="true"] + &__item {
+	//	inline-size : 0;
+	//}
+
+	//&__item[data-active="true"]::after {
+	//	background-color : rgba(0, 0, 0, 0.0);
+	//	transition       : 0.5s ease-out;
+	//	opacity          : 0;
+	//	//animation  : abc 0.5s ease-out forwards;
+	//}
+
+	//&__image-wrap {
+	//	block-size       : inherit;
+	//	inline-size      : inherit;
+	//	transform        : skew(20deg);
+	//	transform-origin : inherit;
+	//}
+	//
+	//&__image-wrap > img {
+	//	position        : absolute;
+	//	inset           : 50% auto auto 60%;
+	//	transform       : translate(-50%, -50%);
+	//	block-size      : 100%;
+	//	inline-size     : auto;
+	//	max-inline-size : unset;
+	//	object-fit      : cover;
+	//}
+}
+
+@keyframes abc {
+	from {
 		background-color : rgba(0, 0, 0, 0.7);
-		transition       : 0.5s ease-out;
 	}
-
-	&__item:where(:nth-child(1), :nth-child(2)) {
-		inline-size : 30vw;
-	}
-
-	&__item:nth-child(3) {
-		inline-size : 65vw;
-	}
-
-	&__item[data-active="true"]::after {
-		opacity : 0;
-		transition       : 0.5s ease-out;
-	}
-
-	&__image-wrap {
-		block-size       : inherit;
-		inline-size      : inherit;
-		transform        : skew(20deg);
-		transform-origin : inherit;
-	}
-
-	&__image-wrap > img {
-		position        : absolute;
-		inset           : 50% auto auto 60%;
-		transform       : translate(-50%, -50%);
-		block-size      : 100%;
-		inline-size     : auto;
-		max-inline-size : unset;
-		object-fit      : cover;
+	to {
+		background-color : rgba(0, 0, 0, 0.0);
 	}
 }
 
