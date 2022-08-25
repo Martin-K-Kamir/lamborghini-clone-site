@@ -1,3 +1,73 @@
 
-.carousel {
+.slider {
+	position : relative;
+	display  : grid;
+
+	&__container {
+		z-index : 1;
+	}
+
+	&__items {
+		position    : absolute;
+		inset       : 0;
+		display     : flex;
+		overflow    : hidden;
+
+		margin-left : -26%; //?
+	}
+
+	&__item {
+		position         : relative;
+		overflow         : hidden;
+		block-size       : 100%;
+		transform        : skew(-20deg);
+		transform-origin : bottom left;
+		flex-grow        : 1;
+	}
+
+	&__item::after {
+		content          : "";
+		position         : absolute;
+		inset            : 0;
+		z-index          : 1;
+		background-color : rgba(0, 0, 0, 0.7);
+		transition       : 0.5s ease-out;
+	}
+
+	&__item:where(:nth-child(1), :nth-child(2)) {
+		inline-size : 30vw;
+	}
+
+	&__item:nth-child(3) {
+		inline-size : 65vw;
+	}
+
+	&__item[data-active="true"]::after {
+		opacity : 0;
+		transition       : 0.5s ease-out;
+	}
+
+	&__image-wrap {
+		block-size       : inherit;
+		inline-size      : inherit;
+		transform        : skew(20deg);
+		transform-origin : inherit;
+	}
+
+	&__image-wrap > img {
+		position        : absolute;
+		inset           : 50% auto auto 60%;
+		transform       : translate(-50%, -50%);
+		block-size      : 100%;
+		inline-size     : auto;
+		max-inline-size : unset;
+		object-fit      : cover;
+	}
 }
+
+// TODO:
+// - styles ✔️
+// - max inline size
+// - functionality of swapping first/last index in arr ✔️
+// - functionality of changing text of active item and animation
+// - animation of swapping items

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 export default function Button(props) {
 	const [contentJustify, setContentJustify] = useState(props.contentJustify ? props.contentJustify : "end");
-	console.log(contentJustify);
 
 	function icon(props) {
 		switch (props.type) {
@@ -28,7 +27,7 @@ export default function Button(props) {
 				</svg>;
 			case "hexa-arrow-right":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
-					<g stroke-width="1.5" transform="translate(-1624 -187.923)">
+					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
 						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
 						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M0 0l7.432 5.674L14.864 0"
@@ -37,7 +36,7 @@ export default function Button(props) {
 				</svg>;
 			case "hexa-arrow-left":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
-					<g stroke-width="1.5" transform="translate(-1624 -187.923)">
+					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
 						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
 						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M0 5.675L7.432 0l7.432 5.675"
@@ -46,7 +45,7 @@ export default function Button(props) {
 				</svg>;
 			case "hexa-plus":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
-					<g stroke-width="1.5" transform="translate(-1624 -187.923)">
+					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
 						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
 						<g style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} transform="translate(627 -5248.5)">
@@ -76,11 +75,11 @@ export default function Button(props) {
 	return (
 		<>
 			{props.href ?
-				<a href={`${props.href}`} className={props.class} style={props.size && {"--btn-size": props.size + "rem"}}>
+				<a href={`${props.href}`} onClick={props.handleClick} className={props.class} style={props.size && {"--btn-size": props.size + "rem"}}>
 					{content(props)}
 				</a>
 				:
-				<button className={props.class} style={props.size && {"--btn-size": props.size + "rem"}}>
+				<button className={props.class} onClick={props.handleClick} style={props.size && {"--btn-size": props.size + "rem"}}>
 					{content(props)}
 				</button>}
 		</>

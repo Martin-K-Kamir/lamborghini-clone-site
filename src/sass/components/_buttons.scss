@@ -74,7 +74,7 @@
 	}
 
 	@media (hover : hover) {
-		svg:where(:hover, :focus-visible) {
+		&:where(:hover, :focus-visible) svg {
 			--surface : var(--neutral-1);
 			--text    : var(--neutral-7);
 		}
