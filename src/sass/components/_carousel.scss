@@ -44,22 +44,25 @@
 		//transform-origin : bottom left;
 		//transition       : width 0.5s ease-out;
 		//will-change      : width;
-		display            : inline-block;
-		height             : 100%;
-		width              : 29.2vw;
-		will-change        : width;
-		background         : transparent;
-		-webkit-transition : width 0.5s ease-out;
-		transition         : width 0.5s ease-out;
+		display     : inline-block;
+		height      : 100%;
+		width       : 29.2vw;
+		will-change : width;
+		background  : transparent;
+		transition  : width 0.5s ease-out;
 	}
 
 
-	&__item[data-active="true"] {
+	&__item.active {
 		width : 60vw;
 	}
 
-	&__item[data-active="true"] + &__item {
+	&__item.active ~ &__item {
 		width : 0;
+	}
+
+	&__item:first-child {
+		//transition: none !important;
 	}
 
 
@@ -86,36 +89,29 @@
 		transition         : opacity 0.5s ease-out;
 	}
 
-	&__item[data-active="true"] &__skew::after {
-		    opacity: 0;
+	&__item.active &__skew::after {
+		opacity : 0;
 	}
 
 	&__skew-fix {
-		-webkit-transform           : skew(20deg);
-		-moz-transform              : skew(20deg);
-		-ms-transform               : skew(20deg);
-		transform                   : skew(20deg);
-		height                      : 100%;
-		width                       : 236%;
-		transform-origin            : bottom left;
-		-webkit-background-position : center center;
-		background-position         : center center;
-		-webkit-background-size     : cover;
-		background-size             : cover;
-		background-color            : black;
-		position                    : relative;
+		transform               : skew(20deg);
+		height                  : 100%;
+		width                   : 236%;
+		transform-origin        : bottom left;
+		background-position     : center center;
+		-webkit-background-size : cover;
+		background-size         : cover;
+		background-color        : black;
+		position                : relative;
 	}
 
 	&__skew-fix img {
-		max-width         : unset;
-		width             : auto;
-		height            : 100%;
-		position          : absolute;
-		left              : 25% !important;
-		-webkit-transform : translateX(-50%);
-		-moz-transform    : translateX(-50%);
-		-ms-transform     : translateX(-50%);
-		transform         : translateX(-50%);
+		max-width : unset;
+		width     : auto;
+		height    : 100%;
+		position  : absolute;
+		left      : 25% !important;
+		transform : translateX(-50%);
 	}
 
 	//&__item::after {
@@ -171,16 +167,17 @@
 
 @keyframes abc {
 	from {
-		background-color : rgba(0, 0, 0, 0.7);
+		width : 29.2vw;
 	}
 	to {
-		background-color : rgba(0, 0, 0, 0.0);
+		width : 60vw;
 	}
 }
 
 // TODO:
-// - styles ✔️
-// - max inline size
-// - functionality of swapping first/last index in arr ✔️
-// - functionality of changing text of active item and animation
-// - animation of swapping items
+// - functionality for left click ✔️
+// - refactor scss
+// - refactor jsx
+// - functionality for changing texts
+// - refactor/rendering jsx?
+// - accessibility
