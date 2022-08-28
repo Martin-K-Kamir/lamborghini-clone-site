@@ -166,6 +166,24 @@ export default function Slider(props) {
 					<a className="slider__reel-item">
 						<img src="./media/home/image-reel-3.webp" alt=""/>
 					</a>
+										<a className="slider__reel-item">
+						<img src="./media/home/image-reel-1.webp" alt=""/>
+					</a>
+					<a className="slider__reel-item">
+						<img src="./media/home/image-reel-2.webp" alt=""/>
+					</a>
+					<a className="slider__reel-item">
+						<img src="./media/home/image-reel-3.webp" alt=""/>
+					</a>
+										<a className="slider__reel-item">
+						<img src="./media/home/image-reel-1.webp" alt=""/>
+					</a>
+					<a className="slider__reel-item">
+						<img src="./media/home/image-reel-2.webp" alt=""/>
+					</a>
+					<a className="slider__reel-item">
+						<img src="./media/home/image-reel-3.webp" alt=""/>
+					</a>
 				</div>
 				<div className="slider__container">
 					<h3 className="title-2">

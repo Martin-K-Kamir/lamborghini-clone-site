@@ -123,14 +123,14 @@
 		inline-size                : 100%;
 		display                    : grid;
 		grid-auto-flow             : column;
-		grid-auto-columns          : 60%;
+		grid-auto-columns          : 70%;
 		overflow-x                 : scroll;
 		scrollbar-width            : none;
 		overscroll-behavior-inline : contain;
 		scroll-snap-type           : inline mandatory;
 
 		@include breakpoint(max, em(725px)) {
-			grid-auto-columns : 80%;
+			//grid-auto-columns : 80%;
 		}
 
 		&::-webkit-scrollbar {
