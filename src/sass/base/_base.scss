@@ -18,7 +18,7 @@ body {
 }
 
 section {
-	padding-block: 15rem;
+	padding-block: clamped(5rem, 15rem, em(330px), em(1365px));
 }
 
 a {

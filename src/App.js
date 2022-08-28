@@ -1,6 +1,8 @@
 import Navigation from "./react/components/Navigation";
 import Hero from "./react/components/Hero";
-import Models from "./react/components/Models";
+import Slider from "./react/components/Slider";
+
+import dataHome from "./dataHome";
 
 export default function App() {
 
@@ -9,7 +11,7 @@ export default function App() {
 			<Navigation/>
 			<main>
 				<Hero/>
-				<Models/>
+				<Slider imagesData={dataHome.modelsImages} contentData={dataHome.modelsContent}/>
 				<div className="test"></div>
 			</main>
 		</div>

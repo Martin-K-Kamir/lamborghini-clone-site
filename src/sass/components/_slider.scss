@@ -1,0 +1,176 @@
+
+.slider {
+	--transition-duration : 500ms;
+	--transition-ease     : ease-out;
+
+	&--desktop {
+		position       : relative;
+		display        : grid;
+		block-size     : 100vh;
+		min-block-size : 70rem;
+
+		@include breakpoint(max, em(1025px)) {
+			display : none;
+		}
+	}
+
+	&--mobile {
+		display : none;
+
+		@include breakpoint(max, em(1025px)) {
+			display : block;
+		}
+	}
+
+	&__container {
+		z-index       : 1;
+		display       : grid;
+		align-content : space-between;
+	}
+
+	&__slides {
+		position : absolute;
+		inset    : 0;
+		overflow : hidden;
+	}
+
+	&__items {
+		position    : absolute;
+		inset       : 0 0 auto auto;
+		block-size  : 100%;
+		white-space : nowrap;
+	}
+
+	&__item {
+		display     : inline-block;
+		block-size  : 100%;
+		inline-size : 29vw;
+		will-change : width;
+		transition  : width var(--transition-duration) var(--transition-ease);
+
+		@include breakpoint(min, em(2275px)) {
+			inline-size : 30vw;
+		}
+
+		@include breakpoint(max, em(1365px)) {
+			inline-size : 35vw;
+		}
+	}
+
+	&__item[data-active="true"] {
+		width : 60vw;
+
+		@include breakpoint(min, em(2275px)) {
+			inline-size : 53vw;
+		}
+	}
+
+	&__item[data-active="true"] + &__item {
+		width : 0;
+	}
+
+	&__item[data-active="true"] &__skew::after {
+		opacity : 0;
+	}
+
+	&__skew {
+		position         : relative;
+		block-size       : 100%;
+		inline-size      : 100%;
+		overflow         : hidden;
+		transform        : skew(-20deg);
+		transform-origin : bottom left;
+	}
+
+	&__skew::after {
+		content          : "";
+		position         : absolute;
+		inset            : 0;
+		opacity          : 1;
+		background-color : rgba(0, 0, 0, 0.75);
+		transition       : opacity var(--transition-duration) var(--transition-ease);
+	}
+
+	&__skew-reverse {
+		block-size       : inherit;
+		inline-size      : inherit;
+		transform        : skew(20deg);
+		transform-origin : inherit;
+
+		@include breakpoint(min, em(2275px)) {
+			inline-size : 120%;
+		}
+	}
+
+	&__skew-reverse img {
+		position        : absolute;
+		inset           : 50% auto auto 60%;
+		transform       : translate(-50%, -50%);
+		inline-size     : auto;
+		max-inline-size : unset;
+		block-size      : inherit;
+
+		@include breakpoint(min, em(2275px)) {
+			inline-size : inherit;
+			object-fit  : cover;
+		}
+	}
+}
+
+.slider {
+	&__reel {
+		margin-block               : clamped(5rem, 8rem, em(330px), em(1025px));
+		inline-size                : 100%;
+		display                    : grid;
+		grid-auto-flow             : column;
+		grid-auto-columns          : 60%;
+		overflow-x                 : scroll;
+		scrollbar-width            : none;
+		overscroll-behavior-inline : contain;
+		scroll-snap-type           : inline mandatory;
+
+		@include breakpoint(max, em(725px)) {
+			grid-auto-columns : 80%;
+		}
+
+		&::-webkit-scrollbar {
+			display : none;
+		}
+	}
+
+	&__reel-item {
+		margin-inline-start : -4rem;
+		background-image    : linear-gradient(to top, #ffffff, #c5c5c5, #ffffff);
+		user-select         : none;
+		//scroll-snap-align   : start;
+	}
+
+	&__reel-item img {
+		pointer-events : none;
+	}
+
+	&__reel-item:nth-child(1) {
+		z-index : 3;
+	}
+
+	&__reel-item:nth-child(2) {
+		z-index : 2;
+	}
+
+	&__reel-item:nth-child(3) {
+		z-index : 1;
+	}
+}
+
+// TODO:
+// - functionality for left click ✔️
+// - refactor scss ✔️
+// - refactor jsx ✔️
+// - loop through items ✔️
+// - functionality for changing texts ✔️
+// - responsiveness ✔️
+// - accessibility ✔️
+// - mobile version
+// https://codepen.io/toddwebdev/pen/yExKoj?editors=0110
+// https://stackoverflow.com/questions/67962715/how-to-make-drag-to-scroll-work-smoothly-with-scroll-snapping
+// - rename classes to make more sense

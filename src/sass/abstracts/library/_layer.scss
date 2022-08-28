@@ -5,7 +5,7 @@
  */
 @function layer($name) {
 	@if index($list-of-layers, $name) {
-		@return (length($list-of-layers) - index($list-of-layers, $name))+1;
+		@return (length($list-of-layers) - index($list-of-layers, $name))+100;
 	} @else {
 		@warn 'There is no item "#{$name}" in this list; choose one of: #{$list-of-layers}';
 		@return null;

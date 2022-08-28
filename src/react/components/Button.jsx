@@ -55,9 +55,7 @@ export default function Button(props) {
 					</g>
 				</svg>;
 			default:
-				return <svg aria-hidden="true">
-					<use href="media/sprites.svg#icon-hexa-arrow-right"/>
-				</svg>;
+				return props.content
 		}
 	}
 
@@ -65,9 +63,9 @@ export default function Button(props) {
 		return (
 			<>
 				{props.srOnly && <span className="sr-only">{props.srOnly}</span>}
-				{(contentJustify === "start" && props.content) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
+				{(contentJustify === "start" && props.content && props.type) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
 				{icon(props)}
-				{(contentJustify === "end" && props.content) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
+				{(contentJustify === "end" && props.content && props.type) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
 			</>
 		)
 	}
@@ -79,7 +77,7 @@ export default function Button(props) {
 					{content(props)}
 				</a>
 				:
-				<button className={props.class} onClick={props.handleClick} style={props.size && {"--btn-size": props.size + "rem"}}>
+				<button className={props.class} onClick={props.handleClick} disabled={props.disabled} style={props.size && {"--btn-size": props.size + "rem"}}>
 					{content(props)}
 				</button>}
 		</>

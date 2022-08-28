@@ -1,27 +1,34 @@
 
 [class*="title-"] + [class^="btn-"] {
-	margin-block-start : var(--space, 3rem);
+	margin-block-start : var(--space, #{clamped(1.5rem, 3rem, em(330px), em(1365px))});
 }
 
 
-:where(.btn-primary, .btn-secondary) {
+:is(.btn-primary, .btn-secondary) {
 	&:where(&, :active, :visited) {
-		--text           : var(--neutral-7);
-		--surface        : var(--neutral-1);
+		--text                : var(--neutral-6);
+		--surface             : var(--neutral-1);
+		--border-color        : var(--neutral-2);
+		--border-weight       : 1px;
+		--transition-duration : 300ms;
+		--transition-ease     : ease-in-out;
 
-		display          : inline-grid;
-		place-items      : center;
-		justify-self     : start;
-		line-height      : 1;
-		text-decoration  : none;
-		text-transform   : uppercase;
-		color            : var(--text);
-		background-color : var(--surface);
-		min-inline-size  : var(--btn-size, 21.5rem);
-		padding          : var(--btn-space, 1.5rem);
-		font-size        : var(--btn-f-size, 1.6rem);
-		font-weight      : var(--btn-f-weight, var(--f-weight-2));
-		border           : solid var(--btn-border-size, 1px);
+		display               : inline-grid;
+		place-items           : center;
+		justify-self          : start;
+		line-height           : 1;
+		text-decoration       : none;
+		text-transform        : uppercase;
+		color                 : var(--text);
+		background-color      : var(--surface);
+		min-inline-size       : var(--btn-size, 21.5rem);
+		padding               : var(--btn-space, 1.5rem);
+		font-size             : var(--btn-f-size, 1.6rem);
+		font-weight           : var(--btn-f-weight, var(--f-weight-2));
+		border                : solid var(--border-weight) var(--border-color);
+		transition            : color var(--transition-duration) var(--transition-ease),
+		background-color var(--transition-duration) var(--transition-ease),
+		border-color var(--transition-duration) var(--transition-ease);
 
 		@include breakpoint(max, em(600px)) {
 			min-inline-size : 100%;
@@ -30,11 +37,13 @@
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {
-			--hover-text     : var(--surface);
-			--hover-surface  : var(--text);
+			--hover-text         : var(--surface);
+			--hover-surface      : var(--text);
+			--hover-border-color : var(--text);
 
-			color            : var(--hover-text);
-			background-color : var(--hover-surface);
+			color                : var(--hover-text);
+			background-color     : var(--hover-surface);
+			border-color         : var(--hover-border-color);
 		}
 	}
 }

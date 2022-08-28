@@ -13,7 +13,7 @@ export default function Hero() {
 							<span className="subtitle-1">{typewriterAnimation("real emotions shape the future", 30, 50)}</span>
 							<span className="title">aventador</span>
 						</h1>
-						<Button href="/" class="btn-hexagon" size="6.6" type="hexa-arrow-right" srOnly="click to go huracan tecnica page"/>
+						<Button href="/" class="btn-hexagon" size="6.6" type="hexa-arrow-right" srOnly="click to go aventador page"/>
 					</div>
 			</div>
 		</header>

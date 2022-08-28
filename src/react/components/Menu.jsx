@@ -43,7 +43,7 @@ export default function Menu(props) {
 			</li>)))
 	}
 
-	return (<div className="menu text-neutral-1 surface-neutral-7" data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
+	return (<div className="menu text-neutral-1 surface-neutral-7" aria-hidden={!props.menuOpen} data-menu-open={props.menuOpen} style={{"--block-size": props.menuHeight}}>
 				<div className="menu__container" ref={props.menuRef}>
 					<ul className="menu__grid" role="list">
 						{renderList(dataNavigation.list)}
