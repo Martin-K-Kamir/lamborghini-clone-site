@@ -1,4 +1,8 @@
 export default {
+	heroContent: {
+		title: "asd",
+		subtitle: "asdfasd",
+	},
 	modelsImages: [
 		{
 			key: "01",

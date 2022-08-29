@@ -3,13 +3,12 @@
 	margin-block-start : var(--space, #{clamped(1.5rem, 3rem, em(330px), em(1365px))});
 }
 
-
 :is(.btn-primary, .btn-secondary) {
 	&:where(&, :active, :visited) {
 		--text                : var(--neutral-6);
 		--surface             : var(--neutral-1);
 		--border-color        : var(--neutral-2);
-		--border-weight       : 1px;
+		--border-size         : 1px;
 		--transition-duration : 300ms;
 		--transition-ease     : ease-in-out;
 
@@ -21,11 +20,11 @@
 		text-transform        : uppercase;
 		color                 : var(--text);
 		background-color      : var(--surface);
-		min-inline-size       : var(--btn-size, 21.5rem);
-		padding               : var(--btn-space, 1.5rem);
-		font-size             : var(--btn-f-size, 1.6rem);
-		font-weight           : var(--btn-f-weight, var(--f-weight-2));
-		border                : solid var(--border-weight) var(--border-color);
+		min-inline-size       : var(--btn-size, 13.43em);
+		padding               : var(--btn-space, 0.9em);
+		font-size             : var(--f-size, 1.6rem);
+		font-weight           : var(--f-weight, var(--f-weight-2));
+		border                : solid var(--border-size) var(--border-color);
 		transition            : color var(--transition-duration) var(--transition-ease),
 		background-color var(--transition-duration) var(--transition-ease),
 		border-color var(--transition-duration) var(--transition-ease);

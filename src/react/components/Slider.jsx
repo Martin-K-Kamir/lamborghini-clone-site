@@ -7,10 +7,6 @@ export default function Slider(props) {
 	const [activeItem, setActiveItem] = useState(3);
 	const itemsRef = useRef(null);
 
-	const reelRef = useRef(null);
-	const [mouseDown, setMouseDown] = useState(false);
-	const [startX, setStartX] = useState(0);
-	const [scrollLeft, setScrollLeft] = useState(0);
 
 	function insertItem(position, item) {
 		itemsRef.current.insertAdjacentHTML(position, item.outerHTML);
@@ -84,7 +80,7 @@ export default function Slider(props) {
 		}, 500);
 	}
 
-	function renderSlideItems(data) {
+	function renderItems(data) {
 		return data.map(item => {
 			return (
 				<div className="slider__item" key={item.key} data-index={item.index} data-active={item.active}>
@@ -114,85 +110,25 @@ export default function Slider(props) {
 		});
 	}
 
-	function test1(e) {
-		setMouseDown(true);
-		setStartX(e.pageX - reelRef.current.offsetLeft);
-		setScrollLeft(reelRef.current.scrollLeft);
-	}
-
-	function test2(e) {
-		if (!mouseDown) return;
-		e.preventDefault();
-		const x = e.pageX - reelRef.current.offsetLeft;
-		const walk = (x - startX) * 1.5;
-		reelRef.current.scrollLeft = scrollLeft - walk;
-	}
-
-	function test3(e) {
-		setMouseDown(false);
-	}
 
 	return (
-		<>
-			<section className="slider slider--desktop surface-neutral-6 text-neutral-1">
-				<div className="slider__slides">
-					<div className="slider__items" ref={itemsRef}>
-						{renderSlideItems(props.imagesData)}
-					</div>
+		<section className="slider surface-neutral-6 text-neutral-1">
+			<div className="slider__slides">
+				<div className="slider__items" ref={itemsRef}>
+					{renderItems(props.imagesData)}
 				</div>
-				<div className="slider__container">
-					<div className="wrap">
-						<h2 className="subtitle-3">Models</h2>
-						<Button class="btn-hexagon space-1" handleClick={handleSlideLeft} disabled={isButtonDisabled} type="hexa-arrow-left" srOnly="click to previous slide"/>
-						<Button class="btn-hexagon space-1" handleClick={handleSlideRight} disabled={isButtonDisabled} type="hexa-arrow-right"
-						        srOnly="click to next slide"/>
-					</div>
-					<div className="wrap">
-						{renderContent(props.contentData)}
-					</div>
-				</div>
-			</section>
-			<section className="slider slider--mobile">
-				<div className="slider__container">
+			</div>
+			<div className="slider__container">
+				<div className="wrap">
 					<h2 className="subtitle-3">Models</h2>
+					<Button class="btn-hexagon space-1" handleClick={handleSlideLeft} disabled={isButtonDisabled} type="hexa-arrow-left" srOnly="click to previous slide"/>
+					<Button class="btn-hexagon space-1" handleClick={handleSlideRight} disabled={isButtonDisabled} type="hexa-arrow-right"
+					        srOnly="click to next slide"/>
 				</div>
-				<div className="slider__reel" ref={reelRef} onMouseDown={e => test1(e)} onMouseMove={e => test2(e)} onMouseLeave={test3} onMouseUp={test3}>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-1.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-2.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-3.webp" alt=""/>
-					</a>
-										<a className="slider__reel-item">
-						<img src="./media/home/image-reel-1.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-2.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-3.webp" alt=""/>
-					</a>
-										<a className="slider__reel-item">
-						<img src="./media/home/image-reel-1.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-2.webp" alt=""/>
-					</a>
-					<a className="slider__reel-item">
-						<img src="./media/home/image-reel-3.webp" alt=""/>
-					</a>
+				<div className="wrap">
+					{renderContent(props.contentData)}
 				</div>
-				<div className="slider__container">
-					<h3 className="title-2">
-						<span className="title f-weight-4">urus</span>
-						<span className="subtitle-1">unlock any road</span>
-					</h3>
-					<Button href="/" class="btn-primary" content="explore the model"/>
-				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 }

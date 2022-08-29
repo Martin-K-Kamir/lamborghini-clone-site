@@ -1,6 +1,6 @@
-import Menu from './Menu';
-import Button from "./Button";
-import dataNavigation from "../../dataNavigation";
+import Menu from '../components/Menu';
+import Button from "../components/Button";
+import data from "../../data/dataNavigation";
 import React, {useState, useRef} from "react";
 import useScrollbarSize from "react-scrollbar-size";
 
@@ -18,9 +18,9 @@ export default function Navigation() {
 	const [navbarHeight, setNavbarHeight] = useState(0);
 	const [_navbarHeight, _setNavbarHeight] = useState(0);
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [listOpen, setListOpen] = useState(getListItems(dataNavigation.list));
-	const [sublistOpen, setSublistOpen] = useState(getSublistItems(dataNavigation.list));
-	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(dataNavigation.list));
+	const [listOpen, setListOpen] = useState(getListItems(data.list));
+	const [sublistOpen, setSublistOpen] = useState(getSublistItems(data.list));
+	const [sublistTypeActive, setSublistTypeActive] = useState(getSublistItemTypes(data.list));
 
 	const menuRef = useRef(null);
 	const navigationRef = useRef(null);
@@ -196,27 +196,27 @@ export default function Navigation() {
 			     onMouseEnter={e => getNavbarHeight(e)} onMouseLeave={handleHideList}
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="navbar__container">
-						<div className="logo">
-							<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
-						</div>
-						<ul className="navbar__list">
-							{renderList(dataNavigation.list)}
-						</ul>
-						<ul className="navbar__list" onMouseEnter={handleHideList}>
-							<li className="navbar__list-item">
-								<Button type="chat" size="2.5" srOnly="click to open chat with our support team"/>
-							</li>
-							<li className="navbar__list-item">
-								<Button type="search" size="2.5" srOnly="click to open search menu"/>
-							</li>
-							<li className="navbar__list-item">
-								<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open extended navigation menu">
-									<i className="btn-hamburger__line" aria-hidden="true"></i>
-									<i className="btn-hamburger__line" aria-hidden="true"></i>
-									<i className="btn-hamburger__line" aria-hidden="true"></i>
-								</button>
-							</li>
-						</ul>
+					<div className="logo">
+						<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
+					</div>
+					<ul className="navbar__list">
+						{renderList(data.list)}
+					</ul>
+					<ul className="navbar__list" onMouseEnter={handleHideList}>
+						<li className="navbar__list-item">
+							<Button type="chat" size="2.5" srOnly="click to open chat with our support team"/>
+						</li>
+						<li className="navbar__list-item">
+							<Button type="search" size="2.5" srOnly="click to open search menu"/>
+						</li>
+						<li className="navbar__list-item">
+							<button className="btn-hamburger" onClick={handleClickMenu} aria-expanded={menuOpen} aria-label="click to open extended navigation menu">
+								<i className="btn-hamburger__line" aria-hidden="true"></i>
+								<i className="btn-hamburger__line" aria-hidden="true"></i>
+								<i className="btn-hamburger__line" aria-hidden="true"></i>
+							</button>
+						</li>
+					</ul>
 				</div>
 			</nav>
 			<Menu menuOpen={menuOpen} menuRef={menuRef} menuHeight={menuHeight}/>

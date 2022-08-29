@@ -3,24 +3,10 @@
 	--transition-duration : 500ms;
 	--transition-ease     : ease-out;
 
-	&--desktop {
-		position       : relative;
-		display        : grid;
-		block-size     : 100vh;
-		min-block-size : 70rem;
-
-		@include breakpoint(max, em(1025px)) {
-			display : none;
-		}
-	}
-
-	&--mobile {
-		display : none;
-
-		@include breakpoint(max, em(1025px)) {
-			display : block;
-		}
-	}
+	position              : relative;
+	display               : grid;
+	block-size            : 100vh;
+	min-block-size        : 70rem;
 
 	&__container {
 		z-index       : 1;
@@ -114,51 +100,6 @@
 			inline-size : inherit;
 			object-fit  : cover;
 		}
-	}
-}
-
-.slider {
-	&__reel {
-		margin-block               : clamped(5rem, 8rem, em(330px), em(1025px));
-		inline-size                : 100%;
-		display                    : grid;
-		grid-auto-flow             : column;
-		grid-auto-columns          : 70%;
-		overflow-x                 : scroll;
-		scrollbar-width            : none;
-		overscroll-behavior-inline : contain;
-		scroll-snap-type           : inline mandatory;
-
-		@include breakpoint(max, em(725px)) {
-			//grid-auto-columns : 80%;
-		}
-
-		&::-webkit-scrollbar {
-			display : none;
-		}
-	}
-
-	&__reel-item {
-		margin-inline-start : -4rem;
-		background-image    : linear-gradient(to top, #ffffff, #c5c5c5, #ffffff);
-		user-select         : none;
-		//scroll-snap-align   : start;
-	}
-
-	&__reel-item img {
-		pointer-events : none;
-	}
-
-	&__reel-item:nth-child(1) {
-		z-index : 3;
-	}
-
-	&__reel-item:nth-child(2) {
-		z-index : 2;
-	}
-
-	&__reel-item:nth-child(3) {
-		z-index : 1;
 	}
 }
 

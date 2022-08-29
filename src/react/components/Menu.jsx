@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import dataNavigation from "../../dataNavigation";
+import dataNavigation from "../../data/dataNavigation";
 
 
 export default function Menu(props) {

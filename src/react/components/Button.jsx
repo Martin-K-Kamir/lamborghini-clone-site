@@ -1,7 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 export default function Button(props) {
-	const [contentJustify, setContentJustify] = useState(props.contentJustify ? props.contentJustify : "end");
+	const [contentJustify, setContentJustify] = useState("");
+
+	useEffect(() => {
+		setContentJustify(props.contentJustify ? props.contentJustify : "end")
+	}, [props.contentJustify])
 
 	function icon(props) {
 		switch (props.type) {
@@ -28,27 +32,33 @@ export default function Button(props) {
 			case "hexa-arrow-right":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
 					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
-						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
+						<path style={{"fill": "var(--surface)", "stroke": "#ffffff", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						      d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
-						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M0 0l7.432 5.674L14.864 0"
+						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						      d="M0 0l7.432 5.674L14.864 0"
 						      transform="rotate(-90 935.432 -711.068)"></path>
 					</g>
 				</svg>;
 			case "hexa-arrow-left":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
 					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
-						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
+						<path style={{"fill": "var(--surface)", "stroke": "#ffffff", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						      d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
-						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M0 5.675L7.432 0l7.432 5.675"
+						<path style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						      d="M0 5.675L7.432 0l7.432 5.675"
 						      transform="rotate(-90 935.432 -711.068)"></path>
 					</g>
 				</svg>;
 			case "hexa-plus":
 				return <svg aria-hidden="true" viewBox="0 0 50.464 58.271">
 					<g strokeWidth="1.5" transform="translate(-1624 -187.923)">
-						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}} d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
+						<path style={{"fill": "var(--surface)", "stroke": "#fff", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						      d="M50.464 43.992L25.732 58.271 1 43.992V15.434L25.732 1.155l24.732 14.279z"
 						      transform="translate(1623.5 187.345)"></path>
-						<g style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}} transform="translate(627 -5248.5)">
+						<g style={{"fill": "transparent", "stroke": "var(--text)", "transition": "var(--transition-duration) var(--transition-ease)"}}
+						   transform="translate(627 -5248.5)">
 							<path d="M0 0v15" transform="translate(1022.5 5458.5)"></path>
 							<path d="M0 0v15" transform="rotate(90 -2218 3248)"></path>
 						</g>

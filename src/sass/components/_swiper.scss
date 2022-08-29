@@ -1,0 +1,41 @@
+.swiper {
+	&__reel {
+		margin-block               : clamped(5rem, 8rem, em(330px), em(1025px));
+		inline-size                : 100%;
+		display                    : grid;
+		grid-auto-flow             : column;
+		grid-auto-columns          : 70%;
+		overflow-x                 : scroll;
+		scrollbar-width            : none;
+		//overscroll-behavior-inline : contain;
+		//scroll-snap-type           : inline mandatory;
+		scroll-behavior: smooth;
+
+		&::-webkit-scrollbar {
+			display : none;
+		}
+	}
+
+	&__item {
+		margin-inline-start : -4rem;
+		background-image    : linear-gradient(to top, #ffffff, #c5c5c5, #ffffff);
+		user-select         : none;
+		//scroll-snap-align   : start;
+	}
+
+	&__item img {
+		pointer-events : none;
+	}
+
+	&__item:nth-child(1) {
+		z-index : 3;
+	}
+
+	&__item:nth-child(2) {
+		z-index : 2;
+	}
+
+	&__item:nth-child(3) {
+		z-index : 1;
+	}
+}
