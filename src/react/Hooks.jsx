@@ -31,7 +31,7 @@ export const useScrollbarWidth = () => {
 };
 
 const getDeviceConfig = (width) => {
-	console.log(width)
+	// console.log(width)
   if(width < 320) {
     return 'xs';
   } else if(width >= 320 && width < 720 ) {

@@ -9,18 +9,23 @@
 		scrollbar-width            : none;
 		//overscroll-behavior-inline : contain;
 		//scroll-snap-type           : inline mandatory;
-		scroll-behavior: smooth;
+		//scroll-behavior: smooth;
 
 		&::-webkit-scrollbar {
-			display : none;
+			//display : none;
 		}
 	}
 
 	&__item {
+		outline: 1px solid red;
 		margin-inline-start : -4rem;
 		background-image    : linear-gradient(to top, #ffffff, #c5c5c5, #ffffff);
 		user-select         : none;
 		//scroll-snap-align   : start;
+	}
+
+	&__item.active{
+		scroll-snap-align   : start;
 	}
 
 	&__item img {

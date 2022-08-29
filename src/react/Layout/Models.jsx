@@ -6,7 +6,7 @@ import {useBreakpoint} from "../Hooks"
 export default function Models() {
 	const points = useBreakpoint()
 
-	console.log(points)
+	// console.log(points)
 	return (
 		<>
 			<Slider imagesData={data.modelsImages} contentData={data.modelsContent}/>
