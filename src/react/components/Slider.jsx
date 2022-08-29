@@ -110,7 +110,6 @@ export default function Slider(props) {
 		});
 	}
 
-
 	return (
 		<section className="slider surface-neutral-6 text-neutral-1">
 			<div className="slider__slides">

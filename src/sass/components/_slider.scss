@@ -8,6 +8,11 @@
 	block-size            : 100vh;
 	min-block-size        : 70rem;
 
+	//temp
+	@include breakpoint(max, em(1025px)) {
+		display : none;
+	}
+
 	&__container {
 		z-index       : 1;
 		display       : grid;
@@ -102,17 +107,3 @@
 		}
 	}
 }
-
-// TODO:
-// - functionality for left click ✔️
-// - refactor scss ✔️
-// - refactor jsx ✔️
-// - loop through items ✔️
-// - functionality for changing texts ✔️
-// - responsiveness ✔️
-// - accessibility ✔️
-// - mobile version
-// https://codepen.io/toddwebdev/pen/yExKoj?editors=0110
-// https://stackoverflow.com/questions/67962715/how-to-make-drag-to-scroll-work-smoothly-with-scroll-snapping
-// https://codepen.io/juliangarnier/pen/vYXogxd/b3bc58f943768f5276563ae7077e41e0?editors=0110
-// - rename classes to make more sense
