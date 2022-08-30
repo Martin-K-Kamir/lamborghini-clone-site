@@ -7,28 +7,28 @@
 	}
 
 	&__reel {
-		margin-block      : clamped(5rem, 8rem, em(330px), em(1025px));
+		margin-block      : clamped(3rem, 5rem, em(330px), em(1025px)); // props
 		inline-size       : 100%;
 		display           : grid;
 		grid-auto-flow    : column;
-		grid-auto-columns : 70%;
+		grid-auto-columns : 80%;
 		overflow-x        : scroll;
 		scrollbar-width   : none;
+
+		&::-webkit-scrollbar {
+			display : none;
+		}
 
 		@media not (hover : hover) {
 			overscroll-behavior-inline : contain;
 			scroll-snap-type           : inline mandatory;
 			scroll-behavior            : smooth;
 		}
-
-		&::-webkit-scrollbar {
-			display : none;
-		}
 	}
 
 	&__item {
-		margin-inline-start : -4rem;
-		background-image    : linear-gradient(to top, #ffffff, #c5c5c5, #ffffff);
+		margin-inline-start : calc(-1px * var(--items-collapsed));
+		background-image    : linear-gradient(to top, var(--neutral-1), var(--neutral-2), var(--neutral-1));
 		user-select         : none;
 
 		@media not (hover : hover) {
@@ -40,6 +40,7 @@
 		pointer-events : none;
 	}
 
+	// Loop to add z-index to each item with each iteration of the loop add lower z-index to item. So items they don't overlap.
 	$y      : 3;
 	@for $i from 1 through $y {
 		&__item:nth-of-type(#{$i}) {

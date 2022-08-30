@@ -36,8 +36,8 @@
 		display     : inline-block;
 		block-size  : 100%;
 		inline-size : 29vw;
-		will-change : width;
-		transition  : width var(--transition-duration) var(--transition-ease);
+		will-change : inline-size;
+		transition  : inline-size var(--transition-duration) var(--transition-ease);
 
 		@include breakpoint(min, em(2275px)) {
 			inline-size : 30vw;
@@ -49,7 +49,7 @@
 	}
 
 	&__item[data-active="true"] {
-		width : 60vw;
+		inline-size : 60vw;
 
 		@include breakpoint(min, em(2275px)) {
 			inline-size : 53vw;
@@ -57,7 +57,7 @@
 	}
 
 	&__item[data-active="true"] + &__item {
-		width : 0;
+		inline-size : 0;
 	}
 
 	&__item[data-active="true"] &__skew::after {

@@ -9,8 +9,8 @@ export default function Models() {
 	// console.log(points)
 	return (
 		<>
-			<Slider imagesData={data.modelsImages} contentData={data.modelsContent}/>
-			<Swiper/>
+			<Slider imagesData={data.sliderImages} contentData={data.sliderContent}/>
+			<Swiper imagesData={data.swiperImages} contentData={data.swiperContent}/>
 		</>
 	);
 }

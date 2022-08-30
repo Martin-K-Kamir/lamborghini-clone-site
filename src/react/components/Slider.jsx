@@ -95,15 +95,15 @@ export default function Slider(props) {
 	}
 
 	function renderContent(data) {
-		return data.map(curModel => {
-			if (activeItem === curModel.index) {
+		return data.map(curContent => {
+			if (activeItem === curContent.index) {
 				return (
-					<div className="animation-title-reveal" key={curModel.key}>
+					<div className="animation-title-reveal" key={curContent.key}>
 						<h3 className="title-3">
-							<span className="title">{typewriterAnimation(`${curModel.title}`, 40, 0)}</span>
-							<span className="subtitle-1">{curModel.subtitle}</span>
+							<span className="title">{typewriterAnimation(`${curContent.title}`, 40, 0)}</span>
+							<span className="subtitle-1">{curContent.subtitle}</span>
 						</h3>
-						<Button href={curModel.link} class="btn-hexagon space-2" type="hexa-plus" content="explore the model"/>
+						<Button href={curContent.link} class="btn-hexagon space-2" type="hexa-plus" content="explore the model"/>
 					</div>
 				);
 			}

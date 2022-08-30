@@ -18,7 +18,7 @@ body {
 }
 
 section {
-	padding-block: clamped(5rem, 15rem, em(330px), em(1365px));
+	padding-block: clamped(5rem, 15rem, em(330px), em(1365px)); // props
 }
 
 a {
@@ -63,6 +63,6 @@ button {
 
 
 .test {
-	background : linear-gradient(to right bottom, red, yellow, blue);
+	background : linear-gradient(to right bottom, khaki, steelblue, darkkhaki);
 	height     : 1000px;
 }

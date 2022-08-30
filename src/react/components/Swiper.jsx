@@ -1,55 +1,100 @@
 import Button from "./Button";
-import React, {useRef, useState, useEffect, useLayoutEffect} from "react";
+import React, {useRef, useState} from "react";
 
-export default function Swiper() {
-	const reelRef = useRef(null);
-
-
-	const [savePos, setSavePos] = useState(0);
+export default function Swiper(props) {
+	const [scrollToItem, setScrollToItem] = useState(0);
+	const [activeItem, setActiveItem] = useState(0);
 	const [mouseDown, setMouseDown] = useState(false);
 	const [startX, setStartX] = useState(0);
 	const [scrollLeft, setScrollLeft] = useState(0);
+	const [itemsCollapsed, setItemsCollapsed] = useState(50);
 
-	function test1(e) {
+	const reelRef = useRef(null);
+	const itemsListRef = useRef([]);
+
+	function itemBreakpoint(index, breakpoint = 50) {
+		const itemWidth = itemsListRef.current[index].offsetLeft + itemsListRef.current[index].offsetWidth;
+		const itemBreakpoint = itemWidth / 100 * breakpoint;
+		return itemWidth - itemBreakpoint;
+	}
+
+	function handleActiveReel(e) {
 		setMouseDown(true);
 		setStartX(e.pageX - reelRef.current.offsetLeft);
 		setScrollLeft(reelRef.current.scrollLeft);
 	}
 
-	function test2(e) {
+	function handleDraggingReel(e) {
 		if (!mouseDown) return;
 		e.preventDefault();
 		const x = e.pageX - reelRef.current.offsetLeft;
 		const walk = (x - startX) * 1.5;
-		reelRef.current.scrollLeft = scrollLeft - walk;
+		const scrollBy = scrollLeft - walk;
+		reelRef.current.scrollLeft = scrollBy;
+
+		// temp
+		if (scrollBy < itemBreakpoint(0)) {
+			setScrollToItem(itemsListRef.current[0].offsetLeft);
+			setActiveItem(0)
+		}
+
+		if (scrollBy < itemBreakpoint(1) && scrollBy > itemBreakpoint(0)) {
+			setScrollToItem(itemsListRef.current[1].offsetLeft + itemsCollapsed);
+			setActiveItem(1)
+		}
+
+		if (scrollBy < itemBreakpoint(2) && scrollBy > itemBreakpoint(1)) {
+			setScrollToItem(itemsListRef.current[2].offsetLeft + itemsCollapsed);
+			setActiveItem(2)
+		}
 	}
 
-	function test3(e) {
+	function handleLeavingReel() {
 		setMouseDown(false);
+		reelRef.current.scrollTo({
+			left: scrollToItem,
+			behavior: "smooth"
+		})
+	}
+
+	function renderItems(data) {
+		return data.map((item, i) => {
+			return (
+				<div className="swiper__item" key={item.key} ref={(ref) => (itemsListRef.current[i] = ref)}>
+					<img src={item.image} alt={item.alt}/>
+				</div>
+			);
+		});
+	}
+
+	function renderContent(data) {
+		return data.map(curContent => {
+			if (activeItem === curContent.index) {
+				return (
+					<div className="animation-title-fade" key={curContent.key}>
+						<h3 className="title-2">
+							<span className="title f-weight-4">{curContent.title}</span>
+							<span className="subtitle-1">{curContent.subtitle}</span>
+						</h3>
+						<Button href="/" class="btn-primary" content={curContent.btnContent}/>
+						{curContent.btnContent2 && <Button href="/" class="btn-primary" content={curContent.btnContent2}/>}
+					</div>
+				);
+			}
+		});
 	}
 
 	return (
-		<section className="swiper">
+		<section className="swiper" style={{"--items-collapsed": itemsCollapsed}}>
 			<div className="swiper__container">
 				<h2 className="subtitle-3">Models</h2>
 			</div>
-			<div className="swiper__reel" ref={reelRef} onMouseDown={e => test1(e)} onMouseMove={e => test2(e)} onMouseLeave={test3} onMouseUp={test3}>
-				<div className="swiper__item">
-					<img src="/media/home/image-reel-1.webp" alt=""/>
-				</div>
-				<div className="swiper__item">
-					<img src="/media/home/image-reel-2.webp" alt=""/>
-				</div>
-				<div className="swiper__item">
-					<img src="/media/home/image-reel-3.webp" alt=""/>
-				</div>
+			<div className="swiper__reel" data-active={mouseDown} ref={reelRef} onMouseDown={e => handleActiveReel(e)} onMouseMove={e => handleDraggingReel(e)}
+			     onMouseLeave={handleLeavingReel} onMouseUp={handleLeavingReel}>
+				{renderItems(props.imagesData)}
 			</div>
 			<div className="swiper__container">
-				<h3 className="title-2">
-					<span className="title f-weight-4">urus</span>
-					<span className="subtitle-1">unlock any road</span>
-				</h3>
-				<Button href="/" class="btn-primary" content="explore the model"/>
+				{renderContent(props.contentData)}
 			</div>
 		</section>
 	);

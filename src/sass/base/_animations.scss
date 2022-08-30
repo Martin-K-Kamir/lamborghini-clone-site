@@ -27,6 +27,12 @@
 	}
 }
 
+.animation-title-fade {
+	& > [class^="title-"] {
+		animation : fade-in 400ms ease-out backwards;
+	}
+}
+
 @keyframes fade-in {
 	from {
 		opacity : 0

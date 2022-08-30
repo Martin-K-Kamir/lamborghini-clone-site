@@ -1,6 +1,6 @@
 
 [class*="title-"] + [class^="btn-"] {
-	margin-block-start : var(--space, #{clamped(1.5rem, 3rem, em(330px), em(1365px))});
+	margin-block-start : var(--space, #{clamped(2rem, 3rem, em(330px), em(1365px))});
 }
 
 :is(.btn-primary, .btn-secondary) {
@@ -21,7 +21,7 @@
 		color                 : var(--text);
 		background-color      : var(--surface);
 		min-inline-size       : var(--btn-size, 13.43em);
-		padding               : var(--btn-space, 0.9em);
+		padding               : var(--btn-space, 1em);
 		font-size             : var(--f-size, 1.6rem);
 		font-weight           : var(--f-weight, var(--f-weight-2));
 		border                : solid var(--border-size) var(--border-color);
@@ -31,6 +31,15 @@
 
 		@include breakpoint(max, em(600px)) {
 			min-inline-size : 100%;
+		}
+
+		& + & {
+			margin-inline-start : var(--space, 2rem);
+
+			@include breakpoint(max, em(600px)) {
+				margin-inline-start : revert;
+				margin-block-start  : var(--space, 2rem);
+			}
 		}
 	}
 
