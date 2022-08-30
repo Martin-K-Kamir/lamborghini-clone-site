@@ -86,7 +86,7 @@ export default function Slider(props) {
 				<div className="slider__item" key={item.key} data-index={item.index} data-active={item.active}>
 					<div className="slider__skew">
 						<div className="slider__skew-reverse">
-							<img src={item.image} aria-hidden={true} alt=""/>
+							<img src={item.image} aria-hidden={true} alt="" width={1617} height={1040}/>
 						</div>
 					</div>
 				</div>

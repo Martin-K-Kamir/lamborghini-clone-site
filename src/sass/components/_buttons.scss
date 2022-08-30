@@ -21,7 +21,7 @@
 		color                 : var(--text);
 		background-color      : var(--surface);
 		min-inline-size       : var(--btn-size, 13.43em);
-		padding               : var(--btn-space, 1em);
+		padding               : var(--btn-padding, 1em);
 		font-size             : var(--f-size, 1.6rem);
 		font-weight           : var(--f-weight, var(--f-weight-2));
 		border                : solid var(--border-size) var(--border-color);

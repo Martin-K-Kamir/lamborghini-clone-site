@@ -190,7 +190,7 @@ export default function Navigation() {
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="navbar__container">
 					<div className="logo">
-						<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
+						<img src="./media/home/image-logo.webp" alt="Lamborghini logo" width={50} height={51}/>
 					</div>
 					<ul className="navbar__list">
 						{renderList(data.list)}

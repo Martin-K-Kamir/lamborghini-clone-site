@@ -61,7 +61,7 @@ export default function Swiper(props) {
 		return data.map((item, i) => {
 			return (
 				<div className="swiper__item" key={item.key} ref={(ref) => (itemsListRef.current[i] = ref)}>
-					<img src={item.image} alt={item.alt}/>
+					<img src={item.image} alt={item.alt} width={851} height={472}/>
 				</div>
 			);
 		});
