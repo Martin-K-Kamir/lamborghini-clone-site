@@ -19,10 +19,8 @@
 			display : none;
 		}
 
-		@media not (hover : hover) {
-			overscroll-behavior-inline : contain;
-			scroll-snap-type           : inline mandatory;
-			scroll-behavior            : smooth;
+		@include landscape(phone) {
+			grid-auto-columns : 75%;
 		}
 	}
 
@@ -31,13 +29,20 @@
 		background-image    : linear-gradient(to top, var(--neutral-1), var(--neutral-2), var(--neutral-1));
 		user-select         : none;
 
-		@media not (hover : hover) {
-			scroll-snap-align : start;
+		@include landscape(phone) {
+			block-size : 25rem;
+			overflow-y : hidden;
 		}
 	}
 
 	&__item img {
 		pointer-events : none;
+
+		@include landscape(phone) {
+			inline-size : 100%;
+			block-size  : 100%;
+			object-fit  : contain;
+		}
 	}
 
 	// Loop to add z-index to each item with each iteration of the loop add lower z-index to item. So items they don't overlap.

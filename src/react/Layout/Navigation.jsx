@@ -141,7 +141,7 @@ export default function Navigation() {
 		return curSubitem.types && <ul className="navbar__sublist" data-open={sublistOpen[curSubitem.id]} onMouseLeave={handleSublistTypeUnactive}>
 			{curSubitem.types.map(curType => (
 				<li className="navbar__sublist-item" key={curType.key} id={curType.id} onMouseEnter={e => handleSublistTypeActive(e)}>
-					<a href="/" data-active={sublistTypeActive[curType.id]} className={sublistTypeActive[curType.id] ? "text-neutral-1" : "text-neutral-3"}>
+					<a href="/" data-active={sublistTypeActive[curType.id]} className={`sublink-1 ${sublistTypeActive[curType.id] ? "text-neutral-1" : "text-neutral-3"}`}>
 						{curType.link}
 					</a>
 				</li>
@@ -150,10 +150,10 @@ export default function Navigation() {
 	}
 
 	function renderSublist(curItem) {
-		return curItem.sublist && <ul className="navbar__sublist sublink-1" data-open={listOpen[curItem.id]}>
+		return curItem.sublist && <ul className="navbar__sublist" data-open={listOpen[curItem.id]}>
 			{curItem.sublist.map(curSubitem => (
 				<li className="navbar__sublist-item" key={curSubitem.key} id={curSubitem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
-					<a href="/" data-open={sublistOpen[curSubitem.id]} className={sublistOpen[curSubitem.id] ? "text-neutral-1" : "text-neutral-3"}>
+					<a href="/" data-open={sublistOpen[curSubitem.id]} className={`sublink-1 ${sublistOpen[curSubitem.id] ? "text-neutral-1" : "text-neutral-3"}`}>
 						{curSubitem.types ?
 							<><span aria-hidden={true}>{curSubitem.link}</span>
 								<span className="sr-only">{`Click to go ${curSubitem.link} page or press shift to open list`}</span></>
@@ -170,7 +170,7 @@ export default function Navigation() {
 		return (data.map((curItem, i) => (
 			(i >= limitItems) ? "" :
 				<li className="navbar__list-item" key={curItem.key} id={curItem.id} onMouseEnter={e => handleShowList(e)} onKeyDown={e => handleShiftDown(e)}>
-					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" data-active={listOpen[curItem.id]}>
+					<a href="/" className="link-2 link-underline f-fluid-1 f-weight-1" tabIndex={menuOpen ? -1 : 0} data-active={listOpen[curItem.id]}>
 						{curItem.sublist ?
 							<><span aria-hidden={true}>{curItem.link}</span>
 								<span className="sr-only">{`Click to go ${curItem.link} page or press shift to open list`}</span></>
@@ -190,7 +190,7 @@ export default function Navigation() {
 			     onFocus={e => getNavbarHeight(e)}>
 				<div className="navbar__container">
 					<div className="logo">
-						<img src="./media/home/image-logo.webp" alt="Lamborghini logo" width={50} height={51}/>
+						<img src="./media/home/image-logo.webp" alt="Lamborghini logo"/>
 					</div>
 					<ul className="navbar__list">
 						{renderList(data.list)}

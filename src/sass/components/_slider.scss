@@ -43,7 +43,7 @@
 			inline-size : 30vw;
 		}
 
-		@include breakpoint(max, em(1365px)) {
+		@include breakpoint(max, em(1375px)) {
 			inline-size : 35vw;
 		}
 	}
@@ -78,7 +78,7 @@
 		position         : absolute;
 		inset            : 0;
 		opacity          : 1;
-		background-color : rgba(0, 0, 0, 0.75);
+		background-color : hsla(0, 0%, 0%, 0.75);
 		transition       : opacity var(--transition-duration) var(--transition-ease);
 	}
 

@@ -7,7 +7,7 @@ export default function Swiper(props) {
 	const [mouseDown, setMouseDown] = useState(false);
 	const [startX, setStartX] = useState(0);
 	const [scrollLeft, setScrollLeft] = useState(0);
-	const [itemsCollapsed, setItemsCollapsed] = useState(50);
+	const [itemsCollapsed, setItemsCollapsed] = useState(40);
 
 	const reelRef = useRef(null);
 	const itemsListRef = useRef([]);
@@ -61,7 +61,7 @@ export default function Swiper(props) {
 		return data.map((item, i) => {
 			return (
 				<div className="swiper__item" key={item.key} ref={(ref) => (itemsListRef.current[i] = ref)}>
-					<img src={item.image} alt={item.alt} width={851} height={472}/>
+					<img src={item.image} alt={item.alt}/>
 				</div>
 			);
 		});

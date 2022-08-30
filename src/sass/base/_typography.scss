@@ -3,8 +3,14 @@
 	text-transform : uppercase;
 	line-height    : var(--line-height-1);
 
-	@include breakpoint(max, em(700px)) {
-		line-height : var(--line-height-3);
+	@include breakpoint(max, em(725px)) {
+		line-height : var(--line-height-2);
+	}
+}
+
+[class^="subtitle-"] {
+	@include breakpoint(max, em(725px)) {
+		line-height : var(--line-height-5);
 	}
 }
 
@@ -31,21 +37,21 @@
 
 // Styles for titles
 .title-1 {
-	font-size       : var(--f-size, #{clamped(2.8rem, 3.2rem, em(330px), em(1365px))});
+	font-size       : var(--f-size, #{clamped(2.8rem, 3.2rem, em(330px), em(1375px))});
 	font-weight     : var(--f-weight-4);
 	letter-spacing  : var(--letterspacing-3);
 	max-inline-size : var(--measure, var(--measure-5));
 }
 
 .title-2 {
-	font-size       : var(--f-size, #{clamped(4rem, 7.6rem, em(330px), em(1365px))});
+	font-size       : var(--f-size, #{clamped(4rem, 7.6rem, em(330px), em(1375px))});
 	font-weight     : var(--f-weight, var(--f-weight-3));
 	letter-spacing  : var(--letterspacing-2);
 	max-inline-size : var(--measure, var(--measure-1));
 }
 
 .title-3 {
-	font-size       : var(--f-size, #{clamped(4rem, 11rem, em(330px), em(1365px))});
+	font-size       : var(--f-size, #{clamped(4rem, 11rem, em(330px), em(1375px))});
 	font-weight     : var(--f-weight, var(--f-weight-4));
 	letter-spacing  : var(--letterspacing-2);
 	max-inline-size : var(--measure, var(--measure-1));
@@ -83,13 +89,13 @@
 }
 
 .subtitle-2 {
-	font-size      : var(--f-size, #{clamped(2rem, 3rem, em(330px), em(1365px))});
+	font-size      : var(--f-size, #{clamped(2rem, 3rem, em(330px), em(1375px))});
 	font-weight    : var(--f-weight, var(--f-weight-2));
 	letter-spacing : var(--letterspacing-4);
 }
 
 .subtitle-3 {
-	font-size      : var(--f-size, #{clamped(2.5rem, 3.5rem, em(330px), em(1365px))});
+	font-size      : var(--f-size, #{clamped(2.5rem, 3.5rem, em(330px), em(1375px))});
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	letter-spacing : var(--letterspacing-4);
 
@@ -114,7 +120,7 @@
 
 // Styles for links
 .link-1 {
-	font-size      : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1365px))});
+	font-size      : var(--f-size, #{clamped(1.4rem, 1.7rem, em(330px), em(1375px))});
 	letter-spacing : var(--letterspacing, var(--letterspacing-4));
 
 	@include breakpoint(max, em(1025px)) {
@@ -152,8 +158,6 @@
 	}
 
 	@media (hover : hover) {
-		transition : none;
-
 		&:hover::after,
 		&[data-active="true"]::after {
 			transform : scaleX(1) translateY(var(--space));
