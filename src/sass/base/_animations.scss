@@ -10,13 +10,13 @@
 		animation : fade-in-step var(--animation-duration) linear backwards;
 	}
 
-	& > [class^="title-"] > span:nth-child(2) {
+	& > [class^="title-"] > span:where(:nth-child(2), :nth-child(3)) {
 		animation : fade-in var(--animation-duration) var(--animation-ease) backwards var(--animation-delay),
 		slide-in-right var(--animation-duration) var(--animation-ease) backwards var(--animation-delay);
 	}
 
 	& > [class^="title-"] > span:nth-child(3) {
-		animation-delay : var(--animation-duration);
+		animation-delay : calc(var(--animation-duration) + var(--animation-delay));
 	}
 }
 

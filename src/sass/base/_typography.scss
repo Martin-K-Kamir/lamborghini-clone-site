@@ -9,6 +9,8 @@
 }
 
 [class^="subtitle-"] {
+	--space : 0.45em;
+
 	@include breakpoint(max, em(725px)) {
 		line-height : var(--line-height-5);
 	}
@@ -72,8 +74,6 @@
 
 // Styles for subtitles
 .subtitle-1 {
-	--space        : 0.45em;
-
 	font-size      : var(--f-size, max(0.285em, 1.8rem));
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	letter-spacing : var(--letterspacing-5);
@@ -147,6 +147,7 @@
 		transform        : scaleX(0) translateY(var(--space));
 		transform-origin : left;
 		transition       : transform var(--transition-duration, 300ms) var(--transition-easing, ease-in-out);
+
 	}
 
 	&:focus {

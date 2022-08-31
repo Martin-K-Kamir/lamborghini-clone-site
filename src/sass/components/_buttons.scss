@@ -8,7 +8,6 @@
 		--text                : var(--neutral-6);
 		--surface             : var(--neutral-1);
 		--border-color        : var(--neutral-2);
-		--border-size         : 1px;
 		--transition-duration : 300ms;
 		--transition-ease     : ease-in-out;
 
@@ -20,11 +19,11 @@
 		text-transform        : uppercase;
 		color                 : var(--text);
 		background-color      : var(--surface);
-		min-inline-size       : var(--btn-size, 13.43em);
-		padding               : var(--btn-padding, 1em);
+		min-inline-size       : 13.43em;
+		padding               : 1em;
 		font-size             : var(--f-size, 1.6rem);
 		font-weight           : var(--f-weight, var(--f-weight-2));
-		border                : solid var(--border-size) var(--border-color);
+		border                : solid 1px var(--border-color);
 		transition            : color var(--transition-duration) var(--transition-ease),
 		background-color var(--transition-duration) var(--transition-ease),
 		border-color var(--transition-duration) var(--transition-ease);
@@ -62,20 +61,17 @@
 }
 
 .btn-hexagon {
-	--surface             : transparent;
-	--text                : var(--neutral-1);
 	--transition-duration : 200ms;
 	--transition-ease     : ease-out;
 
 	display               : inline-flex;
 	align-items           : center;
-	gap                   : 2rem;
+	gap                   : var(--gap, 2rem);
 
 	& + & {
 		margin-inline-start : var(--space, 2rem);
 	}
 
-	// props
 	span:not(.sr-only) {
 		font-size       : 1.6rem;
 		max-inline-size : var(--measure-1);
@@ -90,10 +86,19 @@
 		aspect-ratio : 1 / 1;
 	}
 
+	:where(.border, .symbol) {
+		fill       : transparent;
+		stroke     : var(--text);
+		transition : fill var(--transition-duration) var(--transition-ease), stroke var(--transition-duration) var(--transition-ease);
+	}
+
 	@media (hover : hover) {
-		&:where(:hover, :focus-visible) svg {
-			--surface : var(--neutral-1);
-			--text    : var(--neutral-7);
+		&:where(:hover, :focus-visible) .border {
+			fill            : var(--text);
+		}
+
+		&:where(:hover, :focus-visible) .symbol {
+			stroke            : var(--surface);
 		}
 	}
 }

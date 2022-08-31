@@ -4,10 +4,14 @@ html {
 }
 
 body {
-	font-family : var(--f-serif), Helvetica Neue, Arial;
-	font-size   : 1rem;
-	font-weight : var(--f-weight-2);
-	color       : var(--neutral-6);
+	--text           : var(--neutral-6);
+	--surface        : var(--neutral-1);
+
+	font-family      : var(--f-serif), Helvetica Neue, Arial;
+	font-size        : 1rem;
+	font-weight      : var(--f-weight-2);
+	color            : var(--text);
+	background-color : var(--surface);
 
 	&[data-menu-open="true"] {
 		@include breakpoint(max, em(1025px)) {
@@ -26,7 +30,7 @@ a {
 	--transition-ease     : ease-out;
 
 	text-decoration       : inherit;
-	color                 : var(--text, inherit);
+	color                 : var(--text);
 	transition            : text-decoration 250ms, color var(--transition-duration) var(--transition-ease);
 
 	&:where([data-disabled="true"] &, &[data-disabled="true"]) {
@@ -46,7 +50,7 @@ a {
 		outline-offset : calc(var(--outline-size) * 2 + 1px);
 	}
 
-	& > :where(svg, path) {
+	&:not([class]) > :where(svg, path) {
 		color : inherit;
 		fill  : currentColor;
 	}
