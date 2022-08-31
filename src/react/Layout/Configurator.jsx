@@ -2,28 +2,49 @@ import data from "../../data/dataHome";
 import {typewriterAnimation} from "../Utilities";
 import React from "react";
 import Button from "../components/Button";
+import Tabs from "../components/Tabs";
+import {useEffect, useState} from "react";
+
 
 export default function Configurator() {
+	const [activeTab, setActiveTab] = useState(0);
+
+	const surfaceStyles = {
+		"backgroundImage": `url(/media/home/image-tab-${activeTab + 1}.webp)`,
+		"backgroundPosition": "center",
+		"backgroundSize": "contain",
+		"backgroundRepeat": "no-repeat",
+		"transition": "background-image 200ms ease-out"
+	}
+
+	function handleTabClick(index) {
+		setActiveTab(index);
+	}
+
+	function renderContent(data) {
+		return data.map((item, i) => {
+			if (activeTab === i) {
+				return <div className="animation-title-reveal animation-btn-reveal">
+					<h2 className="title-2 f-weight-4">
+						<span className="subtitle-3">{typewriterAnimation('configurator', 40, 0)}</span>
+						<span className="title">create your</span>
+						<span className="title">{item.content}</span>
+					</h2>
+					<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly="click to go aventador page"/>
+				</div>
+			}
+		})
+	}
+
 	return (
-		<section>
+		<section className="none[screen-md]" style={surfaceStyles}>
 			<div className="container">
 				<div className="stack space-4">
 					<div className="wrap">
-						<div className="animation-title-reveal animation-btn-reveal">
-							<h2 className="title-2 f-weight-4">
-								<span className="subtitle-3">{typewriterAnimation('configurator', 60, 50)}</span>
-								<span className="title">create your</span>
-								<span className="title">huracán</span>
-							</h2>
-							<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly="click to go aventador page"/>
-						</div>
+						{renderContent(data.configTabs)}
 					</div>
 					<div className="wrap">
-						<div className="tabs">
-							<button className="tabs__tab" data-active={true}>Aventador</button>
-							<button className="tabs__tab">Huracán</button>
-							<button className="tabs__tab">Urus</button>
-						</div>
+						<Tabs data={data.configTabs} activeIndex={activeTab} handleTabClick={handleTabClick}/>
 					</div>
 				</div>
 			</div>

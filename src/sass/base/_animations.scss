@@ -1,6 +1,6 @@
 
 :where(.animation-title-reveal, .animation-btn-reveal) {
-	--animation-duration : 500ms;
+	--animation-duration : 400ms;
 	--animation-ease     : ease-out;
 	--animation-delay    : 200ms;
 }
@@ -22,8 +22,10 @@
 
 .animation-btn-reveal {
 	& > [class^="btn-"] {
-		animation : fade-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration)),
-		scale-in var(--animation-duration) var(--animation-ease) backwards calc(var(--animation-delay) + var(--animation-duration));
+		--animation-delay    : 900ms;
+
+		animation : fade-in var(--animation-duration) var(--animation-ease) backwards var(--animation-delay),
+		scale-in var(--animation-duration) var(--animation-ease) backwards var(--animation-delay);
 	}
 }
 

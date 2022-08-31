@@ -33,6 +33,12 @@
 	--space : 4rem;
 }
 
+.none\[screen-md\] {
+	@include breakpoint(max, em(1025px)) {
+		display : none;
+	}
+}
+
 .sr-only {
 	position    : absolute;
 	overflow    : hidden;

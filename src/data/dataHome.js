@@ -96,4 +96,18 @@ export default {
 			btnContent2: "open car configurator"
 		},
 	],
+	configTabs: [
+		{
+			key: "01",
+			content: "aventador",
+		},
+		{
+			key: "02",
+			content: "huracán",
+		},
+		{
+			key: "03",
+			content: "urus",
+		}
+	],
 }
