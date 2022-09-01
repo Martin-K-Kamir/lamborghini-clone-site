@@ -14,7 +14,7 @@ export default function Configurator() {
 		"backgroundPosition": "center",
 		"backgroundSize": "contain",
 		"backgroundRepeat": "no-repeat",
-		"transition": "background-image 200ms ease-out"
+		"transition": "background-image 100ms ease-out"
 	}
 
 	function handleTabClick(index) {
@@ -24,7 +24,7 @@ export default function Configurator() {
 	function renderContent(data) {
 		return data.map((item, i) => {
 			if (activeTab === i) {
-				return <div className="animation-title-reveal animation-btn-reveal">
+				return <div className="animation-title-reveal animation-btn-reveal" key={item.key}>
 					<h2 className="title-2 f-weight-4">
 						<span className="subtitle-3">{typewriterAnimation('configurator', 40, 0)}</span>
 						<span className="title">create your</span>

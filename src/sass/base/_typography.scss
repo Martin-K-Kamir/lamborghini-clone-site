@@ -46,7 +46,7 @@
 }
 
 .title-2 {
-	font-size       : var(--f-size, #{clamped(4rem, 7.6rem, em(330px), em(1375px))});
+	font-size       : var(--f-size, #{clamped(3.5rem, 7.6rem, em(330px), em(1375px))});
 	font-weight     : var(--f-weight, var(--f-weight-3));
 	letter-spacing  : var(--letterspacing-2);
 	max-inline-size : var(--measure, var(--measure-1));
