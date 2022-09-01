@@ -30,7 +30,7 @@ export default function Configurator() {
 						<span className="title">create your</span>
 						<span className="title">{item.content}</span>
 					</h2>
-					<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly="click to go aventador page"/>
+					<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly={`click to go ${item.content} page`}/>
 				</div>
 			}
 		})
