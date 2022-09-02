@@ -2,9 +2,9 @@
 :root {
 	@include generator($config);
 
-	--outline-size              : max(1px, 0.08em);
-	--outline-style             : solid;
-	--outline-color             : currentColor;
+	--outline-size  : max(1px, 0.08em);
+	--outline-style : solid;
+	--outline-color : currentColor;
 }
 
 .f-fluid-1 {
@@ -27,10 +27,19 @@
 	--space : 4rem;
 }
 
+.space-initial {
+	--space : initial;
+}
+
 .none\[screen-md\] {
 	@include breakpoint(max, em(1025px)) {
 		display : none;
 	}
+}
+
+.block-center {
+	display     : grid;
+	align-items : center;
 }
 
 .sr-only {

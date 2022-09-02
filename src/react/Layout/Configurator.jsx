@@ -40,9 +40,9 @@ export default function Configurator() {
 		<section className="none[screen-md]" style={surfaceStyles}>
 			<div className="container">
 				<div className="stack space-4">
-					<div className="wrap">
+					<header className="wrap">
 						{renderContent(data.configTabs)}
-					</div>
+					</header>
 					<div className="wrap">
 						<Tabs data={data.configTabs} activeIndex={activeTab} handleTabClick={handleTabClick}/>
 					</div>

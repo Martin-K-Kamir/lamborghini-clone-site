@@ -1,0 +1,18 @@
+
+.article {
+	display: flex;
+	flex-direction: column;
+	gap: clamped(1rem, 6rem, em(330px), em(1375px));
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	:where([class^="btn-"], [class^="description-"]) {
+		@include breakpoint(max, em(1025px)) {
+			display: none;
+		}
+	}
+}

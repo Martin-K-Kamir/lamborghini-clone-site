@@ -1,17 +1,23 @@
 import React from "react";
 import Button from "../components/Button";
+import Article from "../components/Article";
 
 
-export default function Dealer() {
+export default function Blog() {
 	return (
-		<section className="text-neutral-1 surface-neutral-6" style={styles}>
+		<section className="blog">
 			<div className="container">
-				<span className="subtitle-3">dealer locator</span>
-				<h2 className="title-1 f-weight-4">
-					<span className="title">find your</span>
-					<span className="title">country dealer</span>
-				</h2>
-				<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly="click to go dealer locator page"/>
+				<div className="blog__container stack space-4">
+					<header className="blog__header">
+						<p className="subtitle-3">news</p>
+						<h2 className="title-3 measure-9">lamborghini world</h2>
+					</header>
+					<div className="blog__articles">
+						<div className="space-initial">
+							<Article/>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);

@@ -1,8 +1,9 @@
 import Hero from "../Layout/Hero";
 import Models from "../Layout/Models";
 import Configurator from "../Layout/Configurator";
-import data from "../../data/dataHome";
 import Dealer from "../Layout/Dealer";
+import Blog from "../Layout/Blog";
+import data from "../../data/dataHome";
 
 export default function Home() {
 
@@ -12,6 +13,7 @@ export default function Home() {
 			<Models/>
 			<Configurator/>
 			<Dealer/>
+			<Blog/>
 			<div className="test"></div>
 		</main>
 	);

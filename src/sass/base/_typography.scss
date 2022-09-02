@@ -28,6 +28,11 @@
 	margin-block-start : var(--space);
 }
 
+[class^="title-"] + [class^="title-"] {
+	margin-block-start : var(--space, 2rem);
+}
+
+
 [class^="subtitle-"] + [class^="title-"] {
 	margin-block-start : var(--space, 2rem);
 }
@@ -35,6 +40,14 @@
 [class*="link-"] {
 	font-weight    : var(--f-weight, var(--f-weight-3));
 	text-transform : var(--text-transform, uppercase);
+}
+
+[class*="title-"] + [class*="description-"] {
+	margin-block-start : var(--space, 1rem);
+}
+
+[class*="description-"] {
+	max-inline-size : var(--measure, var(--measure-8));
 }
 
 // Styles for titles

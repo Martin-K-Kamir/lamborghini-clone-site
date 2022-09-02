@@ -6,4 +6,10 @@
 	main & {
 		padding-inline : clamped(0rem, 10rem, em(725px), em(1365px));
 	}
+
+	main & & {
+		margin-inline: revert;
+		inline-size: auto;
+		padding-inline : clamped(0rem, 14rem, em(1025px), em(1920px));
+	}
 }

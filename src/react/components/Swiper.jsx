@@ -68,16 +68,16 @@ export default function Swiper(props) {
 	}
 
 	function renderContent(data) {
-		return data.map(curContent => {
-			if (activeItem === curContent.index) {
+		return data.map(item => {
+			if (activeItem === item.index) {
 				return (
-					<div className="animation-title-fade" key={curContent.key}>
+					<div className="animation-title-fade" key={item.key}>
 						<h3 className="title-2">
-							<span className="title f-weight-4">{curContent.title}</span>
-							<span className="subtitle-1">{curContent.subtitle}</span>
+							<span className="title f-weight-4">{item.title}</span>
+							<span className="subtitle-1">{item.subtitle}</span>
 						</h3>
-						<Button href="/" class="btn-primary" content={curContent.btnContent}/>
-						{curContent.btnContent2 && <Button href="/" class="btn-primary" content={curContent.btnContent2}/>}
+						<Button href="/" class="btn-primary" content={item.btnContent}/>
+						{item.btnContent2 && <Button href="/" class="btn-primary" content={item.btnContent2}/>}
 					</div>
 				);
 			}

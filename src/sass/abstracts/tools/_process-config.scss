@@ -11,7 +11,7 @@
  */
 @mixin _process-config($config: null, $key: null, $selector: null, $base: null, $ratio: null, $length: null, $preserve: 0, $utility-classes: true, $src: null, $scale: 100%, $prefix: null, $suffix: null, $prefix-class: null, $prefix-variable: null, $suffix-class: null, $suffix-variable: null) {
 
-	// Make shallow copy config map from parameters.
+	// Make shallow copy of config map from parameters.
 	$_config : (
 			'key': $key,
 			'selector' : $selector,
