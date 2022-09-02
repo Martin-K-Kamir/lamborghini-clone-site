@@ -56,6 +56,10 @@
 	font-weight     : var(--f-weight-4);
 	letter-spacing  : var(--letterspacing-3);
 	max-inline-size : var(--measure, var(--measure-5));
+
+	@include breakpoint(max, em(725px)) {
+		line-height : var(--line-height-4);
+	}
 }
 
 .title-2 {

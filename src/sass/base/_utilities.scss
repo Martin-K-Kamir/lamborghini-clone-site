@@ -27,6 +27,14 @@
 	--space : 4rem;
 }
 
+.space-5 {
+	--space : 8rem;
+}
+
+.space-fluid-1 {
+	--space :  #{clamped(2rem, 4rem, em(725px), em(1375px))};
+}
+
 .space-initial {
 	--space : initial;
 }
@@ -35,6 +43,19 @@
 	@include breakpoint(max, em(1025px)) {
 		display : none;
 	}
+}
+
+.display-at\[screen-md\] {
+	display : none;
+
+	@include breakpoint(max, em(1025px)) {
+		display : block;
+	}
+}
+
+.inline-center {
+	display     : flex;
+	justify-content: center;
 }
 
 .block-center {

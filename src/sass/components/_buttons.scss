@@ -29,7 +29,7 @@
 		border-color var(--transition-duration) var(--transition-ease);
 
 		@include breakpoint(max, em(725px)) {
-			min-inline-size : 100%;
+			inline-size : 100%;
 		}
 
 		& + & {

@@ -1,18 +1,61 @@
 
 .article {
-	display: flex;
-	flex-direction: column;
-	gap: clamped(1rem, 6rem, em(330px), em(1375px));
+	--columns             : 2;
+
+	display               : grid;
+	grid-template-columns : repeat(var(--columns), 1fr);
+	grid-template-areas   : "image content";
+	gap                   : var(--space);
+
+	@include breakpoint(max, em(1025px)) {
+		--columns           : 1;
+
+		grid-template-areas : "image" "content";
+	}
+
+	&--main {
+		--columns           : 1;
+		grid-template-areas : "image" "content";
+	}
+
+	&__image {
+		min-block-size : 27rem;
+		object-fit     : cover;
+	}
+
+	&__header {
+		display : contents;
+
+		@include breakpoint(max, em(1025px)) {
+			display : block;
+		}
+
+		.article--main & {
+			display : block;
+		}
+	}
 
 	&__content {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		display         : flex;
+		flex-direction  : column;
+		justify-content : space-between;
+		align-items     : flex-start;
+		gap             : var(--space, 4rem);
+
+		.article--main & {
+			flex-direction : row;
+			align-items    : center;
+		}
 	}
 
 	:where([class^="btn-"], [class^="description-"]) {
 		@include breakpoint(max, em(1025px)) {
-			display: none;
+			display : none;
 		}
+	}
+
+	// del later
+	& + & {
+		margin-block-start : 6rem;
 	}
 }

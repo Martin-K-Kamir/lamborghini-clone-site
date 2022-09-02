@@ -110,4 +110,29 @@ export default {
 			content: "urus",
 		}
 	],
+	articles: [
+		{
+			key: "01",
+			alt: "lamborghini and ducati",
+			title: "the ducati streetfighter v4 lamborghini is here",
+			description: "Automobili Lamborghini and Ducati renewed their collaboration with the Ducati Streetfighter V4 Lamborghini, an exclusive masterpiece inspired by the Huracán STO.",
+			link: "/",
+			date: "2 september 2022",
+			isMain: true,
+		},
+		{
+			key: "02",
+			alt: "lamborghini diablo",
+			title: "lamborghini v12 history: diablo",
+			link: "/",
+			date: "31 august 2022",
+		},
+		{
+			key: "03",
+			alt: "urus",
+			title: "urus performante: sketching in action",
+			link: "/",
+			date: "30 august 2022",
+		},
+	]
 }
