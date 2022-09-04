@@ -6,7 +6,7 @@ export default function Footer() {
 
 	function renderList(data) {
 		return (data.map(curLink => (
-			<li className="link-2 link-underline f-fluid-1 f-weight-1">
+			<li className="link-2 link-underline f-size-3 f-weight-1">
 				<a href="/" key={curLink.key}>
 					{curLink.link}
 				</a>
@@ -36,19 +36,17 @@ export default function Footer() {
 							{renderList(dataFooter.list)}
 						</ul>
 					</nav>
-					<ul className="footer__socials cluster">
+					<ul className="footer__socials cluster space-3">
 						{renderSocialIcons(dataFooter.socialIcons)}
 					</ul>
 				</div>
-				<p className="disclaimer description-1"><span>The consumption and emissions values in the website refer to your geographical IP. This value might be unrealistic
-					if you
-					navigate
-					using VPN or if the position of your Internet provider is imprecise. If you believe you are incorrectly geolocalized, contact your dealer to get valid
-					consumption and emissions information in your area.</span></p>
+				<p className="disclaimer description-1"><span>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam culpa cum eligendi ex fugiat illo impedit laboriosam libero minus, molestias nam, nesciunt odit placeat quas ratione saepe sint sunt voluptates? Cumque fuga impedit quibusdam, quos saepe similique unde vel veniam. At atque mollitia necessitatibus ullam.
+				</span></p>
 				<p className="description-2">
-					Copyright © 2022 Automobili Lamborghini S.p.A. a sole shareholder company part of Audi Group.
+					This is fake Lamborghini clone site.
 					<br/>
-					All rights reserved. VAT no. IT
+					Lorem ipsum dolor sit amet.
 				</p>
 			</div>
 		</footer>

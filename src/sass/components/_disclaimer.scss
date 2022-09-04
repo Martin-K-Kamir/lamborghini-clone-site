@@ -3,11 +3,16 @@
 	--disclaimer-symbol : "*";
 
 	max-inline-size     : revert;
+	display             : grid;
+	grid-template-areas : "stack";
 
-	display: list-item;
-	list-style-position: inside;
+	& > * {
+		grid-area : stack;
+		padding-inline-start: 2ch;
+	}
 
-	&::marker {
-		//content       : var(--disclaimer-symbol);
+	&::after {
+		content   : var(--disclaimer-symbol);
+		grid-area : stack;
 	}
 }
