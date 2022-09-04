@@ -2,12 +2,15 @@
 @import '../library/clamped';
 
 $list-of-fluid-space-sizes : (
-		clamped(0rem, 1.5rem),
-		clamped(1.5rem, 2.5rem),
-		clamped(3rem, 4rem),
-		clamped(6rem, 10rem),
-		clamped(9.4rem, 12.2rem),
-		clamped(12rem, 20rem),
+		clamped(1rem, 1.7rem, screen-md, screen-lg),
+		clamped(2rem, 3rem),
+		clamped(2rem, 4rem, screen-md, screen-xl),
+		clamped(2.5rem, 3rem, screen-md, screen-lg),
+		clamped(3rem, 5rem, screen-min, screen-lg),
+		clamped(5rem, 8rem, screen-min, screen-lg),
+		clamped(5rem, 15rem),
+		clamped(10rem, 16rem, screen-min, screen-lg),
+		clamped(15rem, 30rem, screen-min, screen-lg),
 ) !default
 
 

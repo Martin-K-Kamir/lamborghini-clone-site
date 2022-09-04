@@ -73,9 +73,9 @@ export default function Button(props) {
 		return (
 			<>
 				{props.srOnly && <span className="sr-only">{props.srOnly}</span>}
-				{(contentJustify === "start" && props.content && props.type) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
+				{(contentJustify === "start" && props.content && props.type) && <span className="f-size-3 f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
 				{icon(props)}
-				{(contentJustify === "end" && props.content && props.type) && <span className="f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
+				{(contentJustify === "end" && props.content && props.type) && <span className="f-size-3 f-weight-1 line-height-5 letterspacing-3">{props.content}</span>}
 			</>
 		)
 	}

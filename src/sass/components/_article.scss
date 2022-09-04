@@ -1,15 +1,15 @@
 
 .article {
 	--columns             : 2;
+	--space               : var(--space-fluid-3);
 
 	display               : grid;
 	grid-template-columns : repeat(var(--columns), 1fr);
 	grid-template-areas   : "image content";
 	gap                   : var(--space);
 
-	@include breakpoint(max, em(1025px)) {
+	@include breakpoint(max, screen-lg) {
 		--columns           : 1;
-
 		grid-template-areas : "image" "content";
 	}
 
@@ -26,7 +26,7 @@
 	&__header {
 		display : contents;
 
-		@include breakpoint(max, em(1025px)) {
+		@include breakpoint(max, screen-lg) {
 			display : block;
 		}
 
@@ -40,7 +40,7 @@
 		flex-direction  : column;
 		justify-content : space-between;
 		align-items     : flex-start;
-		gap             : var(--space, 4rem);
+		gap             : var(--space, var(--space-7));
 
 		.article--main & {
 			flex-direction : row;
@@ -49,13 +49,8 @@
 	}
 
 	:where([class^="btn-"], [class^="description-"]) {
-		@include breakpoint(max, em(1025px)) {
+		@include breakpoint(max, screen-lg) {
 			display : none;
 		}
-	}
-
-	// del later
-	& + & {
-		margin-block-start : 6rem;
 	}
 }

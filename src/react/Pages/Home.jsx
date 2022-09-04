@@ -14,7 +14,6 @@ export default function Home() {
 			<Configurator/>
 			<Dealer/>
 			<Blog/>
-			<div className="test"></div>
 		</main>
 	);
 }

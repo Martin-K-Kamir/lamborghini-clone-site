@@ -1,4 +1,18 @@
 $config : (
+		'font-types' : (
+				'src' : $list-of-font-sizes,
+		),
+		'fluid-font-types' : (
+				'src' : $list-of-fluid-font-sizes,
+		),
+		'space-types' : (
+				'base' : 0.8rem,
+				'ratio' : 'major-third',
+				'length' : 16,
+		),
+		'fluid-space-types' : (
+				'src' : $list-of-fluid-space-sizes,
+		),
 		'color-types' : (
 				'src' : $map-for-colors,
 		),

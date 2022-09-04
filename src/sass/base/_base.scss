@@ -8,13 +8,13 @@ body {
 	--surface        : var(--neutral-1);
 
 	font-family      : var(--f-serif), Helvetica Neue, Arial;
-	font-size        : 1rem;
+	font-size        : var(--f-size-1);
 	font-weight      : var(--f-weight-2);
 	color            : var(--text);
 	background-color : var(--surface);
 
 	&[data-menu-open="true"] {
-		@include breakpoint(max, em(1025px)) {
+		@include breakpoint(max, screen-lg) {
 			overflow-y : hidden;
 			width      : calc(100% - var(--scroll-bar-width));
 		}
@@ -22,7 +22,7 @@ body {
 }
 
 section {
-	padding-block  : var(--space, #{clamped(5rem, 15rem, em(330px), em(1365px))}); // props
+	padding-block  : var(--space, var(--space-fluid-7));
 	min-block-size : 50rem;
 }
 
@@ -37,7 +37,7 @@ a {
 	&:where([data-disabled="true"] &, &[data-disabled="true"]) {
 		pointer-events      : none;
 		color               : var(--text-disabled, var(--neutral-5));
-		-webkit-text-stroke : var(--text-disabled-stroke, 0.3px); // change
+		-webkit-text-stroke : var(--text-disabled-stroke);
 	}
 
 	@media (hover : hover) {
@@ -67,10 +67,4 @@ button {
 		color : inherit;
 		fill  : currentColor;
 	}
-}
-
-
-.test {
-	background : linear-gradient(to right bottom, khaki, steelblue, darkkhaki);
-	height     : 1000px;
 }

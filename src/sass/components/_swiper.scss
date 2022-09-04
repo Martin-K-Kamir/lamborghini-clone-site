@@ -2,12 +2,12 @@
 
 	// temp
 	display : none;
-	@include breakpoint(max, em(1025px)) {
+	@include breakpoint(max, screen-lg) {
 		display : block;
 	}
 
 	&__reel {
-		margin-block      : clamped(3rem, 5rem, em(330px), em(1025px)); // props
+		margin-block      : var(--space-fluid-5);
 		inline-size       : 100%;
 		display           : grid;
 		grid-auto-flow    : column;
@@ -25,7 +25,7 @@
 	}
 
 	&__item {
-		margin-inline-start : calc(-1px * var(--items-collapsed));
+		margin-inline-start : calc(-1px * var(--collapse-by));
 		background-image    : linear-gradient(to top, var(--neutral-1), var(--neutral-2), var(--neutral-1));
 		user-select         : none;
 

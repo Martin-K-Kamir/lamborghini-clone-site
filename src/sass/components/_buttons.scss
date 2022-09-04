@@ -1,6 +1,6 @@
 
 [class*="title-"] + [class^="btn-"] {
-	margin-block-start : var(--space, #{clamped(2rem, 3rem, em(330px), em(1365px))});
+	margin-block-start : var(--space, var(--space-fluid-2));
 }
 
 :is(.btn-primary, .btn-secondary) {
@@ -21,21 +21,21 @@
 		background-color      : var(--surface);
 		min-inline-size       : 13.43em;
 		padding               : 1em;
-		font-size             : var(--f-size, 1.6rem);
+		font-size             : var(--f-size, var(--f-size-3));
 		font-weight           : var(--f-weight, var(--f-weight-2));
 		border                : solid 1px var(--border-color);
 		transition            : color var(--transition-duration) var(--transition-ease),
 		background-color var(--transition-duration) var(--transition-ease),
 		border-color var(--transition-duration) var(--transition-ease);
 
-		@include breakpoint(max, em(725px)) {
+		@include breakpoint(max, screen-md) {
 			inline-size : 100%;
 		}
 
 		& + & {
 			margin-inline-start : var(--space, 2rem);
 
-			@include breakpoint(max, em(725px)) {
+			@include breakpoint(max, screen-md) {
 				margin-inline-start : revert;
 				margin-block-start  : var(--space, 2rem);
 			}
@@ -44,13 +44,11 @@
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {
-			--hover-text         : var(--surface);
-			--hover-surface      : var(--text);
-			--hover-border-color : var(--text);
+			--hover-text     : var(--surface);
+			--hover-surface  : var(--text);
 
-			color                : var(--hover-text);
-			background-color     : var(--hover-surface);
-			border-color         : var(--hover-border-color);
+			color            : var(--hover-text);
+			background-color : var(--hover-surface);
 		}
 	}
 }
@@ -63,17 +61,17 @@
 .btn-hexagon {
 	--transition-duration : 200ms;
 	--transition-ease     : ease-out;
+	--space               : var(--space-4);
 
 	display               : inline-flex;
 	align-items           : center;
-	gap                   : var(--gap, 2rem);
+	gap                   : var(--space-w-span, 2rem);
 
 	& + & {
-		margin-inline-start : var(--space, 2rem);
+		margin-inline-start : var(--space);
 	}
 
 	span:not(.sr-only) {
-		font-size       : 1.6rem;
 		max-inline-size : var(--measure-1);
 	}
 
@@ -94,11 +92,11 @@
 
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) .border {
-			fill            : var(--text);
+			fill : var(--text);
 		}
 
 		&:where(:hover, :focus-visible) .symbol {
-			stroke            : var(--surface);
+			stroke : var(--surface);
 		}
 	}
 }
@@ -122,7 +120,7 @@
 		padding-top      : var(--line-size);
 		transition       : transform var(--transition-duration), opacity var(--transition-duration), margin-block var(--transition-duration);
 
-		@include breakpoint(max, em(725px)) {
+		@include breakpoint(max, screen-md) {
 			transition : none;
 		}
 	}

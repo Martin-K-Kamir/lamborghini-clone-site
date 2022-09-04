@@ -3,15 +3,15 @@
 	display             : grid;
 	align-items         : center;
 	min-block-size      : 100vh;
-	padding-block       : clamped(15rem, 30rem, em(330px), em(1025px)); // props
+	padding-block       : var(--space-fluid-9);
 	background-position : center;
 	background-size     : cover;
 
-	@include breakpoint(max, em(1025px)) {
+	@include breakpoint(max, screen-lg) {
 		align-items : start;
 	}
 
 	@include landscape(phone) {
-		padding-block : clamped(10rem, 16rem, em(330px), em(1025px)); // props
+		padding-block : var(--space-fluid-8);
 	}
 }

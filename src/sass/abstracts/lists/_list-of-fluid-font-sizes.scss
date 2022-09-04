@@ -2,10 +2,11 @@
 @import '../library/clamped';
 
 $list-of-fluid-font-sizes : (
-		clamped(1.5rem, 1.6rem),
-		clamped(1.45rem, 1.8rem),
+		clamped(1.3rem, 1.6rem, screen-lg, screen-xl),
+		clamped(1.4rem, 1.7rem),
+		clamped(2rem, 3rem),
+		clamped(2.5rem, 3.5rem),
 		clamped(2.8rem, 3.2rem),
-		clamped(2.8rem, 4rem),
-		clamped(3.3rem, 7.2rem, screen-min, screen-xxl),
-		clamped(2.4rem, 18.3rem, screen-xxs, screen-xxl),
+		clamped(3.5rem, 7.6rem),
+		clamped(4rem, 11rem),
 ) !default

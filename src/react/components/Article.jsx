@@ -3,9 +3,12 @@ import Button from "../components/Button";
 
 export default function Article(props) {
 	return (
-		<article className={`article space-fluid-1 ${props.isMain ? "article--main" : ""}`}>
+		<article className={`article ${props.isMain ? "article--main" : ""}`}>
 			<a href={props.link}>
-				<img className="article__image" src={`/media/home/image-article-${props.imgIndex}.jpg`} alt={props.alt}/>
+				<span className="sr-only">
+					read more about {props.title}
+				</span>
+				<img className="article__image" src={`/media/home/image-article-${props.imgIndex}.webp`} alt={props.alt}/>
 			</a>
 			<div className="article__content space-initial">
 				<header className="article__header">

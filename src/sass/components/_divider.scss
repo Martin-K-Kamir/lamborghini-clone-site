@@ -30,7 +30,7 @@
 		display        : grid;
 		justify-items  : end;
 
-		@include breakpoint(max, em(1025px)) {
+		@include breakpoint(max, screen-lg) {
 			--divider-size                : 100%;
 			--divider-overflowing-opacity : 0;
 		}

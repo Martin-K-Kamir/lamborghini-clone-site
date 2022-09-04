@@ -5,12 +5,12 @@
 	inline-size : 100%;
 	overflow-y  : hidden;
 
-	@include breakpoint(max, em(1025px)) {
+	@include breakpoint(max, screen-lg) {
 		block-size : var(--block-size);
 	}
 
 	&[data-menu-open="true"] {
-		@include breakpoint(max, em(1025px)) {
+		@include breakpoint(max, screen-lg) {
 			overflow-y : auto;
 		}
 	}

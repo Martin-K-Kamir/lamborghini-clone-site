@@ -60,12 +60,12 @@
 		@include generate-font-types($config);
 	}
 
-	@if map-has-key($config, 'space-types') {
-		@include generate-space-types($config);
-	}
-
 	@if map-has-key($config, 'fluid-font-types') {
 		@include generate-fluid-font-types($config);
+	}
+
+	@if map-has-key($config, 'space-types') {
+		@include generate-space-types($config);
 	}
 
 	@if map-has-key($config, 'fluid-space-types') {

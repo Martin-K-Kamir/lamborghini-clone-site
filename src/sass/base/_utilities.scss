@@ -7,34 +7,6 @@
 	--outline-color : currentColor;
 }
 
-.f-fluid-1 {
-	font-size : clamped(1.3rem, 1.6rem, em(1025px), em(1375px));
-}
-
-.space-1 {
-	--space : 2.5rem;
-}
-
-.space-2 {
-	--space : 6rem;
-}
-
-.space-3 {
-	--space : 25rem;
-}
-
-.space-4 {
-	--space : 4rem;
-}
-
-.space-5 {
-	--space : 8rem;
-}
-
-.space-fluid-1 {
-	--space :  #{clamped(2rem, 4rem, em(725px), em(1375px))};
-}
-
 .space-initial {
 	--space : initial;
 }
@@ -45,21 +17,13 @@
 	}
 }
 
-.display-at\[screen-md\] {
-	display : none;
-
-	@include breakpoint(max, em(1025px)) {
-		display : block;
-	}
-}
-
-.inline-center {
+.flex-inline-center {
 	display     : flex;
 	justify-content: center;
 }
 
-.block-center {
-	display     : grid;
+.flex-block-center {
+	display     : flex;
 	align-items : center;
 }
 

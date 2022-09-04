@@ -25,12 +25,12 @@ export default function Configurator() {
 		return data.map((item, i) => {
 			if (activeTab === i) {
 				return <div className="animation-title-reveal animation-btn-reveal" key={item.key}>
-					<h2 className="title-2 f-weight-4">
+					<h2 className="title-2">
 						<span className="subtitle-3">{typewriterAnimation('configurator', 40, 0)}</span>
 						<span className="title">create your</span>
 						<span className="title">{item.content}</span>
 					</h2>
-					<Button href="/" class="btn-hexagon" size="5.5" type="hexa-arrow-right" srOnly={`click to go ${item.content} page`}/>
+					<Button href="/" class="btn-hexagon space-6" size="5.5" type="hexa-arrow-right" srOnly={`click to go ${item.content} page`}/>
 				</div>
 			}
 		})
@@ -39,7 +39,7 @@ export default function Configurator() {
 	return (
 		<section className="none[screen-md]" style={surfaceStyles}>
 			<div className="container">
-				<div className="stack space-4">
+				<div className="stack space-9">
 					<header className="wrap">
 						{renderContent(data.configTabs)}
 					</header>

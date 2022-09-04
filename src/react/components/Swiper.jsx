@@ -85,7 +85,7 @@ export default function Swiper(props) {
 	}
 
 	return (
-		<section className="swiper" style={{"--items-collapsed": itemsCollapsed}}>
+		<section className="swiper" style={{"--collapse-by": itemsCollapsed}}>
 			<div className="swiper__container">
 				<h2 className="subtitle-3">Models</h2>
 			</div>

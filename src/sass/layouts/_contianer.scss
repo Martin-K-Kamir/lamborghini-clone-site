@@ -4,12 +4,12 @@
 	inline-size   : min(200rem, 90%);
 
 	main & {
-		padding-inline : clamped(0rem, 10rem, em(725px), em(1365px));
+		padding-inline : clamped(0rem, 10rem, screen-md, screen-xl);
 	}
 
 	main & & {
 		margin-inline: revert;
 		inline-size: auto;
-		padding-inline : clamped(0rem, 14rem, em(1025px), em(1920px));
+		padding-inline : clamped(0rem, 14rem, screen-lg, screen-xxl);
 	}
 }

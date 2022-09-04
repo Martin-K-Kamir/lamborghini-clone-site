@@ -9,7 +9,7 @@
 	min-block-size        : 70rem;
 
 	//temp
-	@include breakpoint(max, em(1025px)) {
+	@include breakpoint(max, screen-lg) {
 		display : none;
 	}
 
@@ -39,11 +39,11 @@
 		will-change : inline-size;
 		transition  : inline-size var(--transition-duration) var(--transition-ease);
 
-		@include breakpoint(min, em(2275px)) {
+		@include breakpoint(min, screen-max) {
 			inline-size : 30vw;
 		}
 
-		@include breakpoint(max, em(1375px)) {
+		@include breakpoint(max, screen-xl) {
 			inline-size : 35vw;
 		}
 	}
@@ -51,7 +51,7 @@
 	&__item[data-active="true"] {
 		inline-size : 60vw;
 
-		@include breakpoint(min, em(2275px)) {
+		@include breakpoint(min, screen-max) {
 			inline-size : 53vw;
 		}
 	}
@@ -88,7 +88,7 @@
 		transform        : skew(20deg);
 		transform-origin : inherit;
 
-		@include breakpoint(min, em(2275px)) {
+		@include breakpoint(min, screen-max) {
 			inline-size : 120%;
 		}
 	}
@@ -101,7 +101,7 @@
 		max-inline-size : unset;
 		block-size      : inherit;
 
-		@include breakpoint(min, em(2275px)) {
+		@include breakpoint(min, screen-max) {
 			inline-size : inherit;
 			object-fit  : cover;
 		}

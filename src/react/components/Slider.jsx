@@ -103,7 +103,7 @@ export default function Slider(props) {
 							<span className="title">{typewriterAnimation(`${curContent.title}`, 40, 0)}</span>
 							<span className="subtitle-1">{curContent.subtitle}</span>
 						</h3>
-						<Button href={curContent.link} class="btn-hexagon space-2" type="hexa-plus" content="explore the model"/>
+						<Button href={curContent.link} class="btn-hexagon space-9" type="hexa-plus" content="explore the model"/>
 					</div>
 				);
 			}
@@ -120,8 +120,8 @@ export default function Slider(props) {
 			<div className="slider__container">
 				<div className="wrap">
 					<h2 className="subtitle-3">Models</h2>
-					<Button class="btn-hexagon space-1" handleClick={handleSlideLeft} disabled={isButtonDisabled} type="hexa-arrow-left" srOnly="click to previous slide"/>
-					<Button class="btn-hexagon space-1" handleClick={handleSlideRight} disabled={isButtonDisabled} type="hexa-arrow-right"
+					<Button class="btn-hexagon space-5" handleClick={handleSlideLeft} disabled={isButtonDisabled} type="hexa-arrow-left" srOnly="click to previous slide"/>
+					<Button class="btn-hexagon space-5" handleClick={handleSlideRight} disabled={isButtonDisabled} type="hexa-arrow-right"
 					        srOnly="click to next slide"/>
 				</div>
 				<div className="wrap">

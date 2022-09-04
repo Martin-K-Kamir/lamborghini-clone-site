@@ -8,8 +8,8 @@
 
 	&__tab {
 		position           : relative;
-		font-size          : var(--f-size, 1.6rem);
-		font-weight        : var(--f-weight-1);
+		font-size          : var(--f-size, var(--f-size-3));
+		font-weight        : var(--f-weight, var(--f-weight-1));
 		color              : var(--text);
 		line-height        : 1;
 		text-transform     : capitalize;
