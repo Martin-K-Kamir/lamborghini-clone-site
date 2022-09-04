@@ -3,7 +3,7 @@
 	margin-inline : auto;
 	inline-size   : min(200rem, 90%);
 
-	main & {
+	:where(main, footer) & {
 		padding-inline : clamped(0rem, 10rem, screen-md, screen-xl);
 	}
 

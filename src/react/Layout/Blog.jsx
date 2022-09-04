@@ -16,7 +16,7 @@ export default function Blog() {
 						<div className="stack space-9">
 							{data.articles.map((article, index) => (
 								<div className="wrap">
-									<Article title={article.title} description={article.description} date={article.date}
+									<Article title={article.title} description={article.description} date={article.date} alt={article.alt}
 									         isMain={article.isMain} link={article.link} imgIndex={index + 1}/>
 								</div>
 							))}

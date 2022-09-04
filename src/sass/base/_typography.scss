@@ -1,6 +1,3 @@
-
-
-
 // Global styles
 [class*="title-"] {
 	text-transform : uppercase;
@@ -55,7 +52,6 @@
 }
 
 
-
 // Styles for titles
 .title-1 {
 	font-size       : var(--f-fluid-5);
@@ -78,7 +74,6 @@
 }
 
 
-
 // Specific styles for titles
 .title-date {
 	font-size      : var(--f-size-4);
@@ -91,7 +86,6 @@
 	font-weight    : var(--f-weight-3);
 	letter-spacing : var(--letterspacing-6);
 }
-
 
 
 // Styles for subtitles
@@ -127,7 +121,6 @@
 }
 
 
-
 // Styles for descriptions
 .description-1 {
 	font-size   : var(--f-size-2);
@@ -139,7 +132,6 @@
 	font-weight    : var(--f-weight, var(--f-weight-1));
 	letter-spacing : var(--letterspacing-3);
 }
-
 
 
 // Styles for links
@@ -162,13 +154,13 @@
 }
 
 [class*="link-"].link-underline {
-	--space : 0.5em;
+	--underline-space : 0.25em;
 
 	&::after {
 		content          : "";
 		display          : block;
 		border-bottom    : 1px solid;
-		transform        : scaleX(0) translateY(var(--space));
+		transform        : scaleX(0) translateY(var(--underline-space));
 		transform-origin : left;
 		transition       : transform var(--transition-duration, 300ms) var(--transition-easing, ease-in-out);
 	}
@@ -178,17 +170,16 @@
 	}
 
 	&:focus::after {
-		transform : scaleX(1) translateY(var(--space));
+		transform : scaleX(1) translateY(var(--underline-space));
 	}
 
 	@media (hover : hover) {
 		&:hover::after,
 		&[data-active="true"]::after {
-			transform : scaleX(1) translateY(var(--space));
+			transform : scaleX(1) translateY(var(--underline-space));
 		}
 	}
 }
-
 
 
 // Styles for sublinks

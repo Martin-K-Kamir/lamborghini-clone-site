@@ -1,0 +1,22 @@
+
+.footer {
+	padding-block: var(--space-9);
+
+	&__lists {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-6);
+	}
+
+	&__navigation {
+		max-inline-size: 90rem;
+	}
+
+	&__navigation ul {
+		row-gap: var(--space-3);
+	}
+
+	&__socials {
+		flex-shrink: 0;
+	}
+}

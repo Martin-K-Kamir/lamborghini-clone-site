@@ -1,0 +1,13 @@
+
+.disclaimer {
+	--disclaimer-symbol : "*";
+
+	max-inline-size     : revert;
+
+	display: list-item;
+	list-style-position: inside;
+
+	&::marker {
+		//content       : var(--disclaimer-symbol);
+	}
+}
