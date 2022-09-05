@@ -2,30 +2,44 @@
 .footer {
 	padding-block : var(--space-9);
 
-	&__lists {
-		display         : flex;
-		align-items     : flex-start;
-		justify-content : space-between;
-		gap             : var(--space-6);
+	&__container {
+		display               : grid;
+		grid-template-columns : 1fr auto;
+		gap                   : var(--space-6);
+		align-items           : start;
+		grid-template-areas   :
+				"navigation socials"
+				"disclaimer disclaimer"
+				"description description";
 
 		@include breakpoint(max, screen-lg) {
-			display: contents;
+			grid-template-columns : 1fr;
+			grid-template-areas   :
+					"navigation"
+					"disclaimer"
+					"description"
+					"socials";
 		}
 	}
 
 	&__navigation {
-		max-inline-size : 90rem;
-	}
-
-	&__navigation ul {
-		row-gap : var(--space-3);
+		grid-area : navigation;
 	}
 
 	&__socials {
-		flex-shrink : 0;
+		grid-area : socials;
+		justify-self: end;
 
 		@include breakpoint(max, screen-lg) {
-			order: 1;
+			justify-self: start;
 		}
+	}
+
+	&__disclaimer {
+		grid-area : disclaimer;
+	}
+
+	&__description {
+		grid-area : description;
 	}
 }

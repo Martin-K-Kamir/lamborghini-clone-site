@@ -4,10 +4,7 @@ import Button from "../components/Button";
 export default function Article(props) {
 	return (
 		<article className={`article ${props.isMain ? "article--main" : ""}`}>
-			<a href={props.link}>
-				<span className="sr-only">
-					read more about {props.title}
-				</span>
+			<a href={props.link} aria-label={`read more about ${props.title}`}>
 				<img className="article__image" src={`/media/home/image-article-${props.imgIndex}.webp`} alt={props.alt}/>
 			</a>
 			<div className="article__content space-initial">

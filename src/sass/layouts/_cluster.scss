@@ -5,4 +5,8 @@
 	gap             : var(--space, var(--space-1));
 	justify-content : flex-start;
 	align-items     : center;
+
+	&--half-row {
+		row-gap : calc(var(--space, var(--space-1)) / 2);
+	}
 }

@@ -6,7 +6,7 @@ export default function Footer() {
 
 	function renderList(data) {
 		return (data.map(curLink => (
-			<li className="link-2 link-underline f-size-3 f-weight-1">
+			<li className="link-2 link-underline f-size-3 f-weight-2">
 				<a href="/" key={curLink.key}>
 					{curLink.link}
 				</a>
@@ -29,25 +29,21 @@ export default function Footer() {
 
 	return (
 		<footer className="footer text-neutral-1 surface-neutral-7">
-			<div className="footer__container stack space-fluid-4">
-				<div className="footer__lists">
-					<nav className="footer__navigation">
-						<ul className="cluster">
-							{renderList(dataFooter.list)}
-						</ul>
-					</nav>
-					<ul className="footer__socials cluster space-3">
-						{renderSocialIcons(dataFooter.socialIcons)}
+			<div className="footer__container">
+				<nav className="footer__navigation">
+					<ul className="cluster cluster--half-row space-5">
+						{renderList(dataFooter.list)}
 					</ul>
-				</div>
-				<p className="disclaimer description-1"><span>
+				</nav>
+				<p className="footer__disclaimer disclaimer description-1 "><span>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam culpa cum eligendi ex fugiat illo impedit laboriosam libero minus, molestias nam, nesciunt odit placeat quas ratione saepe sint sunt voluptates? Cumque fuga impedit quibusdam, quos saepe similique unde vel veniam. At atque mollitia necessitatibus ullam.
 				</span></p>
-				<p className="description-2">
-					This is fake Lamborghini clone site.
-					<br/>
-					Lorem ipsum dolor sit amet.
+				<p className="footer__description description-2">
+					This is fake Lamborghini clone site. I made this website for my educational purposes only.
 				</p>
+				<ul className="footer__socials cluster space-4">
+					{renderSocialIcons(dataFooter.socialIcons)}
+				</ul>
 			</div>
 		</footer>
 	);
