@@ -37,7 +37,7 @@ export default function Configurator() {
 	}
 
 	return (
-		<section className="none[screen-md]" style={surfaceStyles}>
+		<section className="hide-at[screen-lg]" style={surfaceStyles}>
 			<div className="container">
 				<div className="stack space-9">
 					<header className="wrap">

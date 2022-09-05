@@ -11,9 +11,17 @@
 	--space : initial;
 }
 
-.none\[screen-md\] {
-	@include breakpoint(max, em(1025px)) {
+.hide-at\[screen-lg\] {
+	@include breakpoint(max, screen-lg) {
 		display : none;
+	}
+}
+
+.display-at\[screen-lg\] {
+	display: none;
+
+	@include breakpoint(max, screen-lg) {
+		display : block;
 	}
 }
 

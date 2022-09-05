@@ -111,7 +111,7 @@ export default function Slider(props) {
 	}
 
 	return (
-		<section className="slider surface-neutral-6 text-neutral-1">
+		<section className="slider hide-at[screen-lg] surface-neutral-6 text-neutral-1">
 			<div className="slider__slides">
 				<div className="slider__items" ref={itemsRef}>
 					{renderItems(props.imagesData)}

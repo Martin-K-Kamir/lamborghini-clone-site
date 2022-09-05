@@ -8,11 +8,6 @@
 	block-size            : 100vh;
 	min-block-size        : 70rem;
 
-	//temp
-	@include breakpoint(max, screen-lg) {
-		display : none;
-	}
-
 	&__container {
 		z-index       : 1;
 		display       : grid;

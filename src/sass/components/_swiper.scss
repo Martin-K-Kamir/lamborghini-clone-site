@@ -1,11 +1,5 @@
 .swiper {
 
-	// temp
-	display : none;
-	@include breakpoint(max, screen-lg) {
-		display : block;
-	}
-
 	&__reel {
 		margin-block      : var(--space-fluid-5);
 		inline-size       : 100%;
